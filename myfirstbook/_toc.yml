@@ -9,6 +9,6 @@ chapters:
   - file: data
     title: Data Understanding
     sections:
-      - file: eksplorasi-data
+      - file: data/eksplorasi-data
         title: Eksplorasi Data
 

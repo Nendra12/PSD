@@ -1,11 +1,10 @@
-# Welcome to your Jupyter Book
+# My Profile
 
-This is a small sample book to give you a feel for how book content is
-structured. woilah
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Halo! Saya Danendra Mahardhika, mahasiswa Teknik Informatika di Universitas Trunojoyo Madura. Sebenarnya saya cukup tertarik dengan dunia Website.
 
-Check out the content pages bundled with this sample book to see more.
+Saya orangnya suka belajar hal baru, mudah akrab, atau pantang menyerah. Dari pengalaman saya menjadi asisten praktikum yang pernah saya jalani, rasanya saya jadi lebih percaya diri dalam berbicara di depan umum.
+Di waktu luang, biasanya saya menggambar/Menulis karena menurut saya menggambar/menulis dapat mengurangi stres dan kecemasan saat kuliah.
 
 ```{tableofcontents}
+
 ```
