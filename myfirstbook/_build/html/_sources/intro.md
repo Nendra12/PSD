@@ -1,9 +1,13 @@
 # My Profile
 
-Halo! Saya Danendra Mahardhika, mahasiswa Teknik Informatika di Universitas Trunojoyo Madura. Sebenarnya saya cukup tertarik dengan dunia Website.
+Halo! Perkenalkan, saya Danendra Mahardhika, mahasiswa Teknik Informatika di Universitas Trunojoyo Madura.  
 
-Saya orangnya suka belajar hal baru, mudah akrab, atau pantang menyerah. Dari pengalaman saya menjadi asisten praktikum yang pernah saya jalani, rasanya saya jadi lebih percaya diri dalam berbicara di depan umum.
-Di waktu luang, biasanya saya menggambar/Menulis karena menurut saya menggambar/menulis dapat mengurangi stres dan kecemasan saat kuliah.
+- **NIM:** 230411100086
+- **Email:** mahardhika658@gmail.com
+
+Saya memiliki minat besar dalam dunia website development dan teknologi baru. Saya orang yang senang belajar hal baru, dan pantang menyerah. Pengalaman saya menjadi asisten praktikum telah meningkatkan kepercayaan diri saya dalam berbicara di depan umum dan bekerja sama dengan orang lain.  
+
+Di waktu luang, saya suka menggambar dan menulis, karena menurut saya kegiatan ini membantu mengurangi stres dan coping stress selama kuliah.  
 
 ```{tableofcontents}
 
