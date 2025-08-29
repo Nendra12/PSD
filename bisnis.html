@@ -180,7 +180,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Memahami Bisnis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Business Understanding</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="data.html">Data Understanding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="data/eksplorasi-data.html">Eksplorasi Data</a></li>
 </ul>
@@ -357,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -373,6 +375,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#judul-proyek">Judul Proyek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-singkat">Deskripsi Singkat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alasan-pemilihan-proyek">Alasan Pemilihan Proyek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-proyek">Tujuan Proyek</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,15 +397,27 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="business-understanding">
 <h1>Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h1>
-<p>Judul Proyek : Prediksi Tsunami</p>
-<p>Deskripsi Singkat:</p>
-<p>Proyek ini bertujuan untuk membangun sistem prediksi tsunami dengan memanfaatkan Kumpulan data berisi rekaman 782 gempa bumi dari 1/1/2001 hingga 1/1/2023 dan metode dalam machine learning.</p>
-<p>Alasan Pemilihan Proyek:</p>
-<p>Tsunami merupakan bencana alam yang memiliki dampak besar dan sering terjadi di wilayah Indonesia. Dengan kemajuan teknologi sensor dan data historis, prediksi dini tsunami menjadi memungkinkan. Proyek ini dipilih karena menggabungkan analisis data dan machine learning untuk mendukung keselamatan publik, sekaligus memberikan pengalaman praktik dalam pengolahan data kompleks dan prediksi berbasis time series.</p>
-<p>Tujuan Proyek:</p>
-<p>Memprediksi kemungkinan terjadinya tsunami berdasarkan pola gempa bumi dan record data masa lalu..</p>
-<p>Memberikan dasar implementasi sistem peringatan dini yang dapat diintegrasikan dengan lembaga terkait.</p>
-<p>Mendukung mitigasi bencana dan keselamatan publik.</p>
+<section id="judul-proyek">
+<h2>Judul Proyek<a class="headerlink" href="#judul-proyek" title="Link to this heading">#</a></h2>
+<p><strong>Prediksi Tsunami</strong></p>
+</section>
+<section id="deskripsi-singkat">
+<h2>Deskripsi Singkat<a class="headerlink" href="#deskripsi-singkat" title="Link to this heading">#</a></h2>
+<p>Proyek ini bertujuan membangun sistem <strong>prediksi tsunami</strong> dengan memanfaatkan data rekaman <strong>782 gempa bumi</strong> dari periode <em>1 Januari 2001 hingga 1 Januari 2023</em>. Prediksi dilakukan menggunakan <strong>metode Machine Learning</strong> untuk menganalisis pola gempa dan memproyeksikan kemungkinan terjadinya tsunami.</p>
+</section>
+<section id="alasan-pemilihan-proyek">
+<h2>Alasan Pemilihan Proyek<a class="headerlink" href="#alasan-pemilihan-proyek" title="Link to this heading">#</a></h2>
+<p>Tsunami merupakan bencana alam yang memiliki dampak sangat besar dan sering terjadi di wilayah Indonesia. Dengan kemajuan teknologi sensor dan ketersediaan data historis, prediksi dini tsunami kini menjadi memungkinkan.<br />
+Proyek ini dipilih karena menggabungkan <strong>analisis data</strong> dan <strong>Machine Learning</strong> untuk mendukung keselamatan publik, sekaligus memberikan pengalaman praktik dalam pengolahan <strong>data kompleks</strong> dan <strong>prediksi berbasis time series</strong>.</p>
+</section>
+<section id="tujuan-proyek">
+<h2>Tujuan Proyek<a class="headerlink" href="#tujuan-proyek" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Memprediksi kemungkinan terjadinya tsunami</strong> berdasarkan pola gempa bumi dan data historis.</p></li>
+<li><p><strong>Menyediakan dasar implementasi sistem peringatan dini</strong> yang dapat diintegrasikan dengan lembaga terkait.</p></li>
+<li><p><strong>Mendukung mitigasi bencana</strong> dan meningkatkan keselamatan publik.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -449,6 +474,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#judul-proyek">Judul Proyek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-singkat">Deskripsi Singkat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alasan-pemilihan-proyek">Alasan Pemilihan Proyek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-proyek">Tujuan Proyek</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
