@@ -356,7 +356,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -372,6 +374,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data">Struktur Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-data">Contoh Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data">Penyimpanan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-attribute-pada-data">Deskripsi Attribute pada Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">Statistik Deskriptif</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -383,8 +397,86 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data">
 <h1>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h1>
-<p>Pertama saya mengidentifikasi data sebuah kelompok bunga iris yang berupa file csv, kemudian dalam data ini mempunyai 150 baris dan 5 kolom, 4 diantara kolom tersebut bertipe data Numerik (kuantitatif) dan 1 kolom bertipe data kategorikal (kualitatif), berikut adalah tampilan contoh table datanya :</p>
+<p>Dataset yang digunakan adalah <strong>Iris Dataset</strong>, sebuah dataset klasik yang sering digunakan untuk pembelajaran machine learning dan analisis data. Dataset ini tersimpan dalam format <strong>CSV</strong> dengan jumlah <strong>150 baris</strong> (record) dan <strong>5 kolom</strong> (atribut).</p>
+<section id="struktur-data">
+<h2>Struktur Data<a class="headerlink" href="#struktur-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Jumlah baris (record):</strong> 150</p></li>
+<li><p><strong>Jumlah kolom (atribut):</strong> 5</p></li>
+<li><p><strong>Tipe data:</strong></p>
+<ul>
+<li><p><strong>4 kolom numerik (kuantitatif):</strong></p>
+<ul>
+<li><p><em>sepal length</em> (panjang sepal, dalam cm)</p></li>
+<li><p><em>sepal width</em> (lebar sepal, dalam cm)</p></li>
+<li><p><em>petal length</em> (panjang petal, dalam cm)</p></li>
+<li><p><em>petal width</em> (lebar petal, dalam cm)</p></li>
+</ul>
+</li>
+<li><p><strong>1 kolom kategorikal (kualitatif):</strong></p>
+<ul>
+<li><p><em>iris</em> → menunjukkan spesies bunga dengan 3 kategori: <strong>Iris-setosa, Iris-versicolor, dan Iris-virginica</strong></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="contoh-data">
+<h2>Contoh Data<a class="headerlink" href="#contoh-data" title="Link to this heading">#</a></h2>
+<p>Berikut adalah 10 baris pertama dari dataset:</p>
 <p><img alt="Table" src="../_images/table.jpg" /></p>
+</section>
+<section id="penyimpanan-data">
+<h2>Penyimpanan Data<a class="headerlink" href="#penyimpanan-data" title="Link to this heading">#</a></h2>
+<p>Data iris yang berupa file csv saya simpan ke dalam cloud database (MySQL/PostgreSQL) agar bisa diakses di-query, atau diolah dengan lebih efisien.</p>
+<p><strong>MySQL :</strong></p>
+<p><img alt="MySQL" src="../_images/mysql.jpg" /></p>
+<p><strong>PostgreSQL :</strong></p>
+<p><img alt="PostgreSQL" src="../_images/postgresql.jpg" /></p>
+</section>
+<section id="deskripsi-attribute-pada-data">
+<h2>Deskripsi Attribute pada Data<a class="headerlink" href="#deskripsi-attribute-pada-data" title="Link to this heading">#</a></h2>
+<p>Data pada iris dataset terdiri dari beberapa kolom dengan tipe data berbeda. Kolom <strong>iris</strong> bertipe kualitatif yang berarti berisi data kategorikal (seperti nama spesies bunga: Iris-setosa, Iris-versicolor, atau Iris-virginica). Sedangkan itu <strong>kolom sepal length, sepal width, petal length, dan petal width</strong> bertipe angka Decimal, sehingga termasuk data numerik kontinu (kuantitatif) karena nilainya berupa bilangan pecahan yang bisa diukur dalam skala panjang.</p>
+</section>
+<section id="statistik-deskriptif">
+<h2>Statistik Deskriptif<a class="headerlink" href="#statistik-deskriptif" title="Link to this heading">#</a></h2>
+<p><img alt="Statistik" src="../_images/hasil.jpg" /></p>
+<ul class="simple">
+<li><p><strong>Petal Length:</strong></p>
+<ul>
+<li><p>Rata-rata: 3.76 cm</p></li>
+<li><p>Min : 1.00 cm</p></li>
+<li><p>Max : 6.90 cm</p></li>
+<li><p><strong>Petal Width:</strong></p></li>
+<li><p>Rata-rata: 1.20 cm</p></li>
+<li><p>Min : 0.10 cm</p></li>
+<li><p>Max : 2.50 cm</p></li>
+</ul>
+</li>
+<li><p><strong>Sepal Length:</strong></p>
+<ul>
+<li><p>Rata-rata: 5.84 cm</p></li>
+<li><p>Min : 4.30 cm</p></li>
+<li><p>Max : 7.90 cm</p></li>
+</ul>
+</li>
+<li><p><strong>Sepal Width:</strong></p>
+<ul>
+<li><p>Rata-rata: 3.05 cm</p></li>
+<li><p>Min : 2.00 cm</p></li>
+<li><p>Max : 4.40 cm</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Distribusi Kategori</strong>
+Berdasarakan grafik batang, terlihat bahwa kolom kategori ini sama persis jumlahnya</p>
+<ul class="simple">
+<li><p>Iris-setosa: 50 sampel</p></li>
+<li><p>Iris-versicolor: 50 sampel</p></li>
+<li><p>Iris-virginica: 50 sampel</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -432,6 +524,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data">Struktur Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-data">Contoh Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data">Penyimpanan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-attribute-pada-data">Deskripsi Attribute pada Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">Statistik Deskriptif</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
