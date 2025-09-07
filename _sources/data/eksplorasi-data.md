@@ -42,7 +42,7 @@ Data pada iris dataset terdiri dari beberapa kolom dengan tipe data berbeda. Kol
   - Rata-rata: 3.76 cm
   - Min : 1.00 cm  
   - Max : 6.90 cm
-  - **Petal Width:**  
+- **Petal Width:**  
   - Rata-rata: 1.20 cm  
   - Min : 0.10 cm  
   - Max : 2.50 cm
@@ -55,7 +55,8 @@ Data pada iris dataset terdiri dari beberapa kolom dengan tipe data berbeda. Kol
   - Min : 2.00 cm  
   - Max : 4.40 cm 
 
-**Distribusi Kategori**
+**Distribusi Kategori**  
+
 Berdasarakan grafik batang, terlihat bahwa kolom kategori ini sama persis jumlahnya  
 - Iris-setosa: 50 sampel  
 - Iris-versicolor: 50 sampel  
