@@ -1,16 +1,14 @@
 # Business Understanding
 
-## Judul Proyek
-**Prediksi Tsunami**
+Pada tahap business understanding, kita mencoba memahami kenapa dataset bunga iris ini dipakai dan apa yang ingin dicapai.  
+Dataset ini berisi data pengukuran bunga iris seperti panjang dan lebar sepal serta petal, lalu masing-masing bunga sudah diberi label jenisnya: *Setosa*, *Versicolor*, dan *Virginica*. Karena data ini sudah rapi dan terklasifikasi, tujuannya adalah melatih model machine learning supaya bisa mengenali jenis bunga hanya dari ciri-ciri fisiknya.  
 
-## Deskripsi Singkat
-Proyek ini bertujuan membangun sistem prediksi tsunami dengan memanfaatkan data rekaman 782 gempa bumi dari periode *1 Januari 2001 hingga 1 Januari 2023*. Prediksi dilakukan menggunakan metode Machine Learning untuk menganalisis pola gempa dan memproyeksikan kemungkinan terjadinya tsunami.
+**Manfaat**  
+Manfaat dari proyek latihan ini adalah :
+- kita bisa belajar bagaimana proses membuat model klasifikasi dari awal
+- mulai dari memahami masalah, mempersiapkan data, sampai membuat prediksi.  
+Walaupun sederhana, kasus ini bisa menjadi dasar untuk memahami konsep klasifikasi yang nantinya bisa diterapkan ke masalah lain, misalnya membedakan gambar hewan, mendeteksi penyakit tanaman, atau mengenali pola tertentu dalam data.  
 
-## Alasan Pemilihan Proyek
-Tsunami merupakan bencana alam yang memiliki dampak sangat besar dan sering terjadi di wilayah Indonesia. Dengan kemajuan teknologi sensor dan ketersediaan data historis, prediksi dini tsunami kini menjadi memungkinkan.  
-Proyek ini dipilih karena menggabungkan analisis data dan Machine Learning untuk mendukung keselamatan publik, sekaligus memberikan pengalaman praktik dalam pengolahan data kompleks dan prediksi berbasis time series.
+**Kesimpulan**  
+Business understanding di sini intinya adalah kita ingin membangun pemahaman bagaimana cara memanfaatkan data sederhana untuk membuat sistem klasifikasi otomatis. Dataset iris dipilih karena sifatnya mudah, terkenal, serta cocok untuk latihan pemula di bidang data science.  
 
-## Tujuan Proyek
-1. Memprediksi kemungkinan terjadinya tsunami berdasarkan pola gempa bumi dan data historis.  
-2. Menyediakan dasar implementasi sistem peringatan dini yang dapat diintegrasikan dengan lembaga terkait.  
-3. Mendukung mitigasi bencana dan meningkatkan keselamatan publik.
