@@ -357,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -373,6 +375,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">🎯 Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">💡 Manfaat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">✅ Kesimpulan</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,17 +396,41 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="business-understanding">
 <h1>Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h1>
-<p>Pada tahap business understanding, kita mencoba memahami kenapa dataset bunga iris ini dipakai dan apa yang ingin dicapai.<br />
-Dataset ini berisi data pengukuran bunga iris seperti panjang dan lebar sepal serta petal, lalu masing-masing bunga sudah diberi label jenisnya: <em>Setosa</em>, <em>Versicolor</em>, dan <em>Virginica</em>. Karena data ini sudah rapi dan terklasifikasi, tujuannya adalah melatih model machine learning supaya bisa mengenali jenis bunga hanya dari ciri-ciri fisiknya.</p>
-<p><strong>Manfaat</strong><br />
-Manfaat dari proyek latihan ini adalah :</p>
+<blockquote>
+<div><p><strong>Kenapa dataset ini dipakai?</strong><br />
+Dataset bunga iris sering digunakan sebagai dataset klasik dalam latihan machine learning.<br />
+Isinya berupa pengukuran <strong>panjang &amp; lebar sepal</strong> serta <strong>panjang &amp; lebar petal</strong>,<br />
+lalu setiap baris sudah diberi label jenis bunganya: <em>Setosa</em>, <em>Versicolor</em>, dan <em>Virginica</em>.</p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="tujuan">
+<h2>🎯 Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p>Tujuan utama dari proyek latihan ini adalah <strong>melatih model klasifikasi</strong><br />
+yang bisa mengenali jenis bunga hanya dari ciri-ciri fisiknya.</p>
+</section>
+<hr class="docutils" />
+<section id="manfaat">
+<h2>💡 Manfaat<a class="headerlink" href="#manfaat" title="Link to this heading">#</a></h2>
+<p>Dari proyek sederhana ini, kita bisa belajar:</p>
 <ul class="simple">
-<li><p>kita bisa belajar bagaimana proses membuat model klasifikasi dari awal</p></li>
-<li><p>mulai dari memahami masalah, mempersiapkan data, sampai membuat prediksi.<br />
-Walaupun sederhana, kasus ini bisa menjadi dasar untuk memahami konsep klasifikasi yang nantinya bisa diterapkan ke masalah lain, misalnya membedakan gambar hewan, mendeteksi penyakit tanaman, atau mengenali pola tertentu dalam data.</p></li>
+<li><p>🔍 Memahami masalah dan mendefinisikan tujuan</p></li>
+<li><p>🧹 Mempersiapkan data sebelum dianalisis</p></li>
+<li><p>🤖 Melatih model klasifikasi dan membuat prediksi</p></li>
 </ul>
-<p><strong>Kesimpulan</strong><br />
-Business understanding di sini intinya adalah kita ingin membangun pemahaman bagaimana cara memanfaatkan data sederhana untuk membuat sistem klasifikasi otomatis. Dataset iris dipilih karena sifatnya mudah, terkenal, serta cocok untuk latihan pemula di bidang data science.</p>
+<p>Walaupun kelihatan sederhana, kasus ini jadi <strong>pondasi penting</strong> untuk memahami konsep klasifikasi,<br />
+yang nantinya bisa dipakai ke banyak bidang lain, misalnya:</p>
+<ul class="simple">
+<li><p>🐶 Membedakan gambar hewan</p></li>
+<li><p>🌱 Mendeteksi penyakit tanaman</p></li>
+<li><p>📊 Mengenali pola tertentu dalam data</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>✅ Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Intinya, tahap <strong>Business Understanding</strong> di sini adalah membangun pemahaman bagaimana data sederhana bisa dipakai untuk membuat sistem klasifikasi otomatis.<br />
+Dataset iris dipilih karena <strong>mudah, populer, dan sangat cocok untuk latihan pemula di data science</strong>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -451,6 +487,23 @@ Business understanding di sini intinya adalah kita ingin membangun pemahaman bag
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">🎯 Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">💡 Manfaat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">✅ Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -1,14 +1,32 @@
-# Business Understanding
+# Business Understanding 
 
-Pada tahap business understanding, kita mencoba memahami kenapa dataset bunga iris ini dipakai dan apa yang ingin dicapai.  
-Dataset ini berisi data pengukuran bunga iris seperti panjang dan lebar sepal serta petal, lalu masing-masing bunga sudah diberi label jenisnya: *Setosa*, *Versicolor*, dan *Virginica*. Karena data ini sudah rapi dan terklasifikasi, tujuannya adalah melatih model machine learning supaya bisa mengenali jenis bunga hanya dari ciri-ciri fisiknya.  
+> **Kenapa dataset ini dipakai?**  
+> Dataset bunga iris sering digunakan sebagai dataset klasik dalam latihan machine learning.  
+> Isinya berupa pengukuran **panjang & lebar sepal** serta **panjang & lebar petal**,  
+> lalu setiap baris sudah diberi label jenis bunganya: *Setosa*, *Versicolor*, dan *Virginica*.  
 
-**Manfaat**  
-Manfaat dari proyek latihan ini adalah :
-- kita bisa belajar bagaimana proses membuat model klasifikasi dari awal
-- mulai dari memahami masalah, mempersiapkan data, sampai membuat prediksi.  
-Walaupun sederhana, kasus ini bisa menjadi dasar untuk memahami konsep klasifikasi yang nantinya bisa diterapkan ke masalah lain, misalnya membedakan gambar hewan, mendeteksi penyakit tanaman, atau mengenali pola tertentu dalam data.  
+---
 
-**Kesimpulan**  
-Business understanding di sini intinya adalah kita ingin membangun pemahaman bagaimana cara memanfaatkan data sederhana untuk membuat sistem klasifikasi otomatis. Dataset iris dipilih karena sifatnya mudah, terkenal, serta cocok untuk latihan pemula di bidang data science.  
+## 🎯 Tujuan
+Tujuan utama dari proyek latihan ini adalah **melatih model klasifikasi**  
+yang bisa mengenali jenis bunga hanya dari ciri-ciri fisiknya.  
 
+---
+
+## 💡 Manfaat
+Dari proyek sederhana ini, kita bisa belajar:  
+- 🔍 Memahami masalah dan mendefinisikan tujuan  
+- 🧹 Mempersiapkan data sebelum dianalisis  
+- 🤖 Melatih model klasifikasi dan membuat prediksi  
+
+Walaupun kelihatan sederhana, kasus ini jadi **pondasi penting** untuk memahami konsep klasifikasi,  
+yang nantinya bisa dipakai ke banyak bidang lain, misalnya:  
+- 🐶 Membedakan gambar hewan  
+- 🌱 Mendeteksi penyakit tanaman  
+- 📊 Mengenali pola tertentu dalam data  
+
+---
+
+## ✅ Kesimpulan
+Intinya, tahap **Business Understanding** di sini adalah membangun pemahaman bagaimana data sederhana bisa dipakai untuk membuat sistem klasifikasi otomatis.  
+Dataset iris dipilih karena **mudah, populer, dan sangat cocok untuk latihan pemula di data science**.  
