@@ -1,66 +1,50 @@
-# Eksplorasi Data
+# Eksplorasi Data 
 
-Dataset yang digunakan adalah **Iris Dataset**, sebuah dataset klasik yang sering digunakan untuk pembelajaran machine learning dan analisis data. Dataset ini tersimpan dalam format **CSV** dengan jumlah **150 baris** (record) dan **5 kolom** (atribut). 
+Pada tahap eksplorasi data, kita melihat lebih dalam isi dataset untuk memahami pola dan karakteristik dari masing-masing atribut. Dataset bunga iris ini memiliki **150 baris data** dengan 3 kelas bunga yang seimbang, yaitu: 
 
-## Struktur Data  
-- **Jumlah baris (record):** 150  
-- **Jumlah kolom (atribut):** 5  
-- **Tipe data:**  
-  - **4 kolom numerik (kuantitatif):**  
-    - *sepal length* (panjang sepal, dalam cm)  
-    - *sepal width* (lebar sepal, dalam cm)  
-    - *petal length* (panjang petal, dalam cm)  
-    - *petal width* (lebar petal, dalam cm)  
-  - **1 kolom kategorikal (kualitatif):**  
-    - *iris* → menunjukkan spesies bunga dengan 3 kategori: **Iris-setosa, Iris-versicolor, dan Iris-virginica**  
+- 🌸 *Setosa* → 50 data  
+- 🌸 *Versicolor* → 50 data  
+- 🌸 *Virginica* → 50 data  
 
-## Contoh Data  
-Berikut adalah 10 baris pertama dari dataset:  
+Total ada **4 atribut numerik** yang diukur: panjang dan lebar sepal, serta panjang dan lebar petal.  
 
-![Table](table.jpg)
+---
 
-## Penyimpanan Data
-Data iris yang berupa file csv saya simpan ke dalam cloud database (MySQL/PostgreSQL) agar bisa diakses di-query, atau diolah dengan lebih efisien.
+## 📊 Statistik Deskriptif Dasar  
 
-**MySQL :**
+### 📌 Jumlah Kelas  
 
-![MySQL](mysql.jpg)
+![Jumlah Kelas](jumlah_kelas.jpg)
 
-**PostgreSQL :**
+- 3 kelas bunga iris : *Setosa*, *Versicolor*, *Virginica*  
+- Masing-masing berjumlah **50 data** → total 150 baris data  
 
-![PostgreSQL](postgresql.jpg)
+---
 
-## Deskripsi Attribute pada Data
+### 📌 Min, Max dan Average
 
-Data pada iris dataset terdiri dari beberapa kolom dengan tipe data berbeda. Kolom **iris** bertipe kualitatif yang berarti berisi data kategorikal (seperti nama spesies bunga: Iris-setosa, Iris-versicolor, atau Iris-virginica). Sedangkan itu **kolom sepal length, sepal width, petal length, dan petal width** bertipe angka Decimal, sehingga termasuk data numerik kontinu (kuantitatif) karena nilainya berupa bilangan pecahan yang bisa diukur dalam skala panjang.
+Pada tahap ini akan di hitung nilai minimum, maksimum, dan rata-rata dari nilai setiap atribut numerik yang ada dalam data iris.
 
-## Statistik Deskriptif
+#### Sepal Length 🌸
 
-![Statistik](hasil.jpg)
+![Sepal Length](sepal_length.jpg)
 
-- **Petal Length:**  
-  - Rata-rata: 3.76 cm
-  - Min : 1.00 cm  
-  - Max : 6.90 cm
-- **Petal Width:**  
-  - Rata-rata: 1.20 cm  
-  - Min : 0.10 cm  
-  - Max : 2.50 cm
-- **Sepal Length:**  
-  - Rata-rata: 5.84 cm  
-  - Min : 4.30 cm  
-  - Max : 7.90 cm
-- **Sepal Width:**  
-  - Rata-rata: 3.05 cm  
-  - Min : 2.00 cm  
-  - Max : 4.40 cm 
+#### Sepal Width 🌸
 
-**Distribusi Kategori**  
+![Sepal Width](sepal_width.jpg)
 
-Berdasarakan grafik batang, terlihat bahwa kolom kategori ini sama persis jumlahnya  
-- Iris-setosa: 50 sampel  
-- Iris-versicolor: 50 sampel  
-- Iris-virginica: 50 sampel
+#### Petal Length 🌸
 
+![Petal Length](petal_length.jpg)
 
+#### Petal Width 🌸
 
+![Petal Width](petal_width.jpg)
+
+## 📌 Insight Awal  
+Dari statistik ini terlihat bahwa:  
+- Bunga *Setosa* biasanya memiliki petal yang jauh lebih pendek dan kecil dibanding dua kelas lainnya.  
+- *Virginica* cenderung memiliki petal paling panjang dan lebar.  
+- Variasi ukuran sepal tidak sejelas petal, sehingga petal lebih dominan untuk membedakan spesies.  
+
+---
