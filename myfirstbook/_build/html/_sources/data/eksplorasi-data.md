@@ -14,7 +14,7 @@ Total ada **4 atribut numerik** yang diukur: panjang dan lebar sepal, serta panj
 
 ### 📌 Jumlah Kelas  
 
-![Jumlah Kelas](jumlah_kelas.jpg)
+![Jumlah Kelas](Jumlah_kelas.jpg)
 
 - 3 kelas bunga iris : *Setosa*, *Versicolor*, *Virginica*  
 - Masing-masing berjumlah **50 data** → total 150 baris data  
