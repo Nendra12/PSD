@@ -212,7 +212,7 @@ plt.show()
 
 ```
 
-#### Hasil Preprocessing dengan KNN
+#### Hasil Preprocessing dengan LOF
 
 Setelah dilakukan deteksi outlier menggunakan metode **LOF (Local Outlier Factor)**, data dibersihkan dengan cara menghapus baris yang teridentifikasi sebagai outlier.
 
