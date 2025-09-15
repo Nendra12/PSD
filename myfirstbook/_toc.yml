@@ -11,4 +11,7 @@ chapters:
     sections:
       - file: data/eksplorasi-data
         title: Eksplorasi Data
+  - file: preprocessing
+    title: Preprocessing
+
 
