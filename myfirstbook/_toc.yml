@@ -11,7 +11,8 @@ chapters:
     sections:
       - file: data/eksplorasi-data
         title: Eksplorasi Data
-  - file: preprocessing
+  - file: preparation
     title: Preprocessing
-
-
+    sections:
+      - file: oversampling/oversampling
+        title: Oversampling
