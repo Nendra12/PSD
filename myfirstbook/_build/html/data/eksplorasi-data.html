@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Eksplorasi Data &#8212; Proyek Data Science Notebooks</title>
+    <title>Eksplorasi Data (iris) &#8212; Proyek Data Science Notebooks</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/eksplorasi-data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Preprocessing" href="../preparation.html" />
-    <link rel="prev" title="Data Understanding" href="../data.html" />
+    <link rel="next" title="Get Data (iris)" href="get-data.html" />
+    <link rel="prev" title="Data Understanding (Iris)" href="../data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,14 +179,20 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../bisnis.html">Business Understanding</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../data.html">Data Understanding</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Eksplorasi Data</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../bisnis.html">Business Understanding (iris)</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../preparation.html">Preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling Data Ecoli</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Eksplorasi Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-data.html">Get Data (iris)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
 
 
 
@@ -195,7 +201,31 @@
 
 
 </ul>
-</details></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
+
+
+
 </ul>
 
     </div>
@@ -381,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Eksplorasi Data</h1>
+    <h1>Eksplorasi Data (iris)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -414,8 +444,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data">
-<h1>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data-iris">
+<h1>Eksplorasi Data (iris)<a class="headerlink" href="#eksplorasi-data-iris" title="Link to this heading">#</a></h1>
 <p>Pada tahap eksplorasi data, kita melihat lebih dalam isi dataset untuk memahami pola dan karakteristik dari masing-masing atribut. Dataset bunga iris ini memiliki <strong>150 baris data</strong> dengan 3 kelas bunga yang seimbang, yaitu:</p>
 <ul class="simple">
 <li><p>🌸 <em>Setosa</em> → 50 data</p></li>
@@ -504,15 +534,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data Understanding</p>
+        <p class="prev-next-title">Data Understanding (Iris)</p>
       </div>
     </a>
     <a class="right-next"
-       href="../preparation.html"
+       href="get-data.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Preprocessing</p>
+        <p class="prev-next-title">Get Data (iris)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

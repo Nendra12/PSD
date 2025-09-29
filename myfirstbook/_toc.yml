@@ -1,18 +1,25 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro
-chapters:
-  - file: bisnis
-    title: Business Understanding
-  - file: data
-    title: Data Understanding
-    sections:
+
+parts:
+  - caption: Business Understanding
+    chapters:
+      - file: bisnis
+
+  - caption: Data Understanding
+    chapters:
+      - file: data 
       - file: data/eksplorasi-data
-        title: Eksplorasi Data
-  - file: preparation
-    title: Preprocessing
-    sections:
+      - file: data/get-data
+
+  - caption: Preprocessing
+    chapters:
+      - file: preparation
       - file: oversampling/oversampling
-        title: Oversampling
+
+  - caption: Pemodelan
+    chapters:
+      - file: Modeling/klasifikasi_random_forest_hasil
+      - file: Modeling/klasifikasi_naiveBayes_hasil_oversampling
+      - file: Modeling/baggingClassifier_naive_bayes
+      - file: Modeling/baggingClassifier_decision_tree

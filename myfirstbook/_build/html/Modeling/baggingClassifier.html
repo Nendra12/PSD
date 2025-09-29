@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BaggingClassifier Menggunakan Metode Naive Bayes &#8212; Proyek Data Science Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Modeling/baggingClassifier';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/aku.jpg" class="logo__image only-light" alt="Proyek Data Science Notebooks - Home"/>
+    <script>document.write(`<img src="../_static/aku.jpg" class="logo__image only-dark" alt="Proyek Data Science Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    My Profile
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../bisnis.html">Business Understanding</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data.html">Data Understanding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../preparation.html">Preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling Data Ecoli</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="klasifikasi_random_forest_hasil.html">Klasifikasi Data Ecoli Menggunakan Random Forest</a></li>
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModeling/baggingClassifier.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Modeling/baggingClassifier.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>BaggingClassifier Menggunakan Metode Naive Bayes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baggingclassifier-pada-data-yang-belum-di-lakukan-oversampling">BaggingClassifier pada data yang belum di lakukan oversampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-smote">BaggingClassifier pada data yang sudah di lakukan oversampling dengan SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-adasyn">BaggingClassifier pada data yang sudah di lakukan oversampling dengan ADASYN</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;mysql+pymysql://root:@localhost/psd&quot;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT mcg, gvh, lip, chg, aac, alm1, alm2, localization_class FROM ecoli&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">]</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mcg</th>
+      <th>gvh</th>
+      <th>lip</th>
+      <th>chg</th>
+      <th>aac</th>
+      <th>alm1</th>
+      <th>alm2</th>
+      <th>localization_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.49</td>
+      <td>0.29</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.56</td>
+      <td>0.24</td>
+      <td>0.35</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.07</td>
+      <td>0.40</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.54</td>
+      <td>0.35</td>
+      <td>0.44</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.56</td>
+      <td>0.40</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.49</td>
+      <td>0.37</td>
+      <td>0.46</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.59</td>
+      <td>0.49</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.52</td>
+      <td>0.45</td>
+      <td>0.36</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.23</td>
+      <td>0.32</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.55</td>
+      <td>0.25</td>
+      <td>0.35</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>331</th>
+      <td>0.74</td>
+      <td>0.56</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.47</td>
+      <td>0.68</td>
+      <td>0.30</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>332</th>
+      <td>0.71</td>
+      <td>0.57</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.48</td>
+      <td>0.35</td>
+      <td>0.32</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>333</th>
+      <td>0.61</td>
+      <td>0.60</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.44</td>
+      <td>0.39</td>
+      <td>0.38</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>334</th>
+      <td>0.59</td>
+      <td>0.61</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.42</td>
+      <td>0.42</td>
+      <td>0.37</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>335</th>
+      <td>0.74</td>
+      <td>0.74</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.31</td>
+      <td>0.53</td>
+      <td>0.52</td>
+      <td>pp</td>
+    </tr>
+  </tbody>
+</table>
+<p>336 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_smote</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../oversampling/hasil_oversampling_SMOTE.csv&quot;</span><span class="p">)</span>
+<span class="n">x_smote</span> <span class="o">=</span> <span class="n">data_smote</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
+<span class="n">y_smote</span> <span class="o">=</span> <span class="n">data_smote</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<span class="n">data_smote</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mcg</th>
+      <th>gvh</th>
+      <th>lip</th>
+      <th>chg</th>
+      <th>aac</th>
+      <th>alm1</th>
+      <th>alm2</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.490000</td>
+      <td>0.290000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.560000</td>
+      <td>0.240000</td>
+      <td>0.350000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.070000</td>
+      <td>0.400000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.540000</td>
+      <td>0.350000</td>
+      <td>0.440000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.560000</td>
+      <td>0.400000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.490000</td>
+      <td>0.370000</td>
+      <td>0.460000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.590000</td>
+      <td>0.490000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.520000</td>
+      <td>0.450000</td>
+      <td>0.360000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.230000</td>
+      <td>0.320000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.550000</td>
+      <td>0.250000</td>
+      <td>0.350000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1149</th>
+      <td>0.469299</td>
+      <td>0.408934</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.554117</td>
+      <td>0.624964</td>
+      <td>0.624336</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1150</th>
+      <td>0.363254</td>
+      <td>0.549534</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.443720</td>
+      <td>0.708834</td>
+      <td>0.549528</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1151</th>
+      <td>0.502068</td>
+      <td>0.467368</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.150052</td>
+      <td>0.794735</td>
+      <td>0.448992</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1152</th>
+      <td>0.577332</td>
+      <td>0.649453</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.630424</td>
+      <td>0.744364</td>
+      <td>0.722243</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1153</th>
+      <td>0.510713</td>
+      <td>0.490693</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.493466</td>
+      <td>0.859327</td>
+      <td>0.872772</td>
+      <td>im</td>
+    </tr>
+  </tbody>
+</table>
+<p>1154 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_adasyn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../oversampling/hasil_oversampling_ADASYn.csv&quot;</span><span class="p">)</span>
+<span class="n">x_adasyn</span> <span class="o">=</span> <span class="n">data_adasyn</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
+<span class="n">y_adasyn</span> <span class="o">=</span> <span class="n">data_adasyn</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<span class="n">data_adasyn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mcg</th>
+      <th>gvh</th>
+      <th>lip</th>
+      <th>chg</th>
+      <th>aac</th>
+      <th>alm1</th>
+      <th>alm2</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.490000</td>
+      <td>0.290000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.560000</td>
+      <td>0.240000</td>
+      <td>0.350000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.070000</td>
+      <td>0.400000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.540000</td>
+      <td>0.350000</td>
+      <td>0.440000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.560000</td>
+      <td>0.400000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.490000</td>
+      <td>0.370000</td>
+      <td>0.460000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.590000</td>
+      <td>0.490000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.520000</td>
+      <td>0.450000</td>
+      <td>0.360000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.230000</td>
+      <td>0.320000</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.550000</td>
+      <td>0.250000</td>
+      <td>0.350000</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1149</th>
+      <td>0.469299</td>
+      <td>0.408934</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.554117</td>
+      <td>0.624964</td>
+      <td>0.624336</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1150</th>
+      <td>0.363254</td>
+      <td>0.549534</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.443720</td>
+      <td>0.708834</td>
+      <td>0.549528</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1151</th>
+      <td>0.502068</td>
+      <td>0.467368</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.150052</td>
+      <td>0.794735</td>
+      <td>0.448992</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1152</th>
+      <td>0.577332</td>
+      <td>0.649453</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.630424</td>
+      <td>0.744364</td>
+      <td>0.722243</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1153</th>
+      <td>0.510713</td>
+      <td>0.490693</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.493466</td>
+      <td>0.859327</td>
+      <td>0.872772</td>
+      <td>im</td>
+    </tr>
+  </tbody>
+</table>
+<p>1154 rows × 8 columns</p>
+</div></div></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="baggingclassifier-menggunakan-metode-naive-bayes">
+<h1>BaggingClassifier Menggunakan Metode Naive Bayes<a class="headerlink" href="#baggingclassifier-menggunakan-metode-naive-bayes" title="Link to this heading">#</a></h1>
+<section id="baggingclassifier-pada-data-yang-belum-di-lakukan-oversampling">
+<h2>BaggingClassifier pada data yang belum di lakukan oversampling<a class="headerlink" href="#baggingclassifier-pada-data-yang-belum-di-lakukan-oversampling" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                           <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span>
+                        <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy_score : </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">prediksi</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediksi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but BaggingClassifier was fitted without feature names
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                            <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                            <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">clf</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>                         <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">prediksi</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy_score : </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">prediksi</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediksi</span><span class="p">))</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\ensemble\_bagging.py:807,</span> in <span class="ni">BaggingClassifier.predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span> <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Predict class for X.</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="sd">     The predicted class of an input sample is computed as the class with</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">805</span><span class="sd">         The predicted classes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">806</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">807</span>     <span class="n">predicted_probabilitiy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">808</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="o">.</span><span class="n">take</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_probabilitiy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\ensemble\_bagging.py:834,</span> in <span class="ni">BaggingClassifier.predict_proba</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span> <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span> <span class="c1"># Check data</span>
+<span class="ne">--&gt; </span><span class="mi">834</span> <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="n">accept_sparse</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span> <span class="s2">&quot;csc&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span>     <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span>     <span class="n">force_all_finite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">839</span>     <span class="n">reset</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span> <span class="c1"># Parallel loop</span>
+<span class="g g-Whitespace">    </span><span class="mi">843</span> <span class="n">n_jobs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">starts</span> <span class="o">=</span> <span class="n">_partition_estimators</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:654,</span> in <span class="ni">BaseEstimator._validate_data</span><span class="nt">(self, X, y, reset, validate_separately, cast_to_ndarray, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">check_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ensure_2d&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">654</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_n_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="n">reset</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> <span class="k">return</span> <span class="n">out</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:443,</span> in <span class="ni">BaseEstimator._check_n_features</span><span class="nt">(self, X, reset)</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span>     <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span> <span class="k">if</span> <span class="n">n_features</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">443</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">444</span>         <span class="sa">f</span><span class="s2">&quot;X has </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2"> features, but </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span>         <span class="sa">f</span><span class="s2">&quot;is expecting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="si">}</span><span class="s2"> features as input.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span>     <span class="p">)</span>
+
+<span class="ne">ValueError</span>: X has 7 features, but BaggingClassifier is expecting 4 features as input.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-smote">
+<h2>BaggingClassifier pada data yang sudah di lakukan oversampling dengan SMOTE<a class="headerlink" href="#baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-smote" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">x_smote</span><span class="p">,</span> <span class="n">y_smote</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                           <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span>
+                        <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_smote</span><span class="p">,</span> <span class="n">y_smote</span><span class="p">)</span>
+
+
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy_score : </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">prediksi</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediksi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8398268398268398
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.86      0.97      0.91        32
+          im       0.87      0.48      0.62        27
+         imL       1.00      1.00      1.00        30
+         imS       1.00      1.00      1.00        29
+         imU       0.74      0.82      0.78        28
+          om       1.00      0.37      0.54        27
+         omL       1.00      1.00      1.00        27
+          pp       0.58      1.00      0.74        31
+
+    accuracy                           0.84       231
+   macro avg       0.88      0.83      0.82       231
+weighted avg       0.88      0.84      0.83       231
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-adasyn">
+<h2>BaggingClassifier pada data yang sudah di lakukan oversampling dengan ADASYN<a class="headerlink" href="#baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-adasyn" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">x_adasyn</span><span class="p">,</span> <span class="n">y_adasyn</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                           <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GaussianNB</span><span class="p">(),</span>
+                        <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_adasyn</span><span class="p">,</span> <span class="n">y_adasyn</span><span class="p">)</span>
+
+
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy_score : </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">prediksi</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediksi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8744588744588745
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.91      0.97      0.94        32
+          im       0.89      0.59      0.71        27
+         imL       1.00      1.00      1.00        30
+         imS       0.91      1.00      0.95        29
+         imU       0.81      0.79      0.80        28
+          om       1.00      0.59      0.74        27
+         omL       1.00      1.00      1.00        27
+          pp       0.66      1.00      0.79        31
+
+    accuracy                           0.87       231
+   macro avg       0.90      0.87      0.87       231
+weighted avg       0.89      0.87      0.87       231
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Modeling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baggingclassifier-pada-data-yang-belum-di-lakukan-oversampling">BaggingClassifier pada data yang belum di lakukan oversampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-smote">BaggingClassifier pada data yang sudah di lakukan oversampling dengan SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baggingclassifier-pada-data-yang-sudah-di-lakukan-oversampling-dengan-adasyn">BaggingClassifier pada data yang sudah di lakukan oversampling dengan ADASYN</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danendra Mahardhika
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
