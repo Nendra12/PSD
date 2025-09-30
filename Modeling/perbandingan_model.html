@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Get Data (iris) &#8212; Proyek Data Science Notebooks</title>
+    <title>Perbandingan Akurasi Model (ECOLI) &#8212; Proyek Data Science Notebooks</title>
   
   
   
@@ -57,11 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'data/get-data';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Modeling/perbandingan_model';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Menghapus Outlier (iris)" href="../preparation.html" />
-    <link rel="prev" title="Eksplorasi Data (iris)" href="eksplorasi-data.html" />
+    <link rel="prev" title="Bagging Classifier Decision Tree(Ecoli)" href="baggingClassifier_decision_tree.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,10 +183,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../bisnis.html">Business Understanding (iris)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/get-data.html">Get Data (iris)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="nav bd-sidenav">
@@ -202,8 +201,8 @@
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
 
 
 
@@ -212,21 +211,21 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Perbandingan Akurasi Model (ECOLI)</a></li>
 </ul>
 
     </div>
@@ -298,7 +297,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/get-data.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModeling/perbandingan_model.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +327,7 @@
       
       
       
-      <li><a href="../_sources/data/get-data.ipynb" target="_blank"
+      <li><a href="../_sources/Modeling/perbandingan_model.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +398,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -410,11 +411,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Get Data (iris)</h1>
+    <h1>Perbandingan Akurasi Model (ECOLI)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -424,8 +433,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="get-data-iris">
-<h1>Get Data (iris)<a class="headerlink" href="#get-data-iris" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="perbandingan-akurasi-model-ecoli">
+<h1>Perbandingan Akurasi Model (ECOLI)<a class="headerlink" href="#perbandingan-akurasi-model-ecoli" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kondisi Data</p></th>
+<th class="head"><p>Naive Bayes</p></th>
+<th class="head"><p>Random Forest</p></th>
+<th class="head"><p>Bagging (Naive Bayes)</p></th>
+<th class="head"><p>Bagging (Decision Tree)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sebelum Oversampling</p></td>
+<td><p>0.720</p></td>
+<td><p>0.852</p></td>
+<td><p>0.750</p></td>
+<td><p><strong>0.867</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sesudah Oversampling <strong>SMOTE</strong></p></td>
+<td><p>0.825</p></td>
+<td><p><strong>0.969</strong></p></td>
+<td><p>0.829</p></td>
+<td><p>0.965</p></td>
+</tr>
+<tr class="row-even"><td><p>Sesudah Oversampling <strong>ADASYN</strong></p></td>
+<td><p>0.857</p></td>
+<td><p><strong>0.939</strong></p></td>
+<td><p>0.857</p></td>
+<td><p>0.935</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Semua model mengalami peningkatan akurasi setelah dilakukan oversampling, baik menggunakan SMOTE maupun ADASYN.</p></li>
+<li><p>Model <strong>Random Forest</strong> konsisten memberikan akurasi tertinggi pada data hasil oversampling, baik SMOTE (0.969) maupun ADASYN (0.939).</p></li>
+<li><p>Sebelum oversampling, <strong>Bagging dengan Decision Tree</strong> memberikan performa terbaik (0.867).</p></li>
+<li><p>Secara keseluruhan, <strong>Random Forest</strong> adalah model paling unggul untuk dataset ECOLI setelah dilakukan oversampling.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -441,7 +490,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./data"
+            path: "./Modeling"
         },
         predefinedOutput: true
     }
@@ -459,22 +508,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="eksplorasi-data.html"
+       href="baggingClassifier_decision_tree.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Eksplorasi Data (iris)</p>
+        <p class="prev-next-title">Bagging Classifier Decision Tree(Ecoli)</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="../preparation.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Menghapus Outlier (iris)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -482,6 +522,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

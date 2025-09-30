@@ -226,6 +226,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
 </ul>
 
     </div>
@@ -862,37 +863,37 @@ weighted avg       0.87      0.83      0.81       229
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>class
-im     153
-pp     145
-imU    144
+im     149
 cp     143
+imU    143
 om     143
 omL    143
+pp     143
 imS    142
 imL    142
 Name: count, dtype: int64
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8571428571428571
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8304347826086956
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.94      0.97      0.95        30
-          im       0.93      0.48      0.63        27
-         imL       1.00      1.00      1.00        31
-         imS       0.92      1.00      0.96        33
-         imU       0.79      0.91      0.85        33
-          om       1.00      0.46      0.63        28
-         omL       1.00      1.00      1.00        23
-          pp       0.58      1.00      0.73        26
+          cp       0.94      0.97      0.95        32
+          im       0.79      0.56      0.65        27
+         imL       1.00      1.00      1.00        28
+         imS       0.94      1.00      0.97        31
+         imU       0.75      0.77      0.76        31
+          om       1.00      0.37      0.54        30
+         omL       1.00      1.00      1.00        22
+          pp       0.56      1.00      0.72        29
 
-    accuracy                           0.86       231
-   macro avg       0.89      0.85      0.84       231
-weighted avg       0.89      0.86      0.85       231
+    accuracy                           0.83       230
+   macro avg       0.87      0.83      0.82       230
+weighted avg       0.87      0.83      0.82       230
 </pre></div>
 </div>
-<img alt="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" src="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" />
-<img alt="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" src="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" />
+<img alt="../_images/de54cf1ff5e69492c209a58f7d1e79713f277b38b676df48580422bf6b8cc93b.png" src="../_images/de54cf1ff5e69492c209a58f7d1e79713f277b38b676df48580422bf6b8cc93b.png" />
+<img alt="../_images/ddae368f6670ce90d07b7b65e6f58e75f2afed87813e5af0c5fec6ac475f4f92.png" src="../_images/ddae368f6670ce90d07b7b65e6f58e75f2afed87813e5af0c5fec6ac475f4f92.png" />
 </div>
 </div>
 </section>
@@ -956,8 +957,8 @@ weighted avg       0.89      0.86      0.85       231
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bacfa40b8c875270288f3486afe42fe662399c6339553b028470c741516f7449.png" src="../_images/bacfa40b8c875270288f3486afe42fe662399c6339553b028470c741516f7449.png" />
-<img alt="../_images/ba77d120d938a040ad7c0f378a92cb90b091dc09f473c0298ca006fdfa0011b9.png" src="../_images/ba77d120d938a040ad7c0f378a92cb90b091dc09f473c0298ca006fdfa0011b9.png" />
+<img alt="../_images/8b6dc171a1eb2fdfba67683e1f7efb28310f2c9167204edc0056e65ef76dd8cb.png" src="../_images/8b6dc171a1eb2fdfba67683e1f7efb28310f2c9167204edc0056e65ef76dd8cb.png" />
+<img alt="../_images/3eb2881646a2efbc15ce3ae52a832dd7a879f0346529d295d3b9bee5c66b0ff1.png" src="../_images/3eb2881646a2efbc15ce3ae52a832dd7a879f0346529d295d3b9bee5c66b0ff1.png" />
 </div>
 </div>
 <p>Berdasarkan grafik perbandingan akurasi Bagging Classifier dengan model Naive Bayes, dapat disimpulkan bahwa akurasi data asli masih lebih rendah yaitu sekitar 75%, sedangkan setelah dilakukan oversampling dengan SMOTE akurasi meningkat hingga 82,9%, dan dengan ADASYN akurasi juga meningkat menjadi 85,7%. Hal ini menunjukkan bahwa teknik oversampling, khususnya ADASYN, mampu memperbaiki performa model dibandingkan data asli yang tidak seimbang pada Bagging Classifier dengan model Naive Bayes.</p>
