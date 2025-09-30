@@ -676,6 +676,7 @@ weighted avg       0.74      0.75      0.72        68
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_smote</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../oversampling/hasil_oversampling_SMOTE.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_smote</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="n">x_smote</span> <span class="o">=</span> <span class="n">data_smote</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
 <span class="n">y_smote</span> <span class="o">=</span> <span class="n">data_smote</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
 <span class="n">data_smote</span>
@@ -686,11 +687,11 @@ weighted avg       0.74      0.75      0.72        68
 <span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">bagging</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bagging_smote</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="n">bagging</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_smote</span><span class="p">,</span> <span class="n">y_train_smote</span><span class="p">)</span>
+<span class="n">bagging_smote</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_smote</span><span class="p">,</span> <span class="n">y_train_smote</span><span class="p">)</span>
 
-<span class="n">prediksi_smote</span> <span class="o">=</span> <span class="n">bagging</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_smote</span><span class="p">)</span>
+<span class="n">prediksi_smote</span> <span class="o">=</span> <span class="n">bagging_smote</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_smote</span><span class="p">)</span>
 
 <span class="n">akurasi_smote</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_smote</span><span class="p">,</span> <span class="n">prediksi_smote</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi : &quot;</span><span class="p">,</span> <span class="n">akurasi_smote</span><span class="p">)</span>
@@ -748,26 +749,38 @@ weighted avg       0.74      0.75      0.72        68
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi :  0.8304347826086956
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>class
+cp     143
+im     143
+imS    143
+imL    143
+imU    143
+om     143
+omL    143
+pp     143
+Name: count, dtype: int64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi :  0.8296943231441049
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.97      0.97      0.97        32
-          im       0.80      0.59      0.68        27
-         imL       1.00      1.00      1.00        30
-         imS       0.97      1.00      0.98        29
-         imU       0.68      0.72      0.70        29
-          om       1.00      0.40      0.57        30
-         omL       1.00      1.00      1.00        24
-          pp       0.55      0.97      0.70        29
+          cp       1.00      0.97      0.98        32
+          im       0.69      0.79      0.73        28
+         imL       1.00      1.00      1.00        29
+         imS       1.00      1.00      1.00        31
+         imU       0.70      0.59      0.64        27
+          om       1.00      0.28      0.43        29
+         omL       0.95      1.00      0.97        19
+          pp       0.62      1.00      0.76        34
 
-    accuracy                           0.83       230
-   macro avg       0.87      0.83      0.83       230
-weighted avg       0.87      0.83      0.82       230
+    accuracy                           0.83       229
+   macro avg       0.87      0.83      0.82       229
+weighted avg       0.87      0.83      0.81       229
 </pre></div>
 </div>
-<img alt="../_images/5e723ff5fa69ef9fad55f6df4c0560abeef4a5f59e57490b41756942becf9157.png" src="../_images/5e723ff5fa69ef9fad55f6df4c0560abeef4a5f59e57490b41756942becf9157.png" />
-<img alt="../_images/9cf9dcedd32275dc26eac1d1d30aeb80d351db161d785a5183b6cbe88fc04980.png" src="../_images/9cf9dcedd32275dc26eac1d1d30aeb80d351db161d785a5183b6cbe88fc04980.png" />
+<img alt="../_images/8e3c36606089d2d9d08e0c571d8d93bf08e7d7090700c0fc0671818fcec3fbd6.png" src="../_images/8e3c36606089d2d9d08e0c571d8d93bf08e7d7090700c0fc0671818fcec3fbd6.png" />
+<img alt="../_images/1825257e46b891e89f66637d282433669ce1da9d9c128deb17e76ad4931cd985.png" src="../_images/1825257e46b891e89f66637d282433669ce1da9d9c128deb17e76ad4931cd985.png" />
 </div>
 </div>
 </section>
@@ -776,6 +789,7 @@ weighted avg       0.87      0.83      0.82       230
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_adasyn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../oversampling/hasil_oversampling_ADASYN.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_adasyn</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="n">x_adasyn</span> <span class="o">=</span> <span class="n">data_adasyn</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
 <span class="n">y_adasyn</span> <span class="o">=</span> <span class="n">data_adasyn</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
 
@@ -785,11 +799,11 @@ weighted avg       0.87      0.83      0.82       230
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
 
-<span class="n">bagging</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bagging_adasyn</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="n">bagging</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_adasyn</span><span class="p">,</span> <span class="n">y_train_adasyn</span><span class="p">)</span>
+<span class="n">bagging_adasyn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_adasyn</span><span class="p">,</span> <span class="n">y_train_adasyn</span><span class="p">)</span>
 
-<span class="n">prediksi_adasyn</span> <span class="o">=</span> <span class="n">bagging</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_adasyn</span><span class="p">)</span>
+<span class="n">prediksi_adasyn</span> <span class="o">=</span> <span class="n">bagging_adasyn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_adasyn</span><span class="p">)</span>
 
 <span class="n">akurasi_adasyn</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_adasyn</span><span class="p">,</span> <span class="n">prediksi_adasyn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy_score : </span><span class="si">{</span><span class="n">akurasi_adasyn</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -847,26 +861,38 @@ weighted avg       0.87      0.83      0.82       230
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8304347826086956
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>class
+im     153
+pp     145
+imU    144
+cp     143
+om     143
+omL    143
+imS    142
+imL    142
+Name: count, dtype: int64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8571428571428571
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.97      0.97      0.97        32
-          im       0.80      0.59      0.68        27
-         imL       1.00      1.00      1.00        30
-         imS       0.97      1.00      0.98        29
-         imU       0.68      0.72      0.70        29
-          om       1.00      0.40      0.57        30
-         omL       1.00      1.00      1.00        24
-          pp       0.55      0.97      0.70        29
+          cp       0.94      0.97      0.95        30
+          im       0.93      0.48      0.63        27
+         imL       1.00      1.00      1.00        31
+         imS       0.92      1.00      0.96        33
+         imU       0.79      0.91      0.85        33
+          om       1.00      0.46      0.63        28
+         omL       1.00      1.00      1.00        23
+          pp       0.58      1.00      0.73        26
 
-    accuracy                           0.83       230
-   macro avg       0.87      0.83      0.83       230
-weighted avg       0.87      0.83      0.82       230
+    accuracy                           0.86       231
+   macro avg       0.89      0.85      0.84       231
+weighted avg       0.89      0.86      0.85       231
 </pre></div>
 </div>
-<img alt="../_images/5e723ff5fa69ef9fad55f6df4c0560abeef4a5f59e57490b41756942becf9157.png" src="../_images/5e723ff5fa69ef9fad55f6df4c0560abeef4a5f59e57490b41756942becf9157.png" />
-<img alt="../_images/9cf9dcedd32275dc26eac1d1d30aeb80d351db161d785a5183b6cbe88fc04980.png" src="../_images/9cf9dcedd32275dc26eac1d1d30aeb80d351db161d785a5183b6cbe88fc04980.png" />
+<img alt="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" src="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" />
+<img alt="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" src="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" />
 </div>
 </div>
 </section>
@@ -930,11 +956,11 @@ weighted avg       0.87      0.83      0.82       230
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eccee188171c6c4afdc03206656ba7428f4c5b3c93687c847cc759d4b11c209c.png" src="../_images/eccee188171c6c4afdc03206656ba7428f4c5b3c93687c847cc759d4b11c209c.png" />
-<img alt="../_images/c7b248621e6d1a02e66ca32ed178f8f11bbb97f05e7a198869044f8981516e73.png" src="../_images/c7b248621e6d1a02e66ca32ed178f8f11bbb97f05e7a198869044f8981516e73.png" />
+<img alt="../_images/bacfa40b8c875270288f3486afe42fe662399c6339553b028470c741516f7449.png" src="../_images/bacfa40b8c875270288f3486afe42fe662399c6339553b028470c741516f7449.png" />
+<img alt="../_images/ba77d120d938a040ad7c0f378a92cb90b091dc09f473c0298ca006fdfa0011b9.png" src="../_images/ba77d120d938a040ad7c0f378a92cb90b091dc09f473c0298ca006fdfa0011b9.png" />
 </div>
 </div>
-<p>Berdasarkan grafik perbandingan akurasi Bagging Classifier dengan model Naive Bayes, dapat disimpulkan bahwa akurasi data asli masih lebih rendah yaitu sekitar 75%, sedangkan setelah dilakukan oversampling dengan SMOTE akurasi meningkat hingga 81,1%, dan dengan ADASYN akurasi juga meningkat menjadi 82,6%. Hal ini menunjukkan bahwa teknik oversampling, khususnya ADASYN, mampu memperbaiki performa model dibandingkan data asli yang tidak seimbang pada Bagging Classifier dengan model Naive Bayes.</p>
+<p>Berdasarkan grafik perbandingan akurasi Bagging Classifier dengan model Naive Bayes, dapat disimpulkan bahwa akurasi data asli masih lebih rendah yaitu sekitar 75%, sedangkan setelah dilakukan oversampling dengan SMOTE akurasi meningkat hingga 82,9%, dan dengan ADASYN akurasi juga meningkat menjadi 85,7%. Hal ini menunjukkan bahwa teknik oversampling, khususnya ADASYN, mampu memperbaiki performa model dibandingkan data asli yang tidak seimbang pada Bagging Classifier dengan model Naive Bayes.</p>
 </section>
 
     <script type="text/x-thebe-config">
