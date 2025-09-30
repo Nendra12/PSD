@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Modeling/baggingClassifier_decision_tree';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Perbandingan Akurasi Model (ECOLI)" href="perbandingan_model.html" />
     <link rel="prev" title="Bagging Classifier Naive Bayes (Ecoli)" href="baggingClassifier_naive_bayes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -225,6 +226,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
 </ul>
 
     </div>
@@ -749,26 +751,26 @@ weighted avg       0.97      0.97      0.96       229
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.935064935064935
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.9391304347826087
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.97      0.97      0.97        30
-          im       0.87      0.74      0.80        27
-         imL       1.00      1.00      1.00        31
-         imS       0.97      1.00      0.99        33
-         imU       0.83      0.88      0.85        33
-          om       0.96      0.96      0.96        28
-         omL       0.96      1.00      0.98        23
-          pp       0.92      0.92      0.92        26
+          cp       0.97      0.97      0.97        32
+          im       0.80      0.74      0.77        27
+         imL       1.00      1.00      1.00        28
+         imS       1.00      1.00      1.00        31
+         imU       0.79      0.84      0.81        31
+          om       1.00      1.00      1.00        30
+         omL       1.00      1.00      1.00        22
+          pp       0.97      0.97      0.97        29
 
-    accuracy                           0.94       231
-   macro avg       0.94      0.93      0.93       231
-weighted avg       0.93      0.94      0.93       231
+    accuracy                           0.94       230
+   macro avg       0.94      0.94      0.94       230
+weighted avg       0.94      0.94      0.94       230
 </pre></div>
 </div>
-<img alt="../_images/51c96b07bdd4980aefe7bcfc9246fb872bb187d937bd948c8174eebd732acf1e.png" src="../_images/51c96b07bdd4980aefe7bcfc9246fb872bb187d937bd948c8174eebd732acf1e.png" />
-<img alt="../_images/c64186d2564201be9e40321c3ca838a73459a3b488857b0942d015bec5989e80.png" src="../_images/c64186d2564201be9e40321c3ca838a73459a3b488857b0942d015bec5989e80.png" />
+<img alt="../_images/3557e2715a21c8f5929d7a533593bf08ba33b38d419fd34e93d3a6916f7f404a.png" src="../_images/3557e2715a21c8f5929d7a533593bf08ba33b38d419fd34e93d3a6916f7f404a.png" />
+<img alt="../_images/2cea6e86153feb3c21c15de12f201299c3653d6b8d555730002ab32117c00848.png" src="../_images/2cea6e86153feb3c21c15de12f201299c3653d6b8d555730002ab32117c00848.png" />
 </div>
 </div>
 </section>
@@ -832,8 +834,8 @@ weighted avg       0.93      0.94      0.93       231
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c4ff7635f66be0e1e2796d58a5c4dcc5fcd9caf0f294abbd0b1d93db7289715d.png" src="../_images/c4ff7635f66be0e1e2796d58a5c4dcc5fcd9caf0f294abbd0b1d93db7289715d.png" />
-<img alt="../_images/3157ee528025e33467605f417159ff41841c0c63ec93ae13dc740dfebf648873.png" src="../_images/3157ee528025e33467605f417159ff41841c0c63ec93ae13dc740dfebf648873.png" />
+<img alt="../_images/e61a49ff111117cf39f053fb357241022d9a23c6a266267fad1c173d2e35eb6b.png" src="../_images/e61a49ff111117cf39f053fb357241022d9a23c6a266267fad1c173d2e35eb6b.png" />
+<img alt="../_images/3dccaa9c1a18f67082287229888880e00fe2f885af42c958475d597c49a39369.png" src="../_images/3dccaa9c1a18f67082287229888880e00fe2f885af42c958475d597c49a39369.png" />
 </div>
 </div>
 <p>Berdasarkan grafik perbandingan akurasi Bagging Classifier dengan model Decision Tree, dapat disimpulkan bahwa akurasi data asli masih lebih rendah yaitu sekitar 86,7%, sedangkan setelah dilakukan oversampling dengan SMOTE akurasi meningkat signifikan hingga 96,5%, dan dengan ADASYN akurasi juga meningkat menjadi 93,5%. Hal ini menunjukkan bahwa teknik oversampling, khususnya SMOTE, mampu memperbaiki performa model dibandingkan data asli yang tidak seimbang.</p>
@@ -877,6 +879,15 @@ weighted avg       0.93      0.94      0.93       231
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Bagging Classifier Naive Bayes (Ecoli)</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="perbandingan_model.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Perbandingan Akurasi Model (ECOLI)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

@@ -8,7 +8,7 @@ parts:
 
   - caption: Data Understanding
     chapters:
-      - file: data 
+      - file: data
       - file: data/eksplorasi-data
       - file: data/get-data
 
@@ -23,3 +23,4 @@ parts:
       - file: Modeling/klasifikasi_naiveBayes_hasil_oversampling
       - file: Modeling/baggingClassifier_naive_bayes
       - file: Modeling/baggingClassifier_decision_tree
+      - file: Modeling/perbandingan_model
