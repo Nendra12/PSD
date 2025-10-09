@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Naive Bayes Classifier (ECOLI)" href="klasifikasi_naiveBayes_hasil_oversampling.html" />
-    <link rel="prev" title="Oversampling (Ecoli)" href="../oversampling/oversampling.html" />
+    <link rel="prev" title="Preprocessing Data (Ecoli) by Knime" href="../Preprocessing/preparation%28knime%29.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,7 +191,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation.html">Menghapus Outlier (iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
 
 
@@ -200,6 +200,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="current nav bd-sidenav">
@@ -857,7 +858,7 @@ document.write(`
       <th>0</th>
       <td>0.490000</td>
       <td>0.290000</td>
-      <td>0.480000</td>
+      <td>0.48</td>
       <td>0.5</td>
       <td>0.560000</td>
       <td>0.240000</td>
@@ -868,7 +869,7 @@ document.write(`
       <th>1</th>
       <td>0.070000</td>
       <td>0.400000</td>
-      <td>0.480000</td>
+      <td>0.48</td>
       <td>0.5</td>
       <td>0.540000</td>
       <td>0.350000</td>
@@ -879,7 +880,7 @@ document.write(`
       <th>2</th>
       <td>0.560000</td>
       <td>0.400000</td>
-      <td>0.480000</td>
+      <td>0.48</td>
       <td>0.5</td>
       <td>0.490000</td>
       <td>0.370000</td>
@@ -890,7 +891,7 @@ document.write(`
       <th>3</th>
       <td>0.590000</td>
       <td>0.490000</td>
-      <td>0.480000</td>
+      <td>0.48</td>
       <td>0.5</td>
       <td>0.520000</td>
       <td>0.450000</td>
@@ -901,7 +902,7 @@ document.write(`
       <th>4</th>
       <td>0.230000</td>
       <td>0.320000</td>
-      <td>0.480000</td>
+      <td>0.48</td>
       <td>0.5</td>
       <td>0.550000</td>
       <td>0.250000</td>
@@ -920,63 +921,63 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1143</th>
-      <td>0.135050</td>
-      <td>0.501683</td>
-      <td>0.480000</td>
-      <td>0.5</td>
-      <td>0.416815</td>
-      <td>0.688499</td>
-      <td>0.274258</td>
-      <td>im</td>
-    </tr>
-    <tr>
-      <th>1144</th>
-      <td>0.598237</td>
-      <td>0.500059</td>
-      <td>0.996944</td>
-      <td>0.5</td>
-      <td>0.539295</td>
-      <td>0.769060</td>
-      <td>0.797297</td>
-      <td>im</td>
-    </tr>
-    <tr>
       <th>1145</th>
-      <td>0.530231</td>
-      <td>0.433184</td>
-      <td>0.480000</td>
+      <td>0.410604</td>
+      <td>0.490000</td>
+      <td>0.48</td>
       <td>0.5</td>
-      <td>0.312940</td>
-      <td>0.861361</td>
-      <td>0.663621</td>
+      <td>0.402941</td>
+      <td>0.811184</td>
+      <td>0.682965</td>
       <td>im</td>
     </tr>
     <tr>
       <th>1146</th>
-      <td>0.515616</td>
-      <td>0.718446</td>
-      <td>0.480000</td>
+      <td>0.241619</td>
+      <td>0.484053</td>
+      <td>0.48</td>
       <td>0.5</td>
-      <td>0.592669</td>
-      <td>0.741833</td>
-      <td>0.711276</td>
+      <td>0.488111</td>
+      <td>0.639190</td>
+      <td>0.469736</td>
       <td>im</td>
     </tr>
     <tr>
       <th>1147</th>
-      <td>0.385451</td>
-      <td>0.515429</td>
-      <td>0.480000</td>
+      <td>0.599719</td>
+      <td>0.473305</td>
+      <td>0.48</td>
       <td>0.5</td>
-      <td>0.507438</td>
-      <td>0.849153</td>
-      <td>0.738589</td>
+      <td>0.012117</td>
+      <td>0.799266</td>
+      <td>0.337625</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1148</th>
+      <td>0.571335</td>
+      <td>0.713190</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.638850</td>
+      <td>0.726549</td>
+      <td>0.669202</td>
+      <td>im</td>
+    </tr>
+    <tr>
+      <th>1149</th>
+      <td>0.469240</td>
+      <td>0.424963</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.525956</td>
+      <td>0.778247</td>
+      <td>0.799926</td>
       <td>im</td>
     </tr>
   </tbody>
 </table>
-<p>1148 rows × 8 columns</p>
+<p>1150 rows × 8 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1065,8 +1066,8 @@ Classification Report:
 weighted avg       0.84      0.85      0.85        68
 </pre></div>
 </div>
-<img alt="../_images/6e3eb1b453b6c68ea77e602bc54ac1e83592d3795115128242829e7a5c1355bc.png" src="../_images/6e3eb1b453b6c68ea77e602bc54ac1e83592d3795115128242829e7a5c1355bc.png" />
-<img alt="../_images/fdd2ac8b188802955d676aa2f3bbe73bea0bc1081b10f74a4348fff2a13780e3.png" src="../_images/fdd2ac8b188802955d676aa2f3bbe73bea0bc1081b10f74a4348fff2a13780e3.png" />
+<img alt="../_images/0840deecaa2c2a1598f161a2bff1f7741721ffeaaba54b8392e93f9ad55b041d.png" src="../_images/0840deecaa2c2a1598f161a2bff1f7741721ffeaaba54b8392e93f9ad55b041d.png" />
+<img alt="../_images/16ef82354684c8612b3195aacd00177f3f3f333ed7fdec5dd22b64a15f96a6c2.png" src="../_images/16ef82354684c8612b3195aacd00177f3f3f333ed7fdec5dd22b64a15f96a6c2.png" />
 </div>
 </div>
 </section>
@@ -1156,8 +1157,8 @@ Classification Report:
 weighted avg       0.97      0.97      0.97       229
 </pre></div>
 </div>
-<img alt="../_images/8b3ec24440f7db300138ca5357bf71f9b639ecad7ea1e386c325ebc4e0fae659.png" src="../_images/8b3ec24440f7db300138ca5357bf71f9b639ecad7ea1e386c325ebc4e0fae659.png" />
-<img alt="../_images/b297fc3c732e35cd0395ddde13b76ca222c9853d78a73b8b6457bc2b2fdc06d9.png" src="../_images/b297fc3c732e35cd0395ddde13b76ca222c9853d78a73b8b6457bc2b2fdc06d9.png" />
+<img alt="../_images/5f4ebfa55bc80671d3d99566ffbade0df218a0dbe75d9f692c1f39bfbb7d2f1d.png" src="../_images/5f4ebfa55bc80671d3d99566ffbade0df218a0dbe75d9f692c1f39bfbb7d2f1d.png" />
+<img alt="../_images/ed9b8a6b1a02d155c7aa6683c9953fd0963d0dfd0841a55e137c2a07544fa3cd.png" src="../_images/ed9b8a6b1a02d155c7aa6683c9953fd0963d0dfd0841a55e137c2a07544fa3cd.png" />
 </div>
 </div>
 </section>
@@ -1229,26 +1230,26 @@ weighted avg       0.97      0.97      0.97       229
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.9347826086956522
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.9695652173913043
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.97      0.97      0.97        32
-          im       0.83      0.74      0.78        27
-         imL       1.00      1.00      1.00        28
-         imS       0.97      1.00      0.98        31
-         imU       0.76      0.84      0.80        31
-          om       1.00      1.00      1.00        30
-         omL       1.00      1.00      1.00        22
-          pp       0.96      0.93      0.95        29
+          cp       1.00      1.00      1.00        31
+          im       0.89      0.86      0.87        28
+         imL       1.00      1.00      1.00        26
+         imS       1.00      1.00      1.00        29
+         imU       0.88      0.90      0.89        31
+          om       1.00      1.00      1.00        36
+         omL       1.00      1.00      1.00        21
+          pp       1.00      1.00      1.00        28
 
-    accuracy                           0.93       230
-   macro avg       0.94      0.93      0.94       230
-weighted avg       0.94      0.93      0.93       230
+    accuracy                           0.97       230
+   macro avg       0.97      0.97      0.97       230
+weighted avg       0.97      0.97      0.97       230
 </pre></div>
 </div>
-<img alt="../_images/58202850fd376b53e1ca6941262cd2801950fec6ee6badbb3496b4333969b02c.png" src="../_images/58202850fd376b53e1ca6941262cd2801950fec6ee6badbb3496b4333969b02c.png" />
-<img alt="../_images/e190a00a2fdac734890b2bedc1e3c8bd54cb9d626017015a76a70e6c931ab169.png" src="../_images/e190a00a2fdac734890b2bedc1e3c8bd54cb9d626017015a76a70e6c931ab169.png" />
+<img alt="../_images/31e2af3569a3f5c899c978e7332bbfbaf6f3fcbf398c4b07f995cec9ee1d57f2.png" src="../_images/31e2af3569a3f5c899c978e7332bbfbaf6f3fcbf398c4b07f995cec9ee1d57f2.png" />
+<img alt="../_images/7743bf0e5e9324eebaf3aa55b4ea5fa0d637ca39728c13ff450b44edb5dcbc59.png" src="../_images/7743bf0e5e9324eebaf3aa55b4ea5fa0d637ca39728c13ff450b44edb5dcbc59.png" />
 </div>
 </div>
 </section>
@@ -1323,8 +1324,8 @@ weighted avg       0.94      0.93      0.93       230
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ed8cc3895f50cd7d22a1125627ec2d2f09afecad48edec9e90da6342a952bc8f.png" src="../_images/ed8cc3895f50cd7d22a1125627ec2d2f09afecad48edec9e90da6342a952bc8f.png" />
-<img alt="../_images/e0e2e9866afe199fbaa6ea5c4619c2c1ad4f292b8f968359aa1f5a828acc7326.png" src="../_images/e0e2e9866afe199fbaa6ea5c4619c2c1ad4f292b8f968359aa1f5a828acc7326.png" />
+<img alt="../_images/187ffcfc68f4b2a79fc442961202e5c03f3d4801fa8b91605d5fe5aea175cf40.png" src="../_images/187ffcfc68f4b2a79fc442961202e5c03f3d4801fa8b91605d5fe5aea175cf40.png" />
+<img alt="../_images/6c074d3ca595aac04ec75b0a298dfcbbe8a28688f210f97e8842516464b50458.png" src="../_images/6c074d3ca595aac04ec75b0a298dfcbbe8a28688f210f97e8842516464b50458.png" />
 </div>
 </div>
 <p>Berdasarkan grafik perbandingan akurasi klasifikasi Random Forest, terlihat bahwa pada data asli akurasi hanya mencapai 85,2%, namun setelah dilakukan oversampling dengan SMOTE akurasi meningkat signifikan menjadi 96,9%, dan dengan ADASYN akurasi meningkat lebih tinggi lagi hingga 93,9%. Hal ini menunjukkan bahwa penggunaan teknik oversampling, khususnya SMOTE, mampu memberikan hasil yang lebih baik dibandingkan data asli, sehingga model dapat mengatasi masalah ketidakseimbangan kelas dengan lebih efektif.</p>
@@ -1361,12 +1362,12 @@ weighted avg       0.94      0.93      0.93       230
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../oversampling/oversampling.html"
+       href="../Preprocessing/preparation%28knime%29.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Oversampling (Ecoli)</p>
+        <p class="prev-next-title">Preprocessing Data (Ecoli) by Knime</p>
       </div>
     </a>
     <a class="right-next"

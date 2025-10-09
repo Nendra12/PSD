@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'oversampling/oversampling';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Random Forest Classifier (ECOLI)" href="../Modeling/klasifikasi_random_forest_hasil.html" />
-    <link rel="prev" title="Menghapus Outlier (iris)" href="../preparation.html" />
+    <link rel="next" title="Preprocessing Data (Ecoli) by Knime" href="../Preprocessing/preparation%28knime%29.html" />
+    <link rel="prev" title="Menghapus Outlier (iris)" href="../Preprocessing/preparation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,7 +191,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation.html">Menghapus Outlier (iris)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Oversampling (Ecoli)</a></li>
 
 
@@ -200,6 +200,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="nav bd-sidenav">
@@ -745,7 +746,7 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ae7c8633dd714d95baf67424b70d638c369f6c04033325a602ca2235463dd6ac.png" src="../_images/ae7c8633dd714d95baf67424b70d638c369f6c04033325a602ca2235463dd6ac.png" />
+<img alt="../_images/2907c574c444f2fd0bd0bdaa38630daba30b7a1cb99b9b15151a62b34912091b.png" src="../_images/2907c574c444f2fd0bd0bdaa38630daba30b7a1cb99b9b15151a62b34912091b.png" />
 </div>
 </div>
 </section>
@@ -788,7 +789,7 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51530f5e16ac4ce93dfec5390e718b5b216a184f54063fc2b956fa68249d431b.png" src="../_images/51530f5e16ac4ce93dfec5390e718b5b216a184f54063fc2b956fa68249d431b.png" />
+<img alt="../_images/aa87f618471c755040b9abc143219b427d109be75fecc0d9fb88ed8174a9ea86.png" src="../_images/aa87f618471c755040b9abc143219b427d109be75fecc0d9fb88ed8174a9ea86.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data setelah di transformasi PCA : 
 </pre></div>
 </div>
@@ -913,7 +914,25 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cp&#39;, 143), (&#39;im&#39;, 152), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 143)]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cp&#39;, 143), (&#39;im&#39;, 152), (&#39;imL&#39;, 142), (&#39;imS&#39;, 142), (&#39;imU&#39;, 144), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 142)]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
 </pre></div>
 </div>
 </div>
@@ -947,7 +966,7 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/95c41b78a421c982f1d6e63a63633e62ed415063e140ee9d8c3722ff77e9aece.png" src="../_images/95c41b78a421c982f1d6e63a63633e62ed415063e140ee9d8c3722ff77e9aece.png" />
+<img alt="../_images/b3a1cb51fdbe570d837fc5b4cf0c01c6103111e5c261d1aec96fb0e70465234b.png" src="../_images/b3a1cb51fdbe570d837fc5b4cf0c01c6103111e5c261d1aec96fb0e70465234b.png" />
 </div>
 </div>
 </section>
@@ -968,6 +987,10 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cp&#39;, 143), (&#39;im&#39;, 143), (&#39;imL&#39;, 143), (&#39;imS&#39;, 143), (&#39;imU&#39;, 143), (&#39;om&#39;, 143), (&#39;omL&#39;, 143), (&#39;pp&#39;, 143)]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
 </pre></div>
 </div>
 </div>
@@ -1001,7 +1024,7 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5f9c2bfaca64ef92b1abfe2c1705266451036e89b42dc8d497a4e716f3e1728b.png" src="../_images/5f9c2bfaca64ef92b1abfe2c1705266451036e89b42dc8d497a4e716f3e1728b.png" />
+<img alt="../_images/e13e4ea4834c38f25b3bc99eb939a953308339dca04390b6d301766cc7211876.png" src="../_images/e13e4ea4834c38f25b3bc99eb939a953308339dca04390b6d301766cc7211876.png" />
 </div>
 </div>
 </section>
@@ -1038,7 +1061,7 @@ Status: TIDAK SEIMBANG (Imbalanced)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c044b455cb07f9c551c8522cedd3a80ae1277aa6afb2f7652731923175ec1974.png" src="../_images/c044b455cb07f9c551c8522cedd3a80ae1277aa6afb2f7652731923175ec1974.png" />
+<img alt="../_images/65bf8210cc356b843a7280119c6c29a74dd77f567324492802b3b780b66c35da.png" src="../_images/65bf8210cc356b843a7280119c6c29a74dd77f567324492802b3b780b66c35da.png" />
 </div>
 </div>
 </section>
@@ -1074,7 +1097,7 @@ Status: TIDAK SEIMBANG (Imbalanced)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../preparation.html"
+       href="../Preprocessing/preparation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -1083,11 +1106,11 @@ Status: TIDAK SEIMBANG (Imbalanced)
       </div>
     </a>
     <a class="right-next"
-       href="../Modeling/klasifikasi_random_forest_hasil.html"
+       href="../Preprocessing/preparation%28knime%29.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Random Forest Classifier (ECOLI)</p>
+        <p class="prev-next-title">Preprocessing Data (Ecoli) by Knime</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

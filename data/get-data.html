@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/get-data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Menghapus Outlier (iris)" href="../preparation.html" />
+    <link rel="next" title="Menghapus Outlier (iris)" href="../Preprocessing/preparation.html" />
     <link rel="prev" title="Eksplorasi Data (iris)" href="eksplorasi-data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -191,7 +191,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation.html">Menghapus Outlier (iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
 
 
@@ -200,6 +200,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="nav bd-sidenav">
@@ -399,7 +400,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -415,6 +418,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-awal">Persiapan Awal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-mysql">Koneksi ke MySQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-postgresql">Koneksi ke PostgreSQL</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -426,6 +439,79 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="get-data-iris">
 <h1>Get Data (iris)<a class="headerlink" href="#get-data-iris" title="Link to this heading">#</a></h1>
+<p>Halaman ini menjelaskan cara menghubungkan Python ke <strong>MySQL</strong> dan <strong>PostgreSQL</strong> menggunakan <strong>SQLAlchemy</strong> dan <strong>pandas</strong>, agar proses pengambilan data menjadi lebih ringkas dan efisien.</p>
+<hr class="docutils" />
+<section id="persiapan-awal">
+<h2>Persiapan Awal<a class="headerlink" href="#persiapan-awal" title="Link to this heading">#</a></h2>
+<p>Sebelum memulai, pastikan sudah menginstal package berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sqlalchemy<span class="w"> </span>pymysql<span class="w"> </span>psycopg2<span class="w"> </span>pandas
+</pre></div>
+</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p><strong>SQLAlchemy</strong> → library utama untuk membuat koneksi database.</p></li>
+<li><p><strong>pymysql</strong> → driver untuk MySQL.</p></li>
+<li><p><strong>psycopg2</strong> → driver untuk PostgreSQL.</p></li>
+<li><p><strong>pandas</strong> → membaca hasil query langsung ke dalam DataFrame.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="koneksi-ke-mysql">
+<h2>Koneksi ke MySQL<a class="headerlink" href="#koneksi-ke-mysql" title="Link to this heading">#</a></h2>
+<p>Berikut contoh koneksi dan pengambilan data dari MySQL menggunakan SQLAlchemy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+
+<span class="c1"># Buat koneksi ke MySQL</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;mysql+pymysql://root:@localhost/iris&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ambil data dari tabel</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM iris&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Tutup koneksi</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Penjelasan singkat:</strong></p>
+<ul>
+<li><p>Format koneksi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">+</span><span class="n">pymysql</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">user</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;@&lt;</span><span class="n">host</span><span class="o">&gt;/&lt;</span><span class="n">nama_database</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.read_sql()</span></code> membaca hasil query SQL langsung ke DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">engine.dispose()</span></code> digunakan untuk menutup koneksi setelah selesai.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="koneksi-ke-postgresql">
+<h2>Koneksi ke PostgreSQL<a class="headerlink" href="#koneksi-ke-postgresql" title="Link to this heading">#</a></h2>
+<p>Contoh koneksi PostgreSQL dengan format SQLAlchemy hampir sama, hanya berbeda pada driver dan port default.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+
+<span class="c1"># Buat koneksi ke PostgreSQL</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;postgresql+psycopg2://postgres:@localhost:5432/iris&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ambil data dari tabel</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM iris&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Tutup koneksi</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Format koneksi PostgreSQL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">postgresql</span><span class="o">+</span><span class="n">psycopg2</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">user</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;@&lt;</span><span class="n">host</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;/&lt;</span><span class="n">nama_database</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -468,7 +554,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../preparation.html"
+       href="../Preprocessing/preparation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -482,6 +568,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-awal">Persiapan Awal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-mysql">Koneksi ke MySQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-postgresql">Koneksi ke PostgreSQL</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
