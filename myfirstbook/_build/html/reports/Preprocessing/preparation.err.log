@@ -1,0 +1,176 @@
+Traceback (most recent call last):
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+from pycaret.anomaly import * 
+import matplotlib.pyplot as plt
+
+# load data
+data = pd.read_csv("dataset/iris.csv")
+data = data.drop(columns=["iris"])
+
+# setup data PyCaret
+s = setup(data)
+
+# membuat model dari metode
+abod = create_model('abod', fraction=0.05) 
+results = assign_model(abod)
+
+# menghapus data outlier
+cleaned_data = results[results["Anomaly"] == 0].copy()
+
+print("Data asli: ", results.shape)
+print("Data setelah hapus outlier: ", cleaned_data.shape)
+
+# buat file csv baru
+cleaned_data.to_csv("iris_ABOD_cleaned.csv", index=False)
+
+fig, axes = plt.subplots(1, 2, figsize=(14,6))
+
+# Sebelum dihapus data outlier
+axes[0].scatter(
+    results['sepal length'], results['sepal width'],
+    c=results['Anomaly'], cmap='coolwarm', edgecolor='k'
+)
+axes[0].set_title("Sebelum Hapus Outlier (ABOD)")
+axes[0].set_xlabel("Sepal Length")
+axes[0].set_ylabel("Sepal Width")
+
+# Sesudah dihapus data outlier
+axes[1].scatter(
+    cleaned_data['sepal length'], cleaned_data['sepal width'],
+    c='blue', edgecolor='k'
+)
+axes[1].set_title("Sesudah Hapus Outlier (ABOD)")
+axes[1].set_xlabel("Sepal Length")
+axes[1].set_ylabel("Sepal Width")
+
+handles = [
+    plt.Line2D([0], [0], marker='o', color='w', label='Normal',
+               markerfacecolor='blue', markersize=8),
+    plt.Line2D([0], [0], marker='o', color='w', label='Outlier',
+               markerfacecolor='red', markersize=8)
+]
+plt.legend(handles=handles)
+
+plt.tight_layout()
+plt.show()
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mImportError[0m                               Traceback (most recent call last)
+Cell [1;32mIn[1], line 2[0m
+[0;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
+[1;32m----> 2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m 
+[0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
+[0;32m      5[0m [38;5;66;03m# load data[39;00m
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\__init__.py:1[0m
+[1;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfunctional[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
+[0;32m      2[0m     assign_model,
+[0;32m      3[0m     create_model,
+[0;32m      4[0m     deploy_model,
+[0;32m      5[0m     evaluate_model,
+[0;32m      6[0m     get_config,
+[0;32m      7[0m     get_current_experiment,
+[0;32m      8[0m     get_logs,
+[0;32m      9[0m     load_experiment,
+[0;32m     10[0m     load_model,
+[0;32m     11[0m     models,
+[0;32m     12[0m     plot_model,
+[0;32m     13[0m     predict_model,
+[0;32m     14[0m     pull,
+[0;32m     15[0m     save_experiment,
+[0;32m     16[0m     save_model,
+[0;32m     17[0m     set_config,
+[0;32m     18[0m     set_current_experiment,
+[0;32m     19[0m     setup,
+[0;32m     20[0m )
+[0;32m     21[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;21;01m.[39;00m[38;5;21;01moop[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AnomalyExperiment
+[0;32m     23[0m __all__ [38;5;241m=[39m [
+[0;32m     24[0m     [38;5;124m"[39m[38;5;124mAnomalyExperiment[39m[38;5;124m"[39m,
+[0;32m     25[0m     [38;5;124m"[39m[38;5;124msetup[39m[38;5;124m"[39m,
+[1;32m   (...)[0m
+[0;32m     42[0m     [38;5;124m"[39m[38;5;124mget_current_experiment[39m[38;5;124m"[39m,
+[0;32m     43[0m ]
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\functional.py:8[0m
+[0;32m      5[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
+[0;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mjoblib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmemory[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Memory
+[1;32m----> 8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;21;01m.[39;00m[38;5;21;01moop[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AnomalyExperiment
+[0;32m      9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mloggers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_logger[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BaseLogger
+[0;32m     10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mconstants[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m DATAFRAME_LIKE, SEQUENCE_LIKE
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\oop.py:6[0m
+[0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
+[0;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_all_metric_containers
+[1;32m----> 6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_all_model_containers
+[0;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlogging[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_logger
+[0;32m      8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpycaret_experiment[39;00m[38;5;21;01m.[39;00m[38;5;21;01munsupervised_experiment[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
+[0;32m      9[0m     _UnsupervisedExperiment,
+[0;32m     10[0m )
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\containers\models\anomaly.py:17[0m
+[0;32m     15[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_container[39;00m
+[0;32m     16[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcuml_wrappers[39;00m
+[1;32m---> 17[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_model[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ModelContainer
+[0;32m     18[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdistributions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Distribution
+[0;32m     19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgeneric[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_logger, param_grid_to_lists
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\containers\models\base_model.py:9[0m
+[0;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_container[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BaseContainer
+[0;32m      8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdistributions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m CategoricalDistribution
+[1;32m----> 9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpycaret_experiment[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpycaret_experiment[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _PyCaretExperiment
+[0;32m     10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgeneric[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_allowed_engines, get_logger
+[0;32m     13[0m [38;5;28;01mclass[39;00m[38;5;250m [39m[38;5;21;01mModelContainer[39;00m(BaseContainer):
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\internal\pycaret_experiment\pycaret_experiment.py:10[0m
+[0;32m      7[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mcloudpickle[39;00m
+[0;32m      8[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
+[1;32m---> 10[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpatches[39;00m[38;5;21;01m.[39;00m[38;5;21;01msklearn[39;00m
+[0;32m     11[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpatches[39;00m[38;5;21;01m.[39;00m[38;5;21;01myellowbrick[39;00m
+[0;32m     12[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpersistence[39;00m
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\internal\patches\sklearn.py:9[0m
+[0;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodel_selection[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_validation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _fit_and_score, _score
+[0;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m check_random_state
+[1;32m----> 9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpipeline[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m pipeline_predict_inverse_only
+[0;32m     11[0m [38;5;66;03m# Monkey patching sklearn.model_selection._search to avoid overflows on windows.[39;00m
+[0;32m     12[0m 
+[0;32m     13[0m 
+[0;32m     14[0m [38;5;66;03m# adapted from https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/utils/_random.pyx[39;00m
+[0;32m     15[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21m_mp_sample_without_replacement[39m(
+[0;32m     16[0m     n_population: [38;5;28mint[39m, n_samples: [38;5;28mint[39m, method[38;5;241m=[39m[38;5;28;01mNone[39;00m, random_state[38;5;241m=[39m[38;5;28;01mNone[39;00m
+[0;32m     17[0m ) [38;5;241m-[39m[38;5;241m>[39m Any:
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\internal\pipeline.py:19[0m
+[0;32m     17[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpipeline[39;00m
+[0;32m     18[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m clone
+[1;32m---> 19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _print_elapsed_time
+[0;32m     20[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetadata_routing[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _routing_enabled
+[0;32m     21[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetaestimators[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m available_if
+
+[1;31mImportError[0m: cannot import name '_print_elapsed_time' from 'sklearn.utils' (C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\__init__.py)
+

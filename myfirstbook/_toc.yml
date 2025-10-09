@@ -14,8 +14,9 @@ parts:
 
   - caption: Preprocessing
     chapters:
-      - file: preparation
+      - file: Preprocessing/preparation
       - file: oversampling/oversampling
+      - file: Preprocessing/preparation(knime)
 
   - caption: Pemodelan
     chapters:
