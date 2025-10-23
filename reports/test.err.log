@@ -22,35 +22,87 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-X_resampled, y_resampled = ADASYN(n_neighbors=1, sampling_strategy='minority').fit_resample(X, y)
-print(sorted(Counter(y_resampled).items()))
 
-X_resampled, y_resampled = ADASYN(n_neighbors=1, sampling_strategy='minority').fit_resample(X_resampled, y_resampled)
-print(sorted(Counter(y_resampled).items()))
+engine = create_engine("mysql+pymysql://root:@localhost/psd")
 
-X_resampled, y_resampled = ADASYN(n_neighbors=4, sampling_strategy='minority').fit_resample(X_resampled, y_resampled)
-print(sorted(Counter(y_resampled).items()))
+query = "SELECT mcg, gvh, lip, chg, aac, alm1, alm2, localization_class FROM ecoli"
+df = pd.read_sql(query, engine)
 
-X_resampled, y_resampled = ADASYN(n_neighbors=19, sampling_strategy='minority').fit_resample(X_resampled, y_resampled)
-print(sorted(Counter(y_resampled).items()))
+X = df.drop(columns=["localization_class"])
+y = df["localization_class"]
 
-X_resampled, y_resampled = ADASYN(n_neighbors=34, sampling_strategy='minority').fit_resample(X_resampled, y_resampled)
-print(sorted(Counter(y_resampled).items()))
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(X)
 
-X_resampled, y_resampled = ADASYN(n_neighbors=51, sampling_strategy='minority').fit_resample(X_resampled, y_resampled)
-print(sorted(Counter(y_resampled).items()))
+pca = PCA(n_components=2)
+pca_result = pca.fit_transform(scaled_data)
 
-X_resampled, y_resampled = ADASYN(n_neighbors=76, sampling_strategy='minority').fit_resample(X_resampled, y_resampled)
-print(sorted(Counter(y_resampled).items()))
+data_pca = pd.DataFrame(pca_result, columns=['PC1', 'PC2'])
+data_pca['localization_class'] = y
+data_pca.to_csv('pca_ecoli.csv', index=False)
+
+
+plt.figure(figsize=(10,6))
+for label in data_pca['localization_class'].unique():
+    subset = data_pca[data_pca['localization_class'] == label]
+    plt.scatter(subset['PC1'], subset['PC2'], label=label)
+
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+plt.title("PCA Scatter Plot Berdasarkan Class")
+plt.legend(title="Class", bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.grid()
+plt.show()
+
 ------------------
 
+----- stderr -----
+C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_11248\1065265275.py:4: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, engine)
+------------------
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[3], line 1[0m
-[1;32m----> 1[0m X_resampled, y_resampled [38;5;241m=[39m [43mADASYN[49m(n_neighbors[38;5;241m=[39m[38;5;241m1[39m, sampling_strategy[38;5;241m=[39m[38;5;124m'[39m[38;5;124mminority[39m[38;5;124m'[39m)[38;5;241m.[39mfit_resample(X, y)
-[0;32m      2[0m [38;5;28mprint[39m([38;5;28msorted[39m(Counter(y_resampled)[38;5;241m.[39mitems()))
-[0;32m      4[0m X_resampled, y_resampled [38;5;241m=[39m ADASYN(n_neighbors[38;5;241m=[39m[38;5;241m1[39m, sampling_strategy[38;5;241m=[39m[38;5;124m'[39m[38;5;124mminority[39m[38;5;124m'[39m)[38;5;241m.[39mfit_resample(X_resampled, y_resampled)
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [1;32mIn[2], line 4[0m
+[0;32m      1[0m engine [38;5;241m=[39m create_engine([38;5;124m"[39m[38;5;124mmysql+pymysql://root:@localhost/psd[39m[38;5;124m"[39m)
+[0;32m      3[0m query [38;5;241m=[39m [38;5;124m"[39m[38;5;124mSELECT mcg, gvh, lip, chg, aac, alm1, alm2, localization_class FROM ecoli[39m[38;5;124m"[39m
+[1;32m----> 4[0m df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_sql[49m[43m([49m[43mquery[49m[43m,[49m[43m [49m[43mengine[49m[43m)[49m
+[0;32m      6[0m X [38;5;241m=[39m df[38;5;241m.[39mdrop(columns[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mlocalization_class[39m[38;5;124m"[39m])
+[0;32m      7[0m y [38;5;241m=[39m df[[38;5;124m"[39m[38;5;124mlocalization_class[39m[38;5;124m"[39m]
 
-[1;31mNameError[0m: name 'ADASYN' is not defined
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:708[0m, in [0;36mread_sql[1;34m(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize, dtype_backend, dtype)[0m
+[0;32m    706[0m [38;5;28;01mwith[39;00m pandasSQL_builder(con) [38;5;28;01mas[39;00m pandas_sql:
+[0;32m    707[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(pandas_sql, SQLiteDatabase):
+[1;32m--> 708[0m         [38;5;28;01mreturn[39;00m [43mpandas_sql[49m[38;5;241;43m.[39;49m[43mread_query[49m[43m([49m
+[0;32m    709[0m [43m            [49m[43msql[49m[43m,[49m
+[0;32m    710[0m [43m            [49m[43mindex_col[49m[38;5;241;43m=[39;49m[43mindex_col[49m[43m,[49m
+[0;32m    711[0m [43m            [49m[43mparams[49m[38;5;241;43m=[39;49m[43mparams[49m[43m,[49m
+[0;32m    712[0m [43m            [49m[43mcoerce_float[49m[38;5;241;43m=[39;49m[43mcoerce_float[49m[43m,[49m
+[0;32m    713[0m [43m            [49m[43mparse_dates[49m[38;5;241;43m=[39;49m[43mparse_dates[49m[43m,[49m
+[0;32m    714[0m [43m            [49m[43mchunksize[49m[38;5;241;43m=[39;49m[43mchunksize[49m[43m,[49m
+[0;32m    715[0m [43m            [49m[43mdtype_backend[49m[38;5;241;43m=[39;49m[43mdtype_backend[49m[43m,[49m
+[0;32m    716[0m [43m            [49m[43mdtype[49m[38;5;241;43m=[39;49m[43mdtype[49m[43m,[49m
+[0;32m    717[0m [43m        [49m[43m)[49m
+[0;32m    719[0m     [38;5;28;01mtry[39;00m:
+[0;32m    720[0m         _is_table_name [38;5;241m=[39m pandas_sql[38;5;241m.[39mhas_table(sql)
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2728[0m, in [0;36mSQLiteDatabase.read_query[1;34m(self, sql, index_col, coerce_float, parse_dates, params, chunksize, dtype, dtype_backend)[0m
+[0;32m   2717[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21mread_query[39m(
+[0;32m   2718[0m     [38;5;28mself[39m,
+[0;32m   2719[0m     sql,
+[1;32m   (...)[0m
+[0;32m   2726[0m     dtype_backend: DtypeBackend [38;5;241m|[39m Literal[[38;5;124m"[39m[38;5;124mnumpy[39m[38;5;124m"[39m] [38;5;241m=[39m [38;5;124m"[39m[38;5;124mnumpy[39m[38;5;124m"[39m,
+[0;32m   2727[0m ) [38;5;241m-[39m[38;5;241m>[39m DataFrame [38;5;241m|[39m Iterator[DataFrame]:
+[1;32m-> 2728[0m     cursor [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mexecute[49m[43m([49m[43msql[49m[43m,[49m[43m [49m[43mparams[49m[43m)[49m
+[0;32m   2729[0m     columns [38;5;241m=[39m [col_desc[[38;5;241m0[39m] [38;5;28;01mfor[39;00m col_desc [38;5;129;01min[39;00m cursor[38;5;241m.[39mdescription]
+[0;32m   2731[0m     [38;5;28;01mif[39;00m chunksize [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2662[0m, in [0;36mSQLiteDatabase.execute[1;34m(self, sql, params)[0m
+[0;32m   2660[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mQuery must be a string unless using sqlalchemy.[39m[38;5;124m"[39m)
+[0;32m   2661[0m args [38;5;241m=[39m [] [38;5;28;01mif[39;00m params [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m [params]
+[1;32m-> 2662[0m cur [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcon[49m[38;5;241;43m.[39;49m[43mcursor[49m()
+[0;32m   2663[0m [38;5;28;01mtry[39;00m:
+[0;32m   2664[0m     cur[38;5;241m.[39mexecute(sql, [38;5;241m*[39margs)
+
+[1;31mAttributeError[0m: 'Engine' object has no attribute 'cursor'
 

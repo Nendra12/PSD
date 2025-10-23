@@ -80,97 +80,68 @@ plt.show()
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mImportError[0m                               Traceback (most recent call last)
-Cell [1;32mIn[1], line 2[0m
-[0;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
-[1;32m----> 2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m 
+[1;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [1;32mIn[1], line 6[0m
 [0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
 [0;32m      5[0m [38;5;66;03m# load data[39;00m
+[1;32m----> 6[0m data [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdataset/iris.csv[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[0;32m      7[0m data [38;5;241m=[39m data[38;5;241m.[39mdrop(columns[38;5;241m=[39m[[38;5;124m"[39m[38;5;124miris[39m[38;5;124m"[39m])
+[0;32m      9[0m [38;5;66;03m# setup data PyCaret[39;00m
 
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\__init__.py:1[0m
-[1;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfunctional[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
-[0;32m      2[0m     assign_model,
-[0;32m      3[0m     create_model,
-[0;32m      4[0m     deploy_model,
-[0;32m      5[0m     evaluate_model,
-[0;32m      6[0m     get_config,
-[0;32m      7[0m     get_current_experiment,
-[0;32m      8[0m     get_logs,
-[0;32m      9[0m     load_experiment,
-[0;32m     10[0m     load_model,
-[0;32m     11[0m     models,
-[0;32m     12[0m     plot_model,
-[0;32m     13[0m     predict_model,
-[0;32m     14[0m     pull,
-[0;32m     15[0m     save_experiment,
-[0;32m     16[0m     save_model,
-[0;32m     17[0m     set_config,
-[0;32m     18[0m     set_current_experiment,
-[0;32m     19[0m     setup,
-[0;32m     20[0m )
-[0;32m     21[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;21;01m.[39;00m[38;5;21;01moop[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AnomalyExperiment
-[0;32m     23[0m __all__ [38;5;241m=[39m [
-[0;32m     24[0m     [38;5;124m"[39m[38;5;124mAnomalyExperiment[39m[38;5;124m"[39m,
-[0;32m     25[0m     [38;5;124m"[39m[38;5;124msetup[39m[38;5;124m"[39m,
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py:1026[0m, in [0;36mread_csv[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
+[0;32m   1013[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
+[0;32m   1014[0m     dialect,
+[0;32m   1015[0m     delimiter,
 [1;32m   (...)[0m
-[0;32m     42[0m     [38;5;124m"[39m[38;5;124mget_current_experiment[39m[38;5;124m"[39m,
-[0;32m     43[0m ]
+[0;32m   1022[0m     dtype_backend[38;5;241m=[39mdtype_backend,
+[0;32m   1023[0m )
+[0;32m   1024[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
+[1;32m-> 1026[0m [38;5;28;01mreturn[39;00m [43m_read[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[43mkwds[49m[43m)[49m
 
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\functional.py:8[0m
-[0;32m      5[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
-[0;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mjoblib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmemory[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Memory
-[1;32m----> 8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;21;01m.[39;00m[38;5;21;01moop[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AnomalyExperiment
-[0;32m      9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mloggers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_logger[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BaseLogger
-[0;32m     10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mconstants[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m DATAFRAME_LIKE, SEQUENCE_LIKE
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py:620[0m, in [0;36m_read[1;34m(filepath_or_buffer, kwds)[0m
+[0;32m    617[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
+[0;32m    619[0m [38;5;66;03m# Create the parser.[39;00m
+[1;32m--> 620[0m parser [38;5;241m=[39m TextFileReader(filepath_or_buffer, [38;5;241m*[39m[38;5;241m*[39mkwds)
+[0;32m    622[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
+[0;32m    623[0m     [38;5;28;01mreturn[39;00m parser
 
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\oop.py:6[0m
-[0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
-[0;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_all_metric_containers
-[1;32m----> 6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01manomaly[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_all_model_containers
-[0;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlogging[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_logger
-[0;32m      8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpycaret_experiment[39;00m[38;5;21;01m.[39;00m[38;5;21;01munsupervised_experiment[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
-[0;32m      9[0m     _UnsupervisedExperiment,
-[0;32m     10[0m )
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py:1620[0m, in [0;36mTextFileReader.__init__[1;34m(self, f, engine, **kwds)[0m
+[0;32m   1617[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
+[0;32m   1619[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m-> 1620[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_engine[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mengine[49m[43m)[49m
 
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\containers\models\anomaly.py:17[0m
-[0;32m     15[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_container[39;00m
-[0;32m     16[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcuml_wrappers[39;00m
-[1;32m---> 17[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_model[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ModelContainer
-[0;32m     18[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdistributions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Distribution
-[0;32m     19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgeneric[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_logger, param_grid_to_lists
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py:1880[0m, in [0;36mTextFileReader._make_engine[1;34m(self, f, engine)[0m
+[0;32m   1878[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
+[0;32m   1879[0m         mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m
+[1;32m-> 1880[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m [43mget_handle[49m[43m([49m
+[0;32m   1881[0m [43m    [49m[43mf[49m[43m,[49m
+[0;32m   1882[0m [43m    [49m[43mmode[49m[43m,[49m
+[0;32m   1883[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1884[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mcompression[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1885[0m [43m    [49m[43mmemory_map[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mmemory_map[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1886[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[43mis_text[49m[43m,[49m
+[0;32m   1887[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding_errors[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mstrict[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m,[49m
+[0;32m   1888[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mstorage_options[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1889[0m [43m[49m[43m)[49m
+[0;32m   1890[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[0;32m   1891[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
 
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\containers\models\base_model.py:9[0m
-[0;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontainers[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase_container[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BaseContainer
-[0;32m      8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdistributions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m CategoricalDistribution
-[1;32m----> 9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpycaret_experiment[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpycaret_experiment[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _PyCaretExperiment
-[0;32m     10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgeneric[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_allowed_engines, get_logger
-[0;32m     13[0m [38;5;28;01mclass[39;00m[38;5;250m [39m[38;5;21;01mModelContainer[39;00m(BaseContainer):
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\common.py:873[0m, in [0;36mget_handle[1;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[0;32m    868[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
+[0;32m    869[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
+[0;32m    870[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
+[0;32m    871[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
+[0;32m    872[0m         [38;5;66;03m# Encoding[39;00m
+[1;32m--> 873[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m
+[0;32m    874[0m [43m            [49m[43mhandle[49m[43m,[49m
+[0;32m    875[0m [43m            [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[0;32m    876[0m [43m            [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
+[0;32m    877[0m [43m            [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[0;32m    878[0m [43m            [49m[43mnewline[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[0;32m    879[0m [43m        [49m[43m)[49m
+[0;32m    880[0m     [38;5;28;01melse[39;00m:
+[0;32m    881[0m         [38;5;66;03m# Binary mode[39;00m
+[0;32m    882[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
 
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\internal\pycaret_experiment\pycaret_experiment.py:10[0m
-[0;32m      7[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mcloudpickle[39;00m
-[0;32m      8[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
-[1;32m---> 10[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpatches[39;00m[38;5;21;01m.[39;00m[38;5;21;01msklearn[39;00m
-[0;32m     11[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpatches[39;00m[38;5;21;01m.[39;00m[38;5;21;01myellowbrick[39;00m
-[0;32m     12[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpersistence[39;00m
-
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\internal\patches\sklearn.py:9[0m
-[0;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodel_selection[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_validation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _fit_and_score, _score
-[0;32m      7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m check_random_state
-[1;32m----> 9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpycaret[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternal[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpipeline[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m pipeline_predict_inverse_only
-[0;32m     11[0m [38;5;66;03m# Monkey patching sklearn.model_selection._search to avoid overflows on windows.[39;00m
-[0;32m     12[0m 
-[0;32m     13[0m 
-[0;32m     14[0m [38;5;66;03m# adapted from https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/utils/_random.pyx[39;00m
-[0;32m     15[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21m_mp_sample_without_replacement[39m(
-[0;32m     16[0m     n_population: [38;5;28mint[39m, n_samples: [38;5;28mint[39m, method[38;5;241m=[39m[38;5;28;01mNone[39;00m, random_state[38;5;241m=[39m[38;5;28;01mNone[39;00m
-[0;32m     17[0m ) [38;5;241m-[39m[38;5;241m>[39m Any:
-
-File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\internal\pipeline.py:19[0m
-[0;32m     17[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpipeline[39;00m
-[0;32m     18[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbase[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m clone
-[1;32m---> 19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _print_elapsed_time
-[0;32m     20[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetadata_routing[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _routing_enabled
-[0;32m     21[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetaestimators[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m available_if
-
-[1;31mImportError[0m: cannot import name '_print_elapsed_time' from 'sklearn.utils' (C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\__init__.py)
+[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'dataset/iris.csv'
 

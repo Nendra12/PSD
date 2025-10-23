@@ -181,13 +181,16 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="nav bd-sidenav">
@@ -201,6 +204,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="current nav bd-sidenav">
@@ -228,6 +232,9 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
 </ul>
 
     </div>
@@ -553,123 +560,56 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
-C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:512: RuntimeWarning: divide by zero encountered in log
-  jointi = np.log(self.class_prior_[i])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_5168\573352001.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, engine)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.75
-Classification Report:
-               precision    recall  f1-score   support
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;mysql+pymysql://root:@localhost/psd&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT mcg, gvh, lip, chg, aac, alm1, alm2, localization_class FROM ecoli&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">]</span>
 
-          cp       0.91      0.94      0.92        32
-          im       0.59      0.77      0.67        13
-         imS       0.00      0.00      0.00         1
-         imU       0.00      0.00      0.00         4
-          om       1.00      0.33      0.50         6
-         omL       1.00      1.00      1.00         1
-          pp       0.57      0.73      0.64        11
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:708,</span> in <span class="ni">read_sql</span><span class="nt">(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize, dtype_backend, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="k">with</span> <span class="n">pandasSQL_builder</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">as</span> <span class="n">pandas_sql</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pandas_sql</span><span class="p">,</span> <span class="n">SQLiteDatabase</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">708</span>         <span class="k">return</span> <span class="n">pandas_sql</span><span class="o">.</span><span class="n">read_query</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>             <span class="n">sql</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>             <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">712</span>             <span class="n">coerce_float</span><span class="o">=</span><span class="n">coerce_float</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">713</span>             <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">714</span>             <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span>             <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span>             <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>         <span class="n">_is_table_name</span> <span class="o">=</span> <span class="n">pandas_sql</span><span class="o">.</span><span class="n">has_table</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 
-    accuracy                           0.75        68
-   macro avg       0.58      0.54      0.53        68
-weighted avg       0.74      0.75      0.72        68
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2728,</span> in <span class="ni">SQLiteDatabase.read_query</span><span class="nt">(self, sql, index_col, coerce_float, parse_dates, params, chunksize, dtype, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2717</span> <span class="k">def</span><span class="w"> </span><span class="nf">read_query</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2718</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2719</span>     <span class="n">sql</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2726</span>     <span class="n">dtype_backend</span><span class="p">:</span> <span class="n">DtypeBackend</span> <span class="o">|</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;numpy&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2727</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">2728</span>     <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2729</span>     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2731</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2662,</span> in <span class="ni">SQLiteDatabase.execute</span><span class="nt">(self, sql, params)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2660</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Query must be a string unless using sqlalchemy.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2661</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[</span><span class="n">params</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">2662</span> <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2663</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2664</span>     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Engine&#39; object has no attribute &#39;cursor&#39;
 </pre></div>
 </div>
-<img alt="../_images/d70733c653bec1468a1c1018484abad3e11361f574b1643b236ce9c5639dda14.png" src="../_images/d70733c653bec1468a1c1018484abad3e11361f574b1643b236ce9c5639dda14.png" />
-<img alt="../_images/7dc3242178b8713dd693ce892681db58a77e32a7f45c8ceaeb619faa7b136e58.png" src="../_images/7dc3242178b8713dd693ce892681db58a77e32a7f45c8ceaeb619faa7b136e58.png" />
 </div>
 </div>
 </section>
@@ -761,9 +701,7 @@ om     143
 omL    143
 pp     143
 Name: count, dtype: int64
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi :  0.8296943231441049
+Akurasi :  0.8296943231441049
 Classification Report:
                precision    recall  f1-score   support
 
@@ -781,8 +719,8 @@ Classification Report:
 weighted avg       0.87      0.83      0.81       229
 </pre></div>
 </div>
-<img alt="../_images/b0339b017438d19fb595e40b2ef806facd3abf538c7961cc8785938a5cdd7762.png" src="../_images/b0339b017438d19fb595e40b2ef806facd3abf538c7961cc8785938a5cdd7762.png" />
-<img alt="../_images/0849c4387ef527813a5b45147eac26f54b33bf54ceb154a50edf5bc939e4ed9c.png" src="../_images/0849c4387ef527813a5b45147eac26f54b33bf54ceb154a50edf5bc939e4ed9c.png" />
+<img alt="../_images/8e3c36606089d2d9d08e0c571d8d93bf08e7d7090700c0fc0671818fcec3fbd6.png" src="../_images/8e3c36606089d2d9d08e0c571d8d93bf08e7d7090700c0fc0671818fcec3fbd6.png" />
+<img alt="../_images/1825257e46b891e89f66637d282433669ce1da9d9c128deb17e76ad4931cd985.png" src="../_images/1825257e46b891e89f66637d282433669ce1da9d9c128deb17e76ad4931cd985.png" />
 </div>
 </div>
 </section>
@@ -864,37 +802,35 @@ weighted avg       0.87      0.83      0.81       229
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>class
-im     149
+im     153
+pp     145
 imU    144
-pp     144
 cp     143
 om     143
 omL    143
 imS    142
 imL    142
 Name: count, dtype: int64
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8
+accuracy_score : 0.8571428571428571
 Classification Report:
                precision    recall  f1-score   support
 
-          cp       0.97      0.97      0.97        31
-          im       0.56      0.71      0.62        28
-         imL       1.00      1.00      1.00        26
-         imS       0.94      1.00      0.97        29
-         imU       0.72      0.42      0.53        31
-          om       1.00      0.47      0.64        36
-         omL       1.00      1.00      1.00        21
-          pp       0.56      1.00      0.72        28
+          cp       0.94      0.97      0.95        30
+          im       0.93      0.48      0.63        27
+         imL       1.00      1.00      1.00        31
+         imS       0.92      1.00      0.96        33
+         imU       0.79      0.91      0.85        33
+          om       1.00      0.46      0.63        28
+         omL       1.00      1.00      1.00        23
+          pp       0.58      1.00      0.73        26
 
-    accuracy                           0.80       230
-   macro avg       0.84      0.82      0.81       230
-weighted avg       0.84      0.80      0.79       230
+    accuracy                           0.86       231
+   macro avg       0.89      0.85      0.84       231
+weighted avg       0.89      0.86      0.85       231
 </pre></div>
 </div>
-<img alt="../_images/7f846d1060a55318efc5ebd79d94be326851848228c797b4e64510b045d9ebfa.png" src="../_images/7f846d1060a55318efc5ebd79d94be326851848228c797b4e64510b045d9ebfa.png" />
-<img alt="../_images/406d5877b92c06727d2d90ca2589b23e2086d333bacbaef555e4d50ac8420695.png" src="../_images/406d5877b92c06727d2d90ca2589b23e2086d333bacbaef555e4d50ac8420695.png" />
+<img alt="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" src="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" />
+<img alt="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" src="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" />
 </div>
 </div>
 </section>
@@ -958,8 +894,8 @@ weighted avg       0.84      0.80      0.79       230
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4527031de29ef63463f2d65ce9ee77bf7893d3531228159782fa3d609cf9af13.png" src="../_images/4527031de29ef63463f2d65ce9ee77bf7893d3531228159782fa3d609cf9af13.png" />
-<img alt="../_images/7078fed911274ef340f94a5613b5ecad657e36623c6ee5bc71f2745f93817ebd.png" src="../_images/7078fed911274ef340f94a5613b5ecad657e36623c6ee5bc71f2745f93817ebd.png" />
+<img alt="../_images/bacfa40b8c875270288f3486afe42fe662399c6339553b028470c741516f7449.png" src="../_images/bacfa40b8c875270288f3486afe42fe662399c6339553b028470c741516f7449.png" />
+<img alt="../_images/ba77d120d938a040ad7c0f378a92cb90b091dc09f473c0298ca006fdfa0011b9.png" src="../_images/ba77d120d938a040ad7c0f378a92cb90b091dc09f473c0298ca006fdfa0011b9.png" />
 </div>
 </div>
 <p>Berdasarkan grafik perbandingan akurasi Bagging Classifier dengan model Naive Bayes, dapat disimpulkan bahwa akurasi data asli masih lebih rendah yaitu sekitar 75%, sedangkan setelah dilakukan oversampling dengan SMOTE akurasi meningkat hingga 82,9%, dan dengan ADASYN akurasi juga meningkat menjadi 85,7%. Hal ini menunjukkan bahwa teknik oversampling, khususnya ADASYN, mampu memperbaiki performa model dibandingkan data asli yang tidak seimbang pada Bagging Classifier dengan model Naive Bayes.</p>

@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Business Understanding (iris)" href="bisnis.html" />
+    <link rel="next" title="Business Understanding (iris)" href="Bisnis_Understand/bisnis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,13 +182,16 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Understanding (Iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="nav bd-sidenav">
@@ -202,6 +205,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="nav bd-sidenav">
@@ -229,6 +233,9 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling/knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
 </ul>
 
     </div>
@@ -438,7 +445,8 @@ document.write(`
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -447,6 +455,8 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Understanding (Iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -462,6 +472,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="oversampling/oversampling.html#lakukan-penyeimbangan-data-menggunakan-adasyn-dan-smote">Lakukan penyeimbangan data menggunakan ADASYN dan SMOTE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oversampling/oversampling.html#perbandingan-penyeimbangan-data-menggunakan-smote-dan-adasyn">Perbandingan penyeimbangan data menggunakan SMOTE dan ADASYN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -491,6 +502,9 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="Modeling/baggingClassifier_decision_tree.html#baggingclassifier-menggunakan-metode-naive-bayes">BaggingClassifier Menggunakan Metode Naive Bayes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modeling/baggingClassifier_decision_tree.html#perbandingan-akurasi-bagging-classifire-dengan-model-decision-tree">Perbandingan Akurasi Bagging Classifire dengan model Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling/knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling/knn_regresion_copernicus%28smg%29.html#mengapa-r-squared-dan-mse-rendah-pada-eksperimen">Mengapa R-Squared dan MSE Rendah pada Eksperimen?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling/knn_regresion_copernicus%28smg%29.html#modeling-data-no2-semarang">Modeling Data NO<sub>2</sub> Semarang</a></li>
 </ul>
 </div>
 </section>
@@ -526,7 +540,7 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="bisnis.html"
+       href="Bisnis_Understand/bisnis.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
