@@ -181,13 +181,16 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
 <ul class="nav bd-sidenav">
@@ -201,6 +204,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="current nav bd-sidenav">
@@ -228,6 +232,9 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
 </ul>
 
     </div>
@@ -546,25 +553,56 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.7205882352941176
-Classification Report:
-               precision    recall  f1-score   support
-
-          cp       0.91      0.94      0.92        32
-          im       0.59      0.77      0.67        13
-         imS       0.00      0.00      0.00         1
-         imU       0.00      0.00      0.00         4
-          om       0.00      0.00      0.00         6
-         omL       1.00      1.00      1.00         1
-          pp       0.50      0.73      0.59        11
-
-    accuracy                           0.72        68
-   macro avg       0.43      0.49      0.45        68
-weighted avg       0.64      0.72      0.67        68
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_4960\4113414354.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, engine)
 </pre></div>
 </div>
-<img alt="../_images/f1a70fd6355730e6f7a7c86fd3c62113e25b98629ded344b99cfa4ca0a06570e.png" src="../_images/f1a70fd6355730e6f7a7c86fd3c62113e25b98629ded344b99cfa4ca0a06570e.png" />
-<img alt="../_images/885888b0741501f9e58003587fae546c7ac928667a64eae9033c5de69f57e77c.png" src="../_images/885888b0741501f9e58003587fae546c7ac928667a64eae9033c5de69f57e77c.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;mysql+pymysql://root:@localhost/psd&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT mcg, gvh, lip, chg, aac, alm1, alm2, localization_class FROM ecoli&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">]</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:708,</span> in <span class="ni">read_sql</span><span class="nt">(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize, dtype_backend, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="k">with</span> <span class="n">pandasSQL_builder</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">as</span> <span class="n">pandas_sql</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pandas_sql</span><span class="p">,</span> <span class="n">SQLiteDatabase</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">708</span>         <span class="k">return</span> <span class="n">pandas_sql</span><span class="o">.</span><span class="n">read_query</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>             <span class="n">sql</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">710</span>             <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">711</span>             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">712</span>             <span class="n">coerce_float</span><span class="o">=</span><span class="n">coerce_float</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">713</span>             <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">714</span>             <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span>             <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span>             <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>         <span class="n">_is_table_name</span> <span class="o">=</span> <span class="n">pandas_sql</span><span class="o">.</span><span class="n">has_table</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2728,</span> in <span class="ni">SQLiteDatabase.read_query</span><span class="nt">(self, sql, index_col, coerce_float, parse_dates, params, chunksize, dtype, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2717</span> <span class="k">def</span><span class="w"> </span><span class="nf">read_query</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2718</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2719</span>     <span class="n">sql</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2726</span>     <span class="n">dtype_backend</span><span class="p">:</span> <span class="n">DtypeBackend</span> <span class="o">|</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;numpy&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2727</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">2728</span>     <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2729</span>     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2731</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2662,</span> in <span class="ni">SQLiteDatabase.execute</span><span class="nt">(self, sql, params)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2660</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Query must be a string unless using sqlalchemy.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2661</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[</span><span class="n">params</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">2662</span> <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2663</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2664</span>     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Engine&#39; object has no attribute &#39;cursor&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -659,8 +697,8 @@ Classification Report:
 weighted avg       0.89      0.83      0.81       229
 </pre></div>
 </div>
-<img alt="../_images/f94f3178b3a087f703915dd32725b33afe6e033544d8040f1f9a622add38a523.png" src="../_images/f94f3178b3a087f703915dd32725b33afe6e033544d8040f1f9a622add38a523.png" />
-<img alt="../_images/4c2c3beb16159a20a2c0b3621b1accb7627d8955bad370cbbe12cc9d4bf43e7a.png" src="../_images/4c2c3beb16159a20a2c0b3621b1accb7627d8955bad370cbbe12cc9d4bf43e7a.png" />
+<img alt="../_images/25e373bc07aa993b2e76799708dd99a0d7873f70d15256ce0b5b0afb1aeac8ae.png" src="../_images/25e373bc07aa993b2e76799708dd99a0d7873f70d15256ce0b5b0afb1aeac8ae.png" />
+<img alt="../_images/b3d95bda42fa80ff15ed852bbe68c029b37c95476da888a76ec494ebf8d0cd31.png" src="../_images/b3d95bda42fa80ff15ed852bbe68c029b37c95476da888a76ec494ebf8d0cd31.png" />
 </div>
 </div>
 </section>
@@ -737,26 +775,26 @@ weighted avg       0.89      0.83      0.81       229
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8347826086956521
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy_score : 0.8571428571428571
 akurasi lengkap:
                precision    recall  f1-score   support
 
-          cp       0.97      0.97      0.97        31
-          im       0.85      0.61      0.71        28
-         imL       1.00      1.00      1.00        26
-         imS       0.94      1.00      0.97        29
-         imU       0.80      0.77      0.79        31
-          om       1.00      0.47      0.64        36
-         omL       1.00      1.00      1.00        21
-          pp       0.52      1.00      0.68        28
+          cp       0.94      0.97      0.95        30
+          im       0.93      0.48      0.63        27
+         imL       1.00      1.00      1.00        31
+         imS       0.92      1.00      0.96        33
+         imU       0.79      0.91      0.85        33
+          om       1.00      0.46      0.63        28
+         omL       1.00      1.00      1.00        23
+          pp       0.58      1.00      0.73        26
 
-    accuracy                           0.83       230
-   macro avg       0.88      0.85      0.84       230
-weighted avg       0.88      0.83      0.83       230
+    accuracy                           0.86       231
+   macro avg       0.89      0.85      0.84       231
+weighted avg       0.89      0.86      0.85       231
 </pre></div>
 </div>
-<img alt="../_images/1fcb5718b67d0014e75e130bfb10b5bb99e22357c275432f2a05e25b4a939e2f.png" src="../_images/1fcb5718b67d0014e75e130bfb10b5bb99e22357c275432f2a05e25b4a939e2f.png" />
-<img alt="../_images/0211b8377e543d1880f17c73508e09866b24a59588279c4b6eee5369e54c14a2.png" src="../_images/0211b8377e543d1880f17c73508e09866b24a59588279c4b6eee5369e54c14a2.png" />
+<img alt="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" src="../_images/5df571269e929b1c32a52b97953467035a0b298e04eda0b54c8f8e3d0f7c5066.png" />
+<img alt="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" src="../_images/3e7aab3682efae99c6a7f98e40a7a66947d24ec4d538f5ee60f32c9feb3d1907.png" />
 </div>
 </div>
 </section>
@@ -831,8 +869,8 @@ weighted avg       0.88      0.83      0.83       230
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/100b895cfb13216c5e2acd7e7769ee2dc8676bff6b486bc92ae082ab99bfbd0e.png" src="../_images/100b895cfb13216c5e2acd7e7769ee2dc8676bff6b486bc92ae082ab99bfbd0e.png" />
-<img alt="../_images/a0d7ebeffdeaf30fcf00f3a491cd3d3b74505e0b93527a6373faba1cb4ba2109.png" src="../_images/a0d7ebeffdeaf30fcf00f3a491cd3d3b74505e0b93527a6373faba1cb4ba2109.png" />
+<img alt="../_images/b72430f02e6587b4288203906e419a1c8f16b0fdd5f9449868ec0066735f3073.png" src="../_images/b72430f02e6587b4288203906e419a1c8f16b0fdd5f9449868ec0066735f3073.png" />
+<img alt="../_images/821b6c986d2144b24f86709de2aa9a57f93c255af57f149158b52d129821ce93.png" src="../_images/821b6c986d2144b24f86709de2aa9a57f93c255af57f149158b52d129821ce93.png" />
 </div>
 </div>
 <p>Berdasarkan grafik perbandingan akurasi klasifikasi Naive Bayes, terlihat bahwa pada data asli akurasi hanya mencapai 72,0%, namun setelah dilakukan oversampling dengan SMOTE akurasi meningkat menjadi 82,5%, dan dengan ADASYN akurasi meningkat lebih tinggi lagi hingga 85,7%. Hal ini menunjukkan bahwa penggunaan teknik oversampling, khususnya ADASYN, mampu memberikan hasil yang lebih baik dibandingkan data asli, sehingga model dapat mengatasi masalah ketidakseimbangan kelas dengan lebih efektif.</p>

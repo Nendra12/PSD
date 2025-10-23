@@ -4,19 +4,23 @@ root: intro
 parts:
   - caption: Business Understanding
     chapters:
-      - file: bisnis
+      - file: Bisnis_Understand/bisnis
+      - file: Bisnis_Understand/bisnis(Kesehatan Udara Semarang)
 
   - caption: Data Understanding
     chapters:
       - file: data
       - file: data/eksplorasi-data
       - file: data/get-data
+      - file: data/copernicus_smr
+      - file: data/eksplorasi_data(smg)
 
   - caption: Preprocessing
     chapters:
       - file: Preprocessing/preparation
       - file: oversampling/oversampling
       - file: Preprocessing/preparation(knime)
+      - file: Preprocessing/prep_copernicus(smg)
 
   - caption: Pemodelan
     chapters:
@@ -25,3 +29,4 @@ parts:
       - file: Modeling/baggingClassifier_naive_bayes
       - file: Modeling/baggingClassifier_decision_tree
       - file: Modeling/perbandingan_model
+      - file: Modeling/knn_regresion_copernicus(smg)
