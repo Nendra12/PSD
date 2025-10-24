@@ -33,7 +33,7 @@ df
 ------------------
 
 ----- stderr -----
-C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_12700\2435207326.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_13604\2435207326.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
   df = pd.read_sql(query, engine)
 ------------------
 

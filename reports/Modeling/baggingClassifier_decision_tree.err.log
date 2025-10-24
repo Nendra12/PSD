@@ -94,7 +94,7 @@ plt.show()
 ------------------
 
 ----- stderr -----
-C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_5284\2775674176.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_12860\2775674176.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
   df = pd.read_sql(query, engine)
 ------------------
 
