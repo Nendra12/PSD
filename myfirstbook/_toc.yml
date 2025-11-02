@@ -21,6 +21,7 @@ parts:
       - file: oversampling/oversampling
       - file: Preprocessing/preparation(knime)
       - file: Preprocessing/prep_copernicus(smg)
+      - file: Preprocessing/prep_buka_tutup_suara
 
   - caption: Pemodelan
     chapters:
@@ -30,3 +31,4 @@ parts:
       - file: Modeling/baggingClassifier_decision_tree
       - file: Modeling/perbandingan_model
       - file: Modeling/knn_regresion_copernicus(smg)
+      - file: Modeling/knn_buka_tutup_clasifier

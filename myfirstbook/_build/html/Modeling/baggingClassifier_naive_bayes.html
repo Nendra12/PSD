@@ -205,6 +205,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_buka_tutup_suara.html">Preprocessing Data Buka Tutup Suara</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
 <ul class="current nav bd-sidenav">
@@ -234,6 +235,8 @@
 <li class="toctree-l1"><a class="reference internal" href="perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
 
+
+<li class="toctree-l1"><a class="reference internal" href="knn_buka_tutup_clasifier.html">Modeling Identifikasi Suara Buka Tutup</a></li>
 
 </ul>
 
@@ -478,6 +481,137 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\__init__.py:159: UserWarning: A NumPy version &gt;=1.21.6 and &lt;1.28.0 is required for this version of SciPy (detected version 2.0.2)
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py&quot;, line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py&quot;, line 87, in _run_code
+    exec(code, run_globals)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\traitlets\config\application.py&quot;, line 1075, in launch_instance
+    app.start()
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\tornado\platform\asyncio.py&quot;, line 211, in start
+    self.asyncio_loop.run_forever()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py&quot;, line 596, in run_forever
+    self._run_once()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py&quot;, line 1890, in _run_once
+    handle._run()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3048, in run_cell
+    result = self._run_cell(
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3103, in _run_cell
+    result = runner(coro)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3308, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3490, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3550, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_12328\3332425864.py&quot;, line 2, in &lt;module&gt;
+    from sklearn.model_selection import train_test_split
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\__init__.py&quot;, line 82, in &lt;module&gt;
+    from .base import clone
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py&quot;, line 17, in &lt;module&gt;
+    from .utils import _IS_32BIT
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\__init__.py&quot;, line 17, in &lt;module&gt;
+    from scipy.sparse import issparse
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\__init__.py&quot;, line 274, in &lt;module&gt;
+    from ._csr import *
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\_csr.py&quot;, line 11, in &lt;module&gt;
+    from ._sparsetools import (csr_tocsc, csr_tobsr, csr_count_blocks,
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">82</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_distributor_init</span>  <span class="c1"># noqa: F401</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">__check_build</span>  <span class="c1"># noqa: F401</span>
+<span class="ne">---&gt; </span><span class="mi">82</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">clone</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils._show_versions</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_versions</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="s2">&quot;calibration&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="s2">&quot;cluster&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="s2">&quot;show_versions&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="n">base</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._config</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_config</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">_IS_32BIT</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils._set_output</span><span class="w"> </span><span class="kn">import</span> <span class="n">_SetOutputMixin</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils._tags</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">_DEFAULT_TAGS</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">sklearn</span>\<span class="n">utils</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">issparse</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.murmurhash</span><span class="w"> </span><span class="kn">import</span> <span class="n">murmurhash3_32</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.class_weight</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_class_weight</span><span class="p">,</span> <span class="n">compute_sample_weight</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">274</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_warnings</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="ne">--&gt; </span><span class="mi">274</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._csr</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._csc</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._lil</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">_csr</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._matrix</span><span class="w"> </span><span class="kn">import</span> <span class="n">spmatrix</span><span class="p">,</span> <span class="n">_array_doc_to_matrix</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">_spbase</span><span class="p">,</span> <span class="n">sparray</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._sparsetools</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">csr_tocsc</span><span class="p">,</span> <span class="n">csr_tobsr</span><span class="p">,</span> <span class="n">csr_count_blocks</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                            <span class="n">get_csr_submatrix</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._sputils</span><span class="w"> </span><span class="kn">import</span> <span class="n">upcast</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._compressed</span><span class="w"> </span><span class="kn">import</span> <span class="n">_cs_matrix</span>
+
+<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="baggingclassifier-menggunakan-metode-naive-bayes">
@@ -560,56 +694,123 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_7520\573352001.py:3: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
-  df = pd.read_sql(query, engine)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+c:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\naive_bayes.py:509: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;mysql+pymysql://root:@localhost/psd&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT mcg, gvh, lip, chg, aac, alm1, alm2, localization_class FROM ecoli&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.75
+Classification Report:
+               precision    recall  f1-score   support
 
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:708,</span> in <span class="ni">read_sql</span><span class="nt">(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize, dtype_backend, dtype)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="k">with</span> <span class="n">pandasSQL_builder</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">as</span> <span class="n">pandas_sql</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pandas_sql</span><span class="p">,</span> <span class="n">SQLiteDatabase</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">708</span>         <span class="k">return</span> <span class="n">pandas_sql</span><span class="o">.</span><span class="n">read_query</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>             <span class="n">sql</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span>             <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span>             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">712</span>             <span class="n">coerce_float</span><span class="o">=</span><span class="n">coerce_float</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span>             <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">714</span>             <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span>             <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">716</span>             <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">717</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">719</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">720</span>         <span class="n">_is_table_name</span> <span class="o">=</span> <span class="n">pandas_sql</span><span class="o">.</span><span class="n">has_table</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+          cp       0.91      0.94      0.92        32
+          im       0.59      0.77      0.67        13
+         imS       0.00      0.00      0.00         1
+         imU       0.00      0.00      0.00         4
+          om       1.00      0.33      0.50         6
+         omL       1.00      1.00      1.00         1
+          pp       0.57      0.73      0.64        11
 
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2728,</span> in <span class="ni">SQLiteDatabase.read_query</span><span class="nt">(self, sql, index_col, coerce_float, parse_dates, params, chunksize, dtype, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2717</span> <span class="k">def</span><span class="w"> </span><span class="nf">read_query</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2718</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2719</span>     <span class="n">sql</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2726</span>     <span class="n">dtype_backend</span><span class="p">:</span> <span class="n">DtypeBackend</span> <span class="o">|</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;numpy&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2727</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">DataFrame</span><span class="p">]:</span>
-<span class="ne">-&gt; </span><span class="mi">2728</span>     <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2729</span>     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2731</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\sql.py:2662,</span> in <span class="ni">SQLiteDatabase.execute</span><span class="nt">(self, sql, params)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2660</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Query must be a string unless using sqlalchemy.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2661</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[</span><span class="n">params</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">2662</span> <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2663</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2664</span>     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;Engine&#39; object has no attribute &#39;cursor&#39;
+    accuracy                           0.75        68
+   macro avg       0.58      0.54      0.53        68
+weighted avg       0.74      0.75      0.72        68
 </pre></div>
 </div>
+<img alt="../_images/b5b9705bc90c1f8d207fca3afd55d853b0be696bf2f651f7070d3c19e42b2cef.png" src="../_images/b5b9705bc90c1f8d207fca3afd55d853b0be696bf2f651f7070d3c19e42b2cef.png" />
+<img alt="../_images/ea59b6ea128def67e9f8abdea0615c5715d2966e54c3121318ccc6da5fb63c16.png" src="../_images/ea59b6ea128def67e9f8abdea0615c5715d2966e54c3121318ccc6da5fb63c16.png" />
 </div>
 </div>
 </section>
