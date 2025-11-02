@@ -22,16 +22,10 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
-import numpy as np
+from matplotlib import rcParams, cycler
 import matplotlib.pyplot as plt
-import seaborn as sns
-from sqlalchemy import create_engine
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
-from collections import Counter
-from imblearn.over_sampling import ADASYN
-from imblearn.over_sampling import SMOTE
+import numpy as np
+plt.ion()
 ------------------
 
 ----- stderr -----
@@ -89,8 +83,8 @@ Traceback (most recent call last):  File "C:\Users\USERB-PC\AppData\Local\Progra
     if await self.run_code(code, result, async_=asy):
   File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3550, in run_code
     exec(code_obj, self.user_global_ns, self.user_ns)
-  File "C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_15592\1181092413.py", line 3, in <module>
-    import matplotlib.pyplot as plt
+  File "C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_1060\2191868119.py", line 1, in <module>
+    from matplotlib import rcParams, cycler
   File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\__init__.py", line 158, in <module>
     from . import _api, _version, cbook, _docstring, rcsetup
   File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\rcsetup.py", line 27, in <module>
@@ -107,12 +101,10 @@ Traceback (most recent call last):  File "C:\Users\USERB-PC\AppData\Local\Progra
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mImportError[0m                               Traceback (most recent call last)
-Cell [1;32mIn[1], line 3[0m
-[0;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
-[0;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
-[1;32m----> 3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
-[0;32m      4[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mseaborn[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01msns[39;00m
-[0;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msqlalchemy[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m create_engine
+Cell [1;32mIn[1], line 1[0m
+[1;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m rcParams, cycler
+[0;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
+[0;32m      3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
 
 File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\__init__.py:158[0m
 [0;32m    154[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mpackaging[39;00m[38;5;21;01m.[39;00m[38;5;21;01mversion[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m parse [38;5;28;01mas[39;00m parse_version

@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Preprocessing Data Buka Tutup Suara &#8212; Proyek Data Science Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Preprocessing/prep_buka_tutup_suara';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Random Forest Classifier (ECOLI)" href="../Modeling/klasifikasi_random_forest_hasil.html" />
+    <link rel="prev" title="Preprocessing Data (NO2 Semarang)" href="prep_copernicus%28smg%29.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/aku.jpg" class="logo__image only-light" alt="Proyek Data Science Notebooks - Home"/>
+    <script>document.write(`<img src="../_static/aku.jpg" class="logo__image only-dark" alt="Proyek Data Science Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    My Profile
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Preprocessing Data Buka Tutup Suara</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/knn_buka_tutup_clasifier.html">Modeling Identifikasi Suara Buka Tutup</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPreprocessing/prep_buka_tutup_suara.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Preprocessing/prep_buka_tutup_suara.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Preprocessing Data Buka Tutup Suara</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-dataset">Open Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-preprocessing">Fungsi Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-metadata">Membuat Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="preprocessing-data-buka-tutup-suara">
+<h1>Preprocessing Data Buka Tutup Suara<a class="headerlink" href="#preprocessing-data-buka-tutup-suara" title="Link to this heading">#</a></h1>
+<section id="import-library">
+<h2>Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">librosa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">librosa.display</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">librosa</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">librosa.display</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;librosa&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="open-dataset">
+<h2>Open Dataset<a class="headerlink" href="#open-dataset" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="s2">&quot;../dataset/dataset48k/train/&quot;</span>
+<span class="n">val</span> <span class="o">=</span> <span class="s2">&quot;../dataset/dataset48k/val&quot;</span>
+
+<span class="n">input_base</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+<span class="n">output_base</span> <span class="o">=</span> <span class="s2">&quot;data_preprocessed&quot;</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_base</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-preprocessing">
+<h2>Fungsi Preprocessing<a class="headerlink" href="#fungsi-preprocessing" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_audio</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="mi">16000</span><span class="p">):</span>
+    <span class="c1"># Load audio</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+    
+    <span class="c1"># Trim silence</span>
+    <span class="n">y_trimmed</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">top_db</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    
+    <span class="c1"># Normalisasi amplitudo</span>
+    <span class="n">y_norm</span> <span class="o">=</span> <span class="n">y_trimmed</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trimmed</span><span class="p">))</span>
+    
+    <span class="c1"># Simpan</span>
+    <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">y_norm</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="membuat-metadata">
+<h2>Membuat Metadata<a class="headerlink" href="#membuat-metadata" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">split_path</span><span class="p">,</span> <span class="n">split_name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">train</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">)]:</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;buka&quot;</span><span class="p">,</span> <span class="s2">&quot;tutup&quot;</span><span class="p">]:</span>
+        <span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">split_path</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="n">output_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_base</span><span class="p">,</span> <span class="n">split_name</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.wav&quot;</span><span class="p">):</span>
+                <span class="n">in_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                <span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">preprocess_audio</span><span class="p">(</span><span class="n">in_path</span><span class="p">,</span> <span class="n">out_path</span><span class="p">)</span>
+                    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s2">&quot;split&quot;</span><span class="p">:</span> <span class="n">split_name</span><span class="p">,</span>
+                        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+                        <span class="s2">&quot;file_path&quot;</span><span class="p">:</span> <span class="n">out_path</span>
+                    <span class="p">})</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="n">metadata</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_base</span><span class="p">,</span> <span class="s2">&quot;metadata.csv&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Preprocessing selesai! Metadata disimpan di dataset_preprocessed/metadata.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_10468\2553134023.py:9: RuntimeWarning: invalid value encountered in divide
+  y_norm = y_trimmed / np.max(np.abs(y_trimmed))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preprocessing selesai! Metadata disimpan di dataset_preprocessed/metadata.csv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preprocessing-data">
+<h2>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="s2">&quot;buka&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">original_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="s2">&quot;buka&quot;</span><span class="p">,</span> <span class="n">example_file</span><span class="p">)</span>
+<span class="n">preprocessed_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_base</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;buka&quot;</span><span class="p">,</span> <span class="n">example_file</span><span class="p">)</span>
+
+<span class="n">y_orig</span><span class="p">,</span> <span class="n">sr_orig</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">original_file</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="mi">16000</span><span class="p">)</span>
+<span class="n">y_proc</span><span class="p">,</span> <span class="n">sr_proc</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">preprocessed_file</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="mi">16000</span><span class="p">)</span>
+
+<span class="n">durasi_asli</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y_orig</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr_orig</span><span class="p">)</span>
+<span class="n">durasi_baru</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y_proc</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr_proc</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Durasi sebelum preprocessing : </span><span class="si">{</span><span class="n">durasi_asli</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> detik&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Durasi sesudah preprocessing : </span><span class="si">{</span><span class="n">durasi_baru</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> detik</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y_orig</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr_orig</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Waveform Sebelum Preprocessing&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Waktu (detik)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitudo&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y_proc</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr_proc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Waveform Sesudah Preprocessing (Trim &amp; Normalisasi)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Waktu (detik)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitudo&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Sebelum preprocessing:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Audio</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">y_orig</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr_orig</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Sesudah preprocessing:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Audio</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">y_proc</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr_proc</span><span class="p">))</span>
+
+<span class="n">S_orig</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y_orig</span><span class="p">)),</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+<span class="n">S_proc</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y_proc</span><span class="p">)),</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S_orig</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr_orig</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%+2.f dB&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spectrogram Sebelum Preprocessing&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S_proc</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr_proc</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%+2.f dB&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spectrogram Sesudah Preprocessing&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Durasi sebelum preprocessing : 1.00 detik
+Durasi sesudah preprocessing : 0.32 detik
+</pre></div>
+</div>
+<img alt="../_images/eba469898782565701641bbcd10488898d553b89bac2fc6d66e42a4ffbee2aa9.png" src="../_images/eba469898782565701641bbcd10488898d553b89bac2fc6d66e42a4ffbee2aa9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Sebelum preprocessing:
+</pre></div>
+</div>
+<div class="output text_html">
+                <audio  controls="controls" >
+                    <source src="data:audio/wav;base64,UklGRhB9AABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0Yex8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQD//0YAbgCNAGYAKgBBAB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" type="audio/wav" />
+                    Your browser does not support the audio element.
+                </audio>
+              </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Sesudah preprocessing:
+</pre></div>
+</div>
+<div class="output text_html">
+                <audio  controls="controls" >
+                    <source src="data:audio/wav;base64,UklGRiQoAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAoAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAP//AAAAAAAA//8AAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAAAAD/////////////AAAAAP////8AAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAD/////AAD//wAAAAAAAP//AAD/////AAAAAAAA//8AAP//AAAAAAAAAAAAAP//AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA//8AAP//AAD/////AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA/////wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAAAAP//AAD//wAA//8AAP//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RADL/1T/Yv9j/8X/9v8XAHAAkwBBAPX/sf+T/5H/mP/D/9z/nwAnASoBfQD0/wgA+f8FAPr/BQD3/zcArQA1APz/8f/E/7//hf/B//n/JgBwAF0ADwD8/wIA+//N/8r////8/yIAPgAPAP3///8CAO//w//Q//r/AwD7/xAAPgAiAP3//v/K/83/+/8BAP3/AgD6/yYALADV/8n/x//r/wcA+f8GAPb/KwAlAPz/AAAAAP7/AQD+/wEA/v///x0ACwD5/wYA7v+k/47/lv/m/wgA+v8DAP3/AAABAN3/xP/J/+r/BwD7/wMA/f8CAP3/AwDd/8D/3v8CAP////8AAP7/AQD+/wEA/v8CAP3/AgD9/wMA+/8FAPX/ZADtAnAHrwudDdsMtgpsCGAGyQRyA4wCWAIuAycEPwSeA9sBxv8g/mD9Rv71/7ABxgJZA6gD5ANgA5cBBwBL/yL/0P/zAJEBmQHqADQAj/+9/iD+G/4K/rT+9f/eAIEBTAGPAMj/aP9e/5D/lf/U/xcAkADeALgAawCQ/77+dv7e/oX/1v8oADYARAB2AFYA8P9t/1n/a//k/y4AXwBcADQAFAD8/97/jP+a/4j/yv8JAPr/SgBPACEA7v/D/8//wv/x/wAAAgD5/xcAFAD9/9//wv/N/8n//v///wAA//8AAP7/AgDf/7T/jP+6/wEA/f8BAP7/AQD+/wEA/v8CAN7/wP/e/wIA//8AAAAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAAAA//8CAN7/wP/e/wIA//8AAAAA//8AAP//AAD//wAAAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wMAMwA3ADMAAgADADAABAD+/wAA//8AAP//AAD//wAA/////wAA//8AAP//AQD+/wEA/v8BAP3/AgD9/wIA/f8DAPz/BAD2/0wAUQLIBAIHYQg9CAQHuwU8BNYC1QEeAQkBngGDAokC6gGYADP/s/30/Hf9D/4j/yYA7gCzAfsBigGiAMn/jv+T//f/qAA4AXsBNwFwAMv/bv+Y/jj+iP4h/9D/WQC3AL4AaADt/6X/jP+k/+//BABRAJYApwB9ACkA2f9U/2T/VP9z/9b/DQAcAAAA/f8EANv/xf/L/8r////+/1gAZAAKAAAA/v8BAP7/AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAAAAD//wAA//8AAP//AAD+/wEA/f8DAPn/FgAWAPn/AwD9/wEA/v8AAP//AAD//wAA/////wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP////8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAAAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAAAAP//AAD//wAA//8AAP//AAD//wAA/////w0ABAEcApUCrQIzArcBKAHhAG8ALQA7ADAAWgBzAEYA3v+3/2z/Wf9f/7L/BwD2/ykANAA7ACIA/v/8/8//xP/v/wIA" type="audio/wav" />
+                    Your browser does not support the audio element.
+                </audio>
+              </div><img alt="../_images/cd35c7547bc5b61bbaf69647f23bd41c5d2b9db75ab46401fa134437c8a2a995.png" src="../_images/cd35c7547bc5b61bbaf69647f23bd41c5d2b9db75ab46401fa134437c8a2a995.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_base</span><span class="p">,</span> <span class="s2">&quot;metadata_buka_tutup_suara.csv&quot;</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_features</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="mi">16000</span><span class="p">)</span>
+    
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">rms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">rms</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">zcr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">zero_crossing_rate</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    
+    <span class="n">centroid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_centroid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
+    <span class="n">bandwidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_bandwidth</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
+    <span class="n">contrast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_contrast</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
+    <span class="n">rolloff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">spectral_rolloff</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="n">file_path</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+        <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">mean</span><span class="p">,</span>
+        <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="n">std</span><span class="p">,</span>
+        <span class="s2">&quot;rms&quot;</span><span class="p">:</span> <span class="n">rms</span><span class="p">,</span>
+        <span class="s2">&quot;zcr&quot;</span><span class="p">:</span> <span class="n">zcr</span><span class="p">,</span>
+        <span class="s2">&quot;centroid&quot;</span><span class="p">:</span> <span class="n">centroid</span><span class="p">,</span>
+        <span class="s2">&quot;bandwidth&quot;</span><span class="p">:</span> <span class="n">bandwidth</span><span class="p">,</span>
+        <span class="s2">&quot;contrast&quot;</span><span class="p">:</span> <span class="n">contrast</span><span class="p">,</span>
+        <span class="s2">&quot;rolloff&quot;</span><span class="p">:</span> <span class="n">rolloff</span>
+    <span class="p">}</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">feat</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;file_path&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feat</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;file_path&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">features_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">features_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_base</span><span class="p">,</span> <span class="s2">&quot;features_buka_tutup.csv&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Preprocessing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="prep_copernicus%28smg%29.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Preprocessing Data (NO<sub>2</sub> Semarang)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Modeling/klasifikasi_random_forest_hasil.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Random Forest Classifier (ECOLI)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-dataset">Open Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-preprocessing">Fungsi Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-metadata">Membuat Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danendra Mahardhika
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
