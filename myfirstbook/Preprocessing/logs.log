@@ -57,3 +57,6 @@
 2025-11-02 21:55:06,454:WARNING:C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\__init__.py:159: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 2.0.2)
   warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
 
+2025-11-10 00:54:12,244:WARNING:C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\__init__.py:159: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 2.0.2)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+

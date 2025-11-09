@@ -32,3 +32,7 @@ parts:
       - file: Modeling/perbandingan_model
       - file: Modeling/knn_regresion_copernicus(smg)
       - file: Modeling/knn_buka_tutup_clasifier
+
+  - caption: Mengolah Data Suara Buka Tutup + Pengenalan Suara
+    chapters:
+      - file: Preprocessing/preprocessing_buka_tutup_v2
