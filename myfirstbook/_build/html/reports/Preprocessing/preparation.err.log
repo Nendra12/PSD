@@ -133,7 +133,7 @@ Traceback (most recent call last):  File "C:\Users\USERB-PC\AppData\Local\Progra
     if await self.run_code(code, result, async_=asy):
   File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3550, in run_code
     exec(code_obj, self.user_global_ns, self.user_ns)
-  File "C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_8996\3271000241.py", line 2, in <module>
+  File "C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_14432\3271000241.py", line 2, in <module>
     from pycaret.anomaly import *
   File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\pycaret\anomaly\__init__.py", line 1, in <module>
     from pycaret.anomaly.functional import (
