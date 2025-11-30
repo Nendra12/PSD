@@ -36,3 +36,4 @@ parts:
   - caption: Mengolah Data Suara Buka Tutup + Pengenalan Suara
     chapters:
       - file: Preprocessing/preprocessing_buka_tutup_v2
+      - file: Buka-tutup/dtw
