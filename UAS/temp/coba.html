@@ -1,0 +1,1056 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Proyek Data Science Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'UAS/temp/coba';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/aku.jpg" class="logo__image only-light" alt="Proyek Data Science Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/aku.jpg" class="logo__image only-dark" alt="Proyek Data Science Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    My Profile
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">Data Understanding (Iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Preprocessing/preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Preprocessing/prep_buka_tutup_suara.html">Preprocessing Data Buka Tutup Suara</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Modeling/knn_buka_tutup_clasifier.html">Modeling Identifikasi Suara Buka Tutup</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mengolah Data Suara Buka Tutup + Pengenalan Suara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Preprocessing/preprocessing_buka_tutup_v2.html">Aplikasi Deteksi Suara Buka-Tutup</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../Buka-tutup/dtw.html">Mencari Jarak Suara Menggunakan DTW</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project UAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../BusinessUnderstanding.html">Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataUnderstanding.html">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Pre-Processing.html">Pre-Processing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modeling.html">Modeling</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUAS/temp/coba.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/UAS/temp/coba.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">arff</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\__init__.py:159: UserWarning: A NumPy version &gt;=1.21.6 and &lt;1.28.0 is required for this version of SciPy (detected version 2.0.2)
+  warnings.warn(f&quot;A NumPy version &gt;={np_minversion} and &lt;{np_maxversion}&quot;
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py&quot;, line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py&quot;, line 87, in _run_code
+    exec(code, run_globals)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\traitlets\config\application.py&quot;, line 1075, in launch_instance
+    app.start()
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\tornado\platform\asyncio.py&quot;, line 211, in start
+    self.asyncio_loop.run_forever()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py&quot;, line 596, in run_forever
+    self._run_once()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py&quot;, line 1890, in _run_once
+    handle._run()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3048, in run_cell
+    result = self._run_cell(
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3103, in _run_cell
+    result = runner(coro)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3308, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3490, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3550, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_3380\4061081034.py&quot;, line 1, in &lt;module&gt;
+    from scipy.io import arff
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\io\__init__.py&quot;, line 97, in &lt;module&gt;
+    from .matlab import loadmat, savemat, whosmat
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\io\matlab\__init__.py&quot;, line 45, in &lt;module&gt;
+    from ._mio import loadmat, savemat, whosmat
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\io\matlab\_mio.py&quot;, line 9, in &lt;module&gt;
+    from ._mio4 import MatFile4Reader, MatFile4Writer
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\io\matlab\_mio4.py&quot;, line 8, in &lt;module&gt;
+    import scipy.sparse
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\__init__.py&quot;, line 274, in &lt;module&gt;
+    from ._csr import *
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\_csr.py&quot;, line 11, in &lt;module&gt;
+    from ._sparsetools import (csr_tocsc, csr_tobsr, csr_count_blocks,
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">arff</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">io</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">97</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> ==================================</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Input and output (:mod:`scipy.io`)</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">    ParseArffError</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="c1"># matfile read and write</span>
+<span class="ne">---&gt; </span><span class="mi">97</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.matlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">savemat</span><span class="p">,</span> <span class="n">whosmat</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="c1"># netCDF file support</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._netcdf</span><span class="w"> </span><span class="kn">import</span> <span class="n">netcdf_file</span><span class="p">,</span> <span class="n">netcdf_variable</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">io</span>\<span class="n">matlab</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">45</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> MATLAB® file utilies (:mod:`scipy.io.matlab`)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> =============================================</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="c1"># Matlab file read and write utilities</span>
+<span class="ne">---&gt; </span><span class="mi">45</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._mio</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span><span class="p">,</span> <span class="n">savemat</span><span class="p">,</span> <span class="n">whosmat</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._mio5</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatlabFunction</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._mio5_params</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatlabObject</span><span class="p">,</span> <span class="n">MatlabOpaque</span><span class="p">,</span> <span class="n">mat_struct</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">io</span>\<span class="n">matlab</span>\<span class="n">_mio</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._miobase</span><span class="w"> </span><span class="kn">import</span> <span class="n">_get_matfile_version</span><span class="p">,</span> <span class="n">docfiller</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._mio4</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatFile4Reader</span><span class="p">,</span> <span class="n">MatFile4Writer</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._mio5</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatFile5Reader</span><span class="p">,</span> <span class="n">MatFile5Writer</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mat_reader_factory&#39;</span><span class="p">,</span> <span class="s1">&#39;loadmat&#39;</span><span class="p">,</span> <span class="s1">&#39;savemat&#39;</span><span class="p">,</span> <span class="s1">&#39;whosmat&#39;</span><span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">io</span>\<span class="n">matlab</span>\<span class="n">_mio4</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.sparse</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._miobase</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">MatFileReader</span><span class="p">,</span> <span class="n">docfiller</span><span class="p">,</span> <span class="n">matdims</span><span class="p">,</span> <span class="n">read_dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                       <span class="n">convert_dtypes</span><span class="p">,</span> <span class="n">arr_to_chars</span><span class="p">,</span> <span class="n">arr_dtype_number</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._mio_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">squeeze_element</span><span class="p">,</span> <span class="n">chars_to_strings</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">274</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_warnings</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="ne">--&gt; </span><span class="mi">274</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._csr</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._csc</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._lil</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">scipy</span>\<span class="n">sparse</span>\<span class="n">_csr</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._matrix</span><span class="w"> </span><span class="kn">import</span> <span class="n">spmatrix</span><span class="p">,</span> <span class="n">_array_doc_to_matrix</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">_spbase</span><span class="p">,</span> <span class="n">sparray</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._sparsetools</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">csr_tocsc</span><span class="p">,</span> <span class="n">csr_tobsr</span><span class="p">,</span> <span class="n">csr_count_blocks</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                            <span class="n">get_csr_submatrix</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._sputils</span><span class="w"> </span><span class="kn">import</span> <span class="n">upcast</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._compressed</span><span class="w"> </span><span class="kn">import</span> <span class="n">_cs_matrix</span>
+
+<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">arff</span><span class="o">.</span><span class="n">loadarff</span><span class="p">(</span><span class="s2">&quot;AsphaltPavementType_eq_TRAIN.arff&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 3. Kadang label/kategori masih bertipe bytes, ubah ke string</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>   <span class="c1"># biasanya kolom class/label</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># 4. Simpan ke CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;AsphaltPavementType_TRAIN.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Selesai! File CSV tersimpan sebagai AsphaltPavementType.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selesai! File CSV tersimpan sebagai AsphaltPavementType.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;AsphaltPavementType_TRAIN.csv&quot;</span><span class="p">)</span>
+<span class="n">pd_new</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TimeSeriesData_0</th>
+      <th>TimeSeriesData_1</th>
+      <th>TimeSeriesData_2</th>
+      <th>TimeSeriesData_3</th>
+      <th>TimeSeriesData_4</th>
+      <th>TimeSeriesData_5</th>
+      <th>TimeSeriesData_6</th>
+      <th>TimeSeriesData_7</th>
+      <th>TimeSeriesData_8</th>
+      <th>TimeSeriesData_9</th>
+      <th>...</th>
+      <th>TimeSeriesData_2362</th>
+      <th>TimeSeriesData_2363</th>
+      <th>TimeSeriesData_2364</th>
+      <th>TimeSeriesData_2365</th>
+      <th>TimeSeriesData_2366</th>
+      <th>TimeSeriesData_2367</th>
+      <th>TimeSeriesData_2368</th>
+      <th>TimeSeriesData_2369</th>
+      <th>TimeSeriesData_2370</th>
+      <th>ClassLabel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2.876570</td>
+      <td>1.663488</td>
+      <td>-4.498386</td>
+      <td>3.488434</td>
+      <td>0.395251</td>
+      <td>-3.587129</td>
+      <td>0.773357</td>
+      <td>-0.915250</td>
+      <td>2.573000</td>
+      <td>1.361841</td>
+      <td>...</td>
+      <td>-0.053895</td>
+      <td>0.036566</td>
+      <td>-0.031380</td>
+      <td>0.075436</td>
+      <td>-0.011254</td>
+      <td>-0.049133</td>
+      <td>0.024650</td>
+      <td>-0.054421</td>
+      <td>0.021338</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.701747</td>
+      <td>-0.570766</td>
+      <td>0.566515</td>
+      <td>-0.218081</td>
+      <td>1.199675</td>
+      <td>2.872561</td>
+      <td>1.940022</td>
+      <td>-2.274027</td>
+      <td>1.609701</td>
+      <td>4.039853</td>
+      <td>...</td>
+      <td>-0.032685</td>
+      <td>-0.029768</td>
+      <td>-0.018517</td>
+      <td>0.107980</td>
+      <td>0.081965</td>
+      <td>0.092394</td>
+      <td>0.068861</td>
+      <td>-0.019790</td>
+      <td>0.017132</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.369829</td>
+      <td>-3.141377</td>
+      <td>3.529192</td>
+      <td>2.660682</td>
+      <td>2.462394</td>
+      <td>-1.882157</td>
+      <td>0.104404</td>
+      <td>0.942166</td>
+      <td>1.283458</td>
+      <td>-3.968304</td>
+      <td>...</td>
+      <td>0.472872</td>
+      <td>0.495197</td>
+      <td>0.335800</td>
+      <td>0.503290</td>
+      <td>0.559216</td>
+      <td>0.552964</td>
+      <td>0.396256</td>
+      <td>0.528568</td>
+      <td>0.570236</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.916818</td>
+      <td>-3.653964</td>
+      <td>-3.222407</td>
+      <td>5.952949</td>
+      <td>-2.532802</td>
+      <td>-1.536643</td>
+      <td>2.157628</td>
+      <td>0.213207</td>
+      <td>-0.088351</td>
+      <td>2.634485</td>
+      <td>...</td>
+      <td>0.084240</td>
+      <td>-0.015055</td>
+      <td>0.062965</td>
+      <td>-0.027785</td>
+      <td>0.127377</td>
+      <td>0.109734</td>
+      <td>0.051033</td>
+      <td>0.078114</td>
+      <td>0.051622</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.233004</td>
+      <td>0.050001</td>
+      <td>-2.284447</td>
+      <td>-1.813584</td>
+      <td>2.641198</td>
+      <td>-1.083767</td>
+      <td>2.177665</td>
+      <td>-0.227288</td>
+      <td>-1.730810</td>
+      <td>1.752036</td>
+      <td>...</td>
+      <td>0.023642</td>
+      <td>-0.023909</td>
+      <td>-0.093946</td>
+      <td>0.022844</td>
+      <td>0.023458</td>
+      <td>0.025328</td>
+      <td>-0.062764</td>
+      <td>-0.055489</td>
+      <td>-0.072873</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1050</th>
+      <td>-0.681330</td>
+      <td>-1.714881</td>
+      <td>0.425008</td>
+      <td>1.402224</td>
+      <td>0.813960</td>
+      <td>-0.484711</td>
+      <td>0.138932</td>
+      <td>-0.251812</td>
+      <td>0.203815</td>
+      <td>0.239904</td>
+      <td>...</td>
+      <td>0.016005</td>
+      <td>0.056199</td>
+      <td>0.042571</td>
+      <td>0.055349</td>
+      <td>0.053476</td>
+      <td>0.018686</td>
+      <td>0.062352</td>
+      <td>0.024961</td>
+      <td>0.027296</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1051</th>
+      <td>0.677781</td>
+      <td>-1.412142</td>
+      <td>0.170287</td>
+      <td>1.392165</td>
+      <td>-1.627126</td>
+      <td>0.821643</td>
+      <td>0.581275</td>
+      <td>0.268949</td>
+      <td>-0.791319</td>
+      <td>-0.820968</td>
+      <td>...</td>
+      <td>0.005860</td>
+      <td>0.000504</td>
+      <td>-0.027935</td>
+      <td>-0.025938</td>
+      <td>-0.025559</td>
+      <td>-0.021711</td>
+      <td>-0.015734</td>
+      <td>0.008262</td>
+      <td>-0.033170</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1052</th>
+      <td>-1.667052</td>
+      <td>-0.047334</td>
+      <td>-0.492932</td>
+      <td>-0.384893</td>
+      <td>0.201629</td>
+      <td>-1.688204</td>
+      <td>-1.411843</td>
+      <td>-0.631456</td>
+      <td>0.717489</td>
+      <td>0.036510</td>
+      <td>...</td>
+      <td>0.021643</td>
+      <td>0.020918</td>
+      <td>0.006632</td>
+      <td>0.039434</td>
+      <td>0.005760</td>
+      <td>-0.010053</td>
+      <td>0.042932</td>
+      <td>0.027137</td>
+      <td>0.024573</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1053</th>
+      <td>0.142439</td>
+      <td>-0.945203</td>
+      <td>0.069488</td>
+      <td>-0.235576</td>
+      <td>0.083082</td>
+      <td>-0.945936</td>
+      <td>-0.035779</td>
+      <td>-0.043028</td>
+      <td>-0.053295</td>
+      <td>-0.200601</td>
+      <td>...</td>
+      <td>-0.093078</td>
+      <td>-0.088344</td>
+      <td>-0.092556</td>
+      <td>-0.054642</td>
+      <td>-0.057531</td>
+      <td>-0.057508</td>
+      <td>-0.078174</td>
+      <td>-0.081518</td>
+      <td>-0.080786</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1054</th>
+      <td>0.026979</td>
+      <td>-0.982640</td>
+      <td>-0.490435</td>
+      <td>0.704939</td>
+      <td>-0.522835</td>
+      <td>-0.604944</td>
+      <td>-1.373296</td>
+      <td>-0.144637</td>
+      <td>0.464366</td>
+      <td>-2.077031</td>
+      <td>...</td>
+      <td>-0.265686</td>
+      <td>-0.244853</td>
+      <td>-0.247155</td>
+      <td>-0.227374</td>
+      <td>-0.249531</td>
+      <td>-0.242221</td>
+      <td>-0.265049</td>
+      <td>-0.232053</td>
+      <td>-0.251001</td>
+      <td>flexible</td>
+    </tr>
+  </tbody>
+</table>
+<p>1055 rows × 2372 columns</p>
+</div></div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./UAS\temp"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danendra Mahardhika
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+Traceback (most recent call last):
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.pipeline import make_pipeline
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
+from imblearn.over_sampling import RandomOverSampler
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("Fix_datasets/AsphaltPavementType_crop400_new.csv")
+
+print("Shape awal df:", df.shape)
+
+df = df.reset_index(drop=True)
+
+bad_idx = [27, 31, 172, 284, 431, 625, 1073, 1148, 1259]
+
+df_clean = df.drop(index=bad_idx).reset_index(drop=True)
+
+print("Shape setelah hapus indeks:", df_clean.shape)
+print("Jumlah baris yang dihapus:", len(bad_idx))
+
+------------------
+
+----- stderr -----
+C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\__init__.py:159: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 2.0.2)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel_launcher.py", line 18, in <module>
+    app.launch_new_instance()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\traitlets\config\application.py", line 1075, in launch_instance
+    app.start()
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelapp.py", line 739, in start
+    self.io_loop.start()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\tornado\platform\asyncio.py", line 211, in start
+    self.asyncio_loop.run_forever()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 596, in run_forever
+    self._run_once()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 1890, in _run_once
+    handle._run()
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py", line 545, in dispatch_queue
+    await self.process_one()
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py", line 534, in process_one
+    await dispatch(*args)
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py", line 437, in dispatch_shell
+    await result
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py", line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py", line 778, in execute_request
+    reply_content = await reply_content
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py", line 449, in do_execute
+    res = shell.run_cell(
+  File "C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\zmqshell.py", line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3048, in run_cell
+    result = self._run_cell(
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3103, in _run_cell
+    result = runner(coro)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\async_helpers.py", line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3308, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3490, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py", line 3550, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_13184\395413062.py", line 3, in <module>
+    from sklearn.model_selection import train_test_split
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\__init__.py", line 82, in <module>
+    from .base import clone
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py", line 17, in <module>
+    from .utils import _IS_32BIT
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\__init__.py", line 17, in <module>
+    from scipy.sparse import issparse
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\__init__.py", line 274, in <module>
+    from ._csr import *
+  File "C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\_csr.py", line 11, in <module>
+    from ._sparsetools import (csr_tocsc, csr_tobsr, csr_count_blocks,
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mImportError[0m                               Traceback (most recent call last)
+Cell [1;32mIn[1], line 3[0m
+[0;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
+[0;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;32m----> 3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodel_selection[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m train_test_split
+[0;32m      4[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpreprocessing[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m StandardScaler
+[0;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01msvm[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m SVC
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\__init__.py:82[0m
+[0;32m     80[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _distributor_init  [38;5;66;03m# noqa: F401[39;00m
+[0;32m     81[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m __check_build  [38;5;66;03m# noqa: F401[39;00m
+[1;32m---> 82[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mbase[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m clone
+[0;32m     83[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_show_versions[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m show_versions
+[0;32m     85[0m __all__ [38;5;241m=[39m [
+[0;32m     86[0m     [38;5;124m"[39m[38;5;124mcalibration[39m[38;5;124m"[39m,
+[0;32m     87[0m     [38;5;124m"[39m[38;5;124mcluster[39m[38;5;124m"[39m,
+[1;32m   (...)[0m
+[0;32m    128[0m     [38;5;124m"[39m[38;5;124mshow_versions[39m[38;5;124m"[39m,
+[0;32m    129[0m ]
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:17[0m
+[0;32m     15[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m __version__
+[0;32m     16[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_config[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m get_config
+[1;32m---> 17[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _IS_32BIT
+[0;32m     18[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_set_output[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _SetOutputMixin
+[0;32m     19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_tags[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (
+[0;32m     20[0m     _DEFAULT_TAGS,
+[0;32m     21[0m )
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\utils\__init__.py:17[0m
+[0;32m     15[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mwarnings[39;00m
+[0;32m     16[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;32m---> 17[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01msparse[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m issparse
+[0;32m     19[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mmurmurhash[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m murmurhash3_32
+[0;32m     20[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mclass_weight[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m compute_class_weight, compute_sample_weight
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\__init__.py:274[0m
+[0;32m    271[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mwarnings[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01m_warnings[39;00m
+[0;32m    273[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_base[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m
+[1;32m--> 274[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_csr[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m
+[0;32m    275[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_csc[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m
+[0;32m    276[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_lil[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;241m*[39m
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\scipy\sparse\_csr.py:11[0m
+[0;32m      9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_matrix[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m spmatrix, _array_doc_to_matrix
+[0;32m     10[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_base[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _spbase, sparray
+[1;32m---> 11[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_sparsetools[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (csr_tocsc, csr_tobsr, csr_count_blocks,
+[0;32m     12[0m                            get_csr_submatrix)
+[0;32m     13[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_sputils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m upcast
+[0;32m     15[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01m_compressed[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _cs_matrix
+
+[1;31mImportError[0m: numpy.core.multiarray failed to import
+
