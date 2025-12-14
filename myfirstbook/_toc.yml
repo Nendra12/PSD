@@ -37,3 +37,9 @@ parts:
     chapters:
       - file: Preprocessing/preprocessing_buka_tutup_v2
       - file: Buka-tutup/dtw
+  - caption: Project UAS
+    chapters:
+      - file: UAS/BusinessUnderstanding
+      - file: UAS/DataUnderstanding
+      - file: UAS/Pre-Processing
+      - file: UAS/Modeling

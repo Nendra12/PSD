@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Understanding &#8212; Proyek Data Science Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'UAS/DataUnderstanding';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pre-Processing Data" href="Pre-Processing.html" />
+    <link rel="prev" title="Business Understanding" href="BusinessUnderstanding.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/aku.jpg" class="logo__image only-light" alt="Proyek Data Science Notebooks - Home"/>
+    <script>document.write(`<img src="../_static/aku.jpg" class="logo__image only-dark" alt="Proyek Data Science Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    My Profile
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_buka_tutup_suara.html">Preprocessing Data Buka Tutup Suara</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/knn_buka_tutup_clasifier.html">Modeling Identifikasi Suara Buka Tutup</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mengolah Data Suara Buka Tutup + Pengenalan Suara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preprocessing_buka_tutup_v2.html">Aplikasi Deteksi Suara Buka-Tutup</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Buka-tutup/dtw.html">Mencari Jarak Suara Menggunakan DTW</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project UAS</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="BusinessUnderstanding.html">Business Understanding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-Processing.html">Pre-Processing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">Modeling</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUAS/DataUnderstanding.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/UAS/DataUnderstanding.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Understanding</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-dan-gambaran-umum-data">Sumber dan Gambaran Umum Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data">Struktur Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informasi-dasar-data">1. Informasi Dasar Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">2. Missing Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data">2. Tipe data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-label-class">3. Distribusi Label/Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplikasi-data">4. Duplikasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier">5. Deteksi Outlier</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
+<h1>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<section id="sumber-dan-gambaran-umum-data">
+<h2>Sumber dan Gambaran Umum Data<a class="headerlink" href="#sumber-dan-gambaran-umum-data" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan adalah <strong>AsphaltPavementType</strong> yang berasal dari :</p>
+<ul class="simple">
+<li><p>Paper: Souza V.M.A. “Asphalt pavement classification using smartphone accelerometer and Complexity Invariant Distance” (Engineering Applications of Artificial Intelligence, 2018).</p></li>
+<li><p>Repository: UEA/UCR Time Series Classification Repository / <a class="reference external" href="http://timeseriesclassification.com">timeseriesclassification.com</a>.</p></li>
+</ul>
+<p>Data diambil di beberapa kota di Brazil Sao Carlos, Ribeirao Preto, Araraquara, and Maringa, selanjutnya cara pengambilan dataset ini dengan menggunakan Smartphone Android Samsung Galaxy A5 dan S7 yang dipasang di dalam mobil Hyundai i30 dekat dashboard dengan suction holder, sensor <em>accelerometer</em> HP merekam percepatan di tiga sumbu (X, Y, Z) saat mobil berjalan di berbagai jenis permukaan jalan, aplikasi yang digunakan adalah <em>Asfault</em> untuk merekam data secara kontinu + label jenis permukaan jalan yang diisi oleh expert, kemudian Sinyal accelerometer (X, Y, Z) dikonversi menjadi satu time series univariat berupa magnitudo percepatan:</p>
+<p><span class="math notranslate nohighlight">\(mag(t) = \sqrt{X(t)^2 + Y(t)^2 + Z(t)^2}\)</span></p>
+<p><strong>Kelas (label) yang tersedia:</strong></p>
+<ul class="simple">
+<li><p>flexible: jalan beraspal (flexible pavement)</p></li>
+<li><p>cobblestone: jalan berbatu / paving / kotak-kotak</p></li>
+<li><p>dirt road: jalan tanah</p></li>
+</ul>
+<p><strong>Ukuran Dataset</strong></p>
+<p>Total 1319 data dan masing-masing:</p>
+<p>flexible    : 503 kasus
+dirt        : 491 kasus
+cobblestone : 325 kasus</p>
+<p>Panjang time series bervariasi antara 66 - 2371 sampel, dengan sampling rate 100Hz</p>
+</section>
+<section id="struktur-data">
+<h2>Struktur Data<a class="headerlink" href="#struktur-data" title="Link to this heading">#</a></h2>
+<p>Format yang saya download .arff (Attribute Relation File Format) kemudian saya convert ke file dengan format csv berikut gambaran datasetnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_combine.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py&quot;, line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\runpy.py&quot;, line 87, in _run_code
+    exec(code, run_globals)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\traitlets\config\application.py&quot;, line 1075, in launch_instance
+    app.start()
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\tornado\platform\asyncio.py&quot;, line 211, in start
+    self.asyncio_loop.run_forever()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py&quot;, line 596, in run_forever
+    self._run_once()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py&quot;, line 1890, in _run_once
+    handle._run()
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\asyncio\events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;C:\Users\USERB-PC\AppData\Roaming\Python\Python39\site-packages\ipykernel\zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3048, in run_cell
+    result = self._run_cell(
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3103, in _run_cell
+    result = runner(coro)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3308, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3490, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\IPython\core\interactiveshell.py&quot;, line 3550, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;C:\Users\USERB-PC\AppData\Local\Temp\ipykernel_8760\291784089.py&quot;, line 3, in &lt;module&gt;
+    import matplotlib.pyplot as plt
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\__init__.py&quot;, line 158, in &lt;module&gt;
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\rcsetup.py&quot;, line 27, in &lt;module&gt;
+    from matplotlib.colors import Colormap, is_color_like
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\colors.py&quot;, line 56, in &lt;module&gt;
+    from matplotlib import _api, _cm, cbook, scale
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\scale.py&quot;, line 22, in &lt;module&gt;
+    from matplotlib.ticker import (
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\ticker.py&quot;, line 138, in &lt;module&gt;
+    from matplotlib import transforms as mtransforms
+  File &quot;C:\Users\USERB-PC\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\transforms.py&quot;, line 49, in &lt;module&gt;
+    from matplotlib._path import (
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_combine.csv&quot;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">158</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="kn">from</span><span class="w"> </span><span class="nn">packaging.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse</span> <span class="k">as</span> <span class="n">parse_version</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span> <span class="c1"># cbook must import matplotlib only within function</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="c1"># definitions, so it is safe to import from it here.</span>
+<span class="ne">--&gt; </span><span class="mi">158</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_version</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">_docstring</span><span class="p">,</span> <span class="n">rcsetup</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.cbook</span><span class="w"> </span><span class="kn">import</span> <span class="n">sanitize_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib._api</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatplotlibDeprecationWarning</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="n">rcsetup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">27</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.cbook</span><span class="w"> </span><span class="kn">import</span> <span class="n">ls_mapper</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Colormap</span><span class="p">,</span> <span class="n">is_color_like</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib._fontconfig_pattern</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_fontconfig_pattern</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib._enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">JoinStyle</span><span class="p">,</span> <span class="n">CapStyle</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="n">colors</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">56</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">56</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_cm</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">scale</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._color_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">BASE_COLORS</span><span class="p">,</span> <span class="n">TABLEAU_COLORS</span><span class="p">,</span> <span class="n">CSS4_COLORS</span><span class="p">,</span> <span class="n">XKCD_COLORS</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">class</span><span class="w"> </span><span class="nc">_ColorMapping</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="n">scale</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">NullFormatter</span><span class="p">,</span> <span class="n">ScalarFormatter</span><span class="p">,</span> <span class="n">LogFormatterSciNotation</span><span class="p">,</span> <span class="n">LogitFormatter</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">NullLocator</span><span class="p">,</span> <span class="n">LogLocator</span><span class="p">,</span> <span class="n">AutoLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">SymmetricalLogLocator</span><span class="p">,</span> <span class="n">AsinhLocator</span><span class="p">,</span> <span class="n">LogitLocator</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transform</span><span class="p">,</span> <span class="n">IdentityTransform</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">class</span><span class="w"> </span><span class="nc">ScaleBase</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="n">ticker</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">138</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="ne">--&gt; </span><span class="mi">138</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">mtransforms</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;TickHelper&#39;</span><span class="p">,</span> <span class="s1">&#39;Formatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FixedFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>            <span class="s1">&#39;NullFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FuncFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FormatStrFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>            <span class="s1">&#39;StrMethodFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;ScalarFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;LogFormatter&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>            <span class="s1">&#39;MultipleLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;MaxNLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoMinorLocator&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>            <span class="s1">&#39;SymmetricalLogLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AsinhLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;LogitLocator&#39;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="n">transforms</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span><span class="w"> </span><span class="nn">numpy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">inv</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">_api</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib._path</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">affine_transform</span><span class="p">,</span> <span class="n">count_bboxes_overlapping_bbox</span><span class="p">,</span> <span class="n">update_path_extents</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksplorasi-data">
+<h2>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h2>
+<section id="informasi-dasar-data">
+<h3>1. Informasi Dasar Data<a class="headerlink" href="#informasi-dasar-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== HEAD DATA ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== INFO DATA ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== DESKRIPSI STATISTIK (ringkas, 5 kolom pertama) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== HEAD DATA ===
+   TimeSeriesData_0  TimeSeriesData_1  TimeSeriesData_2  TimeSeriesData_3  \
+0         -2.876570          1.663488         -4.498386          3.488434   
+1         -0.701747         -0.570766          0.566515         -0.218081   
+2          4.369829         -3.141377          3.529192          2.660682   
+3          8.916818         -3.653964         -3.222407          5.952949   
+4          2.233004          0.050001         -2.284447         -1.813584   
+
+   TimeSeriesData_4  TimeSeriesData_5  TimeSeriesData_6  TimeSeriesData_7  \
+0          0.395251         -3.587129          0.773357         -0.915250   
+1          1.199675          2.872561          1.940022         -2.274027   
+2          2.462394         -1.882157          0.104404          0.942166   
+3         -2.532802         -1.536643          2.157628          0.213207   
+4          2.641198         -1.083767          2.177665         -0.227288   
+
+   TimeSeriesData_8  TimeSeriesData_9  ...  TimeSeriesData_2362  \
+0          2.573000          1.361841  ...            -0.053895   
+1          1.609701          4.039853  ...            -0.032685   
+2          1.283458         -3.968304  ...             0.472872   
+3         -0.088351          2.634485  ...             0.084240   
+4         -1.730810          1.752036  ...             0.023642   
+
+   TimeSeriesData_2363  TimeSeriesData_2364  TimeSeriesData_2365  \
+0             0.036566            -0.031380             0.075436   
+1            -0.029768            -0.018517             0.107980   
+2             0.495197             0.335800             0.503290   
+3            -0.015055             0.062965            -0.027785   
+4            -0.023909            -0.093946             0.022844   
+
+   TimeSeriesData_2366  TimeSeriesData_2367  TimeSeriesData_2368  \
+0            -0.011254            -0.049133             0.024650   
+1             0.081965             0.092394             0.068861   
+2             0.559216             0.552964             0.396256   
+3             0.127377             0.109734             0.051033   
+4             0.023458             0.025328            -0.062764   
+
+   TimeSeriesData_2369  TimeSeriesData_2370   ClassLabel  
+0            -0.054421             0.021338  cobblestone  
+1            -0.019790             0.017132  cobblestone  
+2             0.528568             0.570236  cobblestone  
+3             0.078114             0.051622  cobblestone  
+4            -0.055489            -0.072873  cobblestone  
+
+[5 rows x 2372 columns]
+
+=== INFO DATA ===
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1319 entries, 0 to 1318
+Columns: 2372 entries, TimeSeriesData_0 to ClassLabel
+dtypes: float64(2371), object(1)
+memory usage: 23.9+ MB
+None
+
+=== DESKRIPSI STATISTIK (ringkas, 5 kolom pertama) ===
+       TimeSeriesData_0  TimeSeriesData_1  TimeSeriesData_2  TimeSeriesData_3  \
+count       1319.000000       1319.000000       1319.000000       1319.000000   
+mean           0.007146         -0.002606         -0.082418         -0.142575   
+std            2.079385          2.031884          1.962595          2.141794   
+min           -7.512546         -8.523067         -8.998474         -9.244137   
+25%           -1.069132         -1.086715         -1.029844         -1.145584   
+50%           -0.031147         -0.036134         -0.084427         -0.158216   
+75%            0.982069          0.953952          0.949531          0.956830   
+max           11.101545          9.942422          9.109397          8.321178   
+
+       TimeSeriesData_4  
+count       1319.000000  
+mean           0.022140  
+std            2.317607  
+min           -8.882876  
+25%           -1.054940  
+50%           -0.058779  
+75%            1.041706  
+max           25.806197  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-value">
+<h3>2. Missing Value<a class="headerlink" href="#missing-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jumlah missing value per kolom&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah kolom&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Missing Values (Histogram)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e49e675f57c1743caf7b935ebae46dd4e38bdc8d4a9dac9cfcb59a7704aabcf0.png" src="../_images/e49e675f57c1743caf7b935ebae46dd4e38bdc8d4a9dac9cfcb59a7704aabcf0.png" />
+</div>
+</div>
+</section>
+<section id="tipe-data">
+<h3>2. Tipe data<a class="headerlink" href="#tipe-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype_counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dtype_counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">dtype_counts</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tipe Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Kolom&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Tipe Data dalam Dataset&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/96da309c270fdb27e4aed1f91acde60821525302f01092077390c6830ae46003.png" src="../_images/96da309c270fdb27e4aed1f91acde60821525302f01092077390c6830ae46003.png" />
+</div>
+</div>
+</section>
+<section id="distribusi-label-class">
+<h3>3. Distribusi Label/Class<a class="headerlink" href="#distribusi-label-class" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ClassLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">class_counts</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;ClassLabel&quot;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi ClassLabel&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;ClassLabel&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ClassLabel
+flexible       503
+dirt           491
+cobblestone    325
+Name: count, dtype: int64
+</pre></div>
+</div>
+<img alt="../_images/75487487ffee2cfe0ccd02750cac0b1c61aa8332bf7f1926006573887da7a762.png" src="../_images/75487487ffee2cfe0ccd02750cac0b1c61aa8332bf7f1926006573887da7a762.png" />
+</div>
+</div>
+</section>
+<section id="duplikasi-data">
+<h3>4. Duplikasi Data<a class="headerlink" href="#duplikasi-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">non_duplicates</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="n">duplicates</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Non-Duplicate&#39;</span><span class="p">,</span> <span class="s1">&#39;Duplicate&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">non_duplicates</span><span class="p">,</span> <span class="n">duplicates</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Data Duplicate dan Non Duplicate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/14dcb785752a6a4254dfc514eef7d84f74c780808b48238acbd2b9acc1ae437e.png" src="../_images/14dcb785752a6a4254dfc514eef7d84f74c780808b48238acbd2b9acc1ae437e.png" />
+</div>
+</div>
+</section>
+<section id="deteksi-outlier">
+<h3>5. Deteksi Outlier<a class="headerlink" href="#deteksi-outlier" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ClassLabel&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ClassLabel&#39;</span><span class="p">]</span>
+<span class="n">X_desc</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_desc</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      TimeSeriesData_0  TimeSeriesData_1  TimeSeriesData_2  TimeSeriesData_3  \
+min          -7.512546         -8.523067         -8.998474         -9.244137   
+max          11.101545          9.942422          9.109397          8.321178   
+mean          0.007146         -0.002606         -0.082418         -0.142575   
+std           2.079385          2.031884          1.962595          2.141794   
+
+      TimeSeriesData_4  TimeSeriesData_5  TimeSeriesData_6  TimeSeriesData_7  \
+min          -8.882876         -9.092468         -9.007875         -7.980434   
+max          25.806197         15.908705          8.933173         11.176892   
+mean          0.022140          0.012053         -0.032798          0.007534   
+std           2.317607          2.197334          2.066168          2.039411   
+
+      TimeSeriesData_8  TimeSeriesData_9  ...  TimeSeriesData_2361  \
+min          -7.984612         -7.113500  ...            -0.441485   
+max          15.543681         11.548522  ...             0.738541   
+mean          0.070531          0.006348  ...             0.012271   
+std           2.098344          2.065511  ...             0.154596   
+
+      TimeSeriesData_2362  TimeSeriesData_2363  TimeSeriesData_2364  \
+min             -0.455851            -0.451983            -0.464488   
+max              0.713958             0.772266             0.899784   
+mean             0.012768             0.011754             0.010929   
+std              0.152981             0.153917             0.152934   
+
+      TimeSeriesData_2365  TimeSeriesData_2366  TimeSeriesData_2367  \
+min             -0.489134            -0.463592            -0.440971   
+max              0.743954             0.636523             0.903060   
+mean             0.011631             0.012626             0.012347   
+std              0.153037             0.155005             0.155411   
+
+      TimeSeriesData_2368  TimeSeriesData_2369  TimeSeriesData_2370  
+min             -0.442209            -0.484497            -0.466564  
+max              0.672683             0.782990             0.670921  
+mean             0.011004             0.012005             0.012397  
+std              0.152911             0.156733             0.152569  
+
+[4 rows x 2371 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_arr</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">row_max</span> <span class="o">=</span> <span class="n">X_arr</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">row_min</span> <span class="o">=</span> <span class="n">X_arr</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">row_std</span> <span class="o">=</span> <span class="n">X_arr</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">row_mean</span> <span class="o">=</span> <span class="n">X_arr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">row_max</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">row_std</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    1319.000000
+mean        7.236235
+std         4.480004
+min         1.230292
+25%         3.271269
+50%         6.893314
+75%        10.057863
+max        58.054914
+dtype: float64
+count    1319.000000
+mean        0.814430
+std         0.464988
+min         0.171744
+25%         0.321558
+50%         0.848287
+75%         1.148016
+max         2.065046
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">upper</span> <span class="o">=</span> <span class="mf">20.24</span> 
+<span class="n">out_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">row_max</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kandidat outlier:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_idx</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index contoh:&quot;</span><span class="p">,</span> <span class="n">out_idx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah kandidat outlier: 9
+Index contoh: [  27   31  172  284  431  625 1073 1148 1259]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_idx</span> <span class="o">=</span> <span class="n">out_idx</span><span class="p">[:</span><span class="mi">9</span><span class="p">]</span>
+
+<span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">sample_idx</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Series </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, class=</span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">, max=</span><span class="si">{</span><span class="n">row_max</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time index&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Acceleration magnitude&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/14ad7c3037739f12886b76a12528e172cd37e42308f26dc36b2bac5cb15f4bda.png" src="../_images/14ad7c3037739f12886b76a12528e172cd37e42308f26dc36b2bac5cb15f4bda.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./UAS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="BusinessUnderstanding.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Business Understanding</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pre-Processing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pre-Processing Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-dan-gambaran-umum-data">Sumber dan Gambaran Umum Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data">Struktur Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informasi-dasar-data">1. Informasi Dasar Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">2. Missing Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data">2. Tipe data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-label-class">3. Distribusi Label/Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplikasi-data">4. Duplikasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier">5. Deteksi Outlier</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danendra Mahardhika
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

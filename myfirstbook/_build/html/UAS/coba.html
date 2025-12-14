@@ -1,0 +1,2193 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Proyek Data Science Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'UAS/coba';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/aku.jpg" class="logo__image only-light" alt="Proyek Data Science Notebooks - Home"/>
+    <script>document.write(`<img src="../_static/aku.jpg" class="logo__image only-dark" alt="Proyek Data Science Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    My Profile
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Business Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis.html">Business Understanding (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Bisnis_Understand/bisnis%28Kesehatan%20Udara%20Semarang%29.html">Business Understanding (No<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Data Understanding (Iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi-data.html">Eksplorasi Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/get-data.html">Get Data (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/copernicus_smr.html">Data Understanding (NO<sub>2</sub> Kota Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/eksplorasi_data%28smg%29.html">Eksplorasi Data (NO<sub>2</sub> Semarang)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation.html">Menghapus Outlier (iris)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oversampling/oversampling.html">Oversampling (Ecoli)</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preparation%28knime%29.html">Preprocessing Data (Ecoli) by Knime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_copernicus%28smg%29.html">Preprocessing Data (NO<sub>2</sub> Semarang)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/prep_buka_tutup_suara.html">Preprocessing Data Buka Tutup Suara</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pemodelan</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_random_forest_hasil.html">Random Forest Classifier (ECOLI)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/klasifikasi_naiveBayes_hasil_oversampling.html">Naive Bayes Classifier (ECOLI)</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_naive_bayes.html">Bagging Classifier Naive Bayes (Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/baggingClassifier_decision_tree.html">Bagging Classifier Decision Tree(Ecoli)</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/perbandingan_model.html">Perbandingan Akurasi Model (ECOLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/knn_regresion_copernicus%28smg%29.html">KNN Regression Data (NO<sub>2</sub> Semarang)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Modeling/knn_buka_tutup_clasifier.html">Modeling Identifikasi Suara Buka Tutup</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mengolah Data Suara Buka Tutup + Pengenalan Suara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Preprocessing/preprocessing_buka_tutup_v2.html">Aplikasi Deteksi Suara Buka-Tutup</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Buka-tutup/dtw.html">Mencari Jarak Suara Menggunakan DTW</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project UAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="BusinessUnderstanding.html">Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataUnderstanding.html">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-Processing.html">Pre-Processing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">Modeling</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUAS/coba.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/UAS/coba.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_combine.csv&quot;</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_TEST.csv&quot;</span><span class="p">)</span>
+
+<span class="n">subsetA</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1055</span><span class="p">:]</span>
+
+<span class="c1"># pastikan kolom yang dibandingkan sama</span>
+<span class="n">common_cols</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">subsetA</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># buang duplikat supaya set lebih kecil</span>
+<span class="n">subsetA_unique</span> <span class="o">=</span> <span class="n">subsetA</span><span class="p">[</span><span class="n">common_cols</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="c1"># bikin &quot;kunci&quot; per baris (string) agar mudah dicek</span>
+<span class="n">keyA</span> <span class="o">=</span> <span class="n">subsetA_unique</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">key2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">common_cols</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># hapus dari df2 yang ada di subsetA</span>
+<span class="n">df2_clean</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="o">~</span><span class="n">key2</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">keyA</span><span class="p">))]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;df2 sebelum:&quot;</span><span class="p">,</span> <span class="n">df2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;df2 sesudah:&quot;</span><span class="p">,</span> <span class="n">df2_clean</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">df2_clean</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_TEST_New.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>df2 sebelum: (1056, 2372)
+df2 sesudah: (793, 2372)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_combine.csv&quot;</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_TEST.csv&quot;</span><span class="p">)</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_TRAIN.csv&quot;</span><span class="p">)</span>
+
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TimeSeriesData_0</th>
+      <th>TimeSeriesData_1</th>
+      <th>TimeSeriesData_2</th>
+      <th>TimeSeriesData_3</th>
+      <th>TimeSeriesData_4</th>
+      <th>TimeSeriesData_5</th>
+      <th>TimeSeriesData_6</th>
+      <th>TimeSeriesData_7</th>
+      <th>TimeSeriesData_8</th>
+      <th>TimeSeriesData_9</th>
+      <th>...</th>
+      <th>TimeSeriesData_2362</th>
+      <th>TimeSeriesData_2363</th>
+      <th>TimeSeriesData_2364</th>
+      <th>TimeSeriesData_2365</th>
+      <th>TimeSeriesData_2366</th>
+      <th>TimeSeriesData_2367</th>
+      <th>TimeSeriesData_2368</th>
+      <th>TimeSeriesData_2369</th>
+      <th>TimeSeriesData_2370</th>
+      <th>ClassLabel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.618121</td>
+      <td>-2.439362</td>
+      <td>-2.740458</td>
+      <td>1.258389</td>
+      <td>1.887919</td>
+      <td>0.356795</td>
+      <td>1.999290</td>
+      <td>-0.574917</td>
+      <td>2.504297</td>
+      <td>-2.352514</td>
+      <td>...</td>
+      <td>0.300785</td>
+      <td>0.157606</td>
+      <td>0.191522</td>
+      <td>0.273604</td>
+      <td>0.158578</td>
+      <td>0.336273</td>
+      <td>0.217145</td>
+      <td>0.329172</td>
+      <td>0.282244</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-5.494497</td>
+      <td>-6.046774</td>
+      <td>1.211998</td>
+      <td>-1.178592</td>
+      <td>5.093573</td>
+      <td>10.549898</td>
+      <td>1.446400</td>
+      <td>-0.230857</td>
+      <td>2.826210</td>
+      <td>-5.870671</td>
+      <td>...</td>
+      <td>0.328661</td>
+      <td>0.367679</td>
+      <td>0.241930</td>
+      <td>0.295577</td>
+      <td>0.293891</td>
+      <td>0.244364</td>
+      <td>0.370598</td>
+      <td>0.299758</td>
+      <td>0.331428</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.923206</td>
+      <td>0.478527</td>
+      <td>-0.910504</td>
+      <td>-4.133358</td>
+      <td>2.091750</td>
+      <td>1.317773</td>
+      <td>-1.554404</td>
+      <td>0.711872</td>
+      <td>1.746003</td>
+      <td>-2.813721</td>
+      <td>...</td>
+      <td>0.163358</td>
+      <td>-0.012954</td>
+      <td>0.045962</td>
+      <td>0.075396</td>
+      <td>0.116013</td>
+      <td>0.043742</td>
+      <td>-0.047875</td>
+      <td>0.041272</td>
+      <td>-0.068316</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.770494</td>
+      <td>-2.282660</td>
+      <td>-0.752969</td>
+      <td>1.458477</td>
+      <td>-1.541162</td>
+      <td>1.011944</td>
+      <td>0.344191</td>
+      <td>-3.484487</td>
+      <td>-0.740783</td>
+      <td>3.284640</td>
+      <td>...</td>
+      <td>-0.223805</td>
+      <td>-0.099245</td>
+      <td>-0.064583</td>
+      <td>-0.112051</td>
+      <td>-0.070742</td>
+      <td>-0.046163</td>
+      <td>-0.179388</td>
+      <td>-0.213290</td>
+      <td>-0.105239</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.245077</td>
+      <td>-5.182841</td>
+      <td>0.561264</td>
+      <td>1.466408</td>
+      <td>4.181481</td>
+      <td>3.170211</td>
+      <td>-6.049459</td>
+      <td>3.216879</td>
+      <td>-1.934037</td>
+      <td>-2.945427</td>
+      <td>...</td>
+      <td>-0.052628</td>
+      <td>-0.158565</td>
+      <td>-0.136236</td>
+      <td>0.001957</td>
+      <td>-0.094562</td>
+      <td>-0.099805</td>
+      <td>-0.017017</td>
+      <td>-0.081400</td>
+      <td>-0.149724</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1051</th>
+      <td>-2.048245</td>
+      <td>-0.431831</td>
+      <td>2.474261</td>
+      <td>0.266421</td>
+      <td>1.045925</td>
+      <td>0.164271</td>
+      <td>-2.999506</td>
+      <td>0.258949</td>
+      <td>-0.702161</td>
+      <td>-0.750322</td>
+      <td>...</td>
+      <td>0.148767</td>
+      <td>0.206447</td>
+      <td>0.130811</td>
+      <td>0.125360</td>
+      <td>0.203498</td>
+      <td>0.182986</td>
+      <td>0.219418</td>
+      <td>0.204938</td>
+      <td>0.183945</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1052</th>
+      <td>-0.482811</td>
+      <td>0.523847</td>
+      <td>-0.236167</td>
+      <td>0.147113</td>
+      <td>-0.674220</td>
+      <td>0.614470</td>
+      <td>-1.024361</td>
+      <td>0.102702</td>
+      <td>-1.408675</td>
+      <td>-0.332305</td>
+      <td>...</td>
+      <td>-0.005897</td>
+      <td>-0.016922</td>
+      <td>0.005971</td>
+      <td>-0.021707</td>
+      <td>-0.021680</td>
+      <td>0.008163</td>
+      <td>-0.009702</td>
+      <td>0.037967</td>
+      <td>0.020210</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1053</th>
+      <td>0.945894</td>
+      <td>-0.969169</td>
+      <td>0.667210</td>
+      <td>-0.894546</td>
+      <td>0.671162</td>
+      <td>-2.595323</td>
+      <td>1.097331</td>
+      <td>1.537910</td>
+      <td>-1.384131</td>
+      <td>0.574048</td>
+      <td>...</td>
+      <td>0.030659</td>
+      <td>-0.074686</td>
+      <td>0.025148</td>
+      <td>-0.015091</td>
+      <td>-0.062391</td>
+      <td>0.023547</td>
+      <td>-0.053169</td>
+      <td>-0.021050</td>
+      <td>0.001647</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1054</th>
+      <td>0.933206</td>
+      <td>0.142067</td>
+      <td>0.036524</td>
+      <td>-0.454885</td>
+      <td>-1.026741</td>
+      <td>0.561345</td>
+      <td>-1.236520</td>
+      <td>-0.391479</td>
+      <td>2.101343</td>
+      <td>-0.085962</td>
+      <td>...</td>
+      <td>-0.094538</td>
+      <td>-0.094186</td>
+      <td>-0.096769</td>
+      <td>-0.085870</td>
+      <td>-0.108759</td>
+      <td>-0.098714</td>
+      <td>-0.105612</td>
+      <td>-0.081816</td>
+      <td>-0.074666</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1055</th>
+      <td>-1.307677</td>
+      <td>-0.734717</td>
+      <td>-2.332876</td>
+      <td>1.373376</td>
+      <td>0.324236</td>
+      <td>0.483244</td>
+      <td>2.256299</td>
+      <td>-0.054068</td>
+      <td>0.546228</td>
+      <td>0.480490</td>
+      <td>...</td>
+      <td>0.613834</td>
+      <td>0.555767</td>
+      <td>0.438718</td>
+      <td>0.509493</td>
+      <td>0.522580</td>
+      <td>0.510006</td>
+      <td>0.441031</td>
+      <td>0.455228</td>
+      <td>0.514592</td>
+      <td>flexible</td>
+    </tr>
+  </tbody>
+</table>
+<p>1056 rows × 2372 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_combine.csv&quot;</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_TEST.csv&quot;</span><span class="p">)</span>
+<span class="n">subsetA</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1055</span><span class="p">:]</span> 
+<span class="n">subsetA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TimeSeriesData_0</th>
+      <th>TimeSeriesData_1</th>
+      <th>TimeSeriesData_2</th>
+      <th>TimeSeriesData_3</th>
+      <th>TimeSeriesData_4</th>
+      <th>TimeSeriesData_5</th>
+      <th>TimeSeriesData_6</th>
+      <th>TimeSeriesData_7</th>
+      <th>TimeSeriesData_8</th>
+      <th>TimeSeriesData_9</th>
+      <th>...</th>
+      <th>TimeSeriesData_2362</th>
+      <th>TimeSeriesData_2363</th>
+      <th>TimeSeriesData_2364</th>
+      <th>TimeSeriesData_2365</th>
+      <th>TimeSeriesData_2366</th>
+      <th>TimeSeriesData_2367</th>
+      <th>TimeSeriesData_2368</th>
+      <th>TimeSeriesData_2369</th>
+      <th>TimeSeriesData_2370</th>
+      <th>ClassLabel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1055</th>
+      <td>0.695169</td>
+      <td>4.413033</td>
+      <td>0.801316</td>
+      <td>-1.594353</td>
+      <td>3.774102</td>
+      <td>-0.416691</td>
+      <td>-2.317714</td>
+      <td>-0.764167</td>
+      <td>3.978269</td>
+      <td>4.134941</td>
+      <td>...</td>
+      <td>0.132256</td>
+      <td>0.172859</td>
+      <td>0.090545</td>
+      <td>0.104179</td>
+      <td>0.067269</td>
+      <td>0.145871</td>
+      <td>-0.004069</td>
+      <td>0.141806</td>
+      <td>0.027701</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>1056</th>
+      <td>-0.369525</td>
+      <td>0.460361</td>
+      <td>-1.407053</td>
+      <td>0.541354</td>
+      <td>-1.919873</td>
+      <td>0.424794</td>
+      <td>-0.478214</td>
+      <td>0.730925</td>
+      <td>-0.993082</td>
+      <td>-0.974791</td>
+      <td>...</td>
+      <td>-0.099316</td>
+      <td>-0.131259</td>
+      <td>-0.141640</td>
+      <td>-0.137056</td>
+      <td>-0.097847</td>
+      <td>-0.134538</td>
+      <td>-0.110699</td>
+      <td>-0.100887</td>
+      <td>-0.099663</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1057</th>
+      <td>-1.132577</td>
+      <td>0.845967</td>
+      <td>2.012966</td>
+      <td>1.618231</td>
+      <td>1.478052</td>
+      <td>-0.163741</td>
+      <td>1.329107</td>
+      <td>-1.361590</td>
+      <td>0.700101</td>
+      <td>-0.591235</td>
+      <td>...</td>
+      <td>0.135836</td>
+      <td>0.129473</td>
+      <td>0.159375</td>
+      <td>0.127468</td>
+      <td>0.151246</td>
+      <td>0.145376</td>
+      <td>0.188522</td>
+      <td>0.140605</td>
+      <td>0.194974</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1058</th>
+      <td>-0.290975</td>
+      <td>-1.275493</td>
+      <td>-0.283407</td>
+      <td>-0.144758</td>
+      <td>-0.031406</td>
+      <td>1.372857</td>
+      <td>0.305763</td>
+      <td>0.201567</td>
+      <td>-0.439546</td>
+      <td>-0.381645</td>
+      <td>...</td>
+      <td>-0.101931</td>
+      <td>-0.090004</td>
+      <td>-0.099803</td>
+      <td>-0.067768</td>
+      <td>-0.095819</td>
+      <td>-0.112275</td>
+      <td>-0.092421</td>
+      <td>-0.098135</td>
+      <td>-0.079761</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1059</th>
+      <td>0.053092</td>
+      <td>-5.684296</td>
+      <td>-3.320601</td>
+      <td>2.295371</td>
+      <td>2.097410</td>
+      <td>0.458505</td>
+      <td>2.529794</td>
+      <td>4.786021</td>
+      <td>-2.108084</td>
+      <td>-3.846709</td>
+      <td>...</td>
+      <td>0.105553</td>
+      <td>0.002282</td>
+      <td>0.029588</td>
+      <td>0.186806</td>
+      <td>0.015965</td>
+      <td>0.120522</td>
+      <td>0.045453</td>
+      <td>0.162941</td>
+      <td>0.118280</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1314</th>
+      <td>0.880715</td>
+      <td>-2.346590</td>
+      <td>-2.329858</td>
+      <td>2.212091</td>
+      <td>-1.166301</td>
+      <td>0.371006</td>
+      <td>1.442045</td>
+      <td>-0.190440</td>
+      <td>-0.507736</td>
+      <td>-0.681386</td>
+      <td>...</td>
+      <td>-0.006118</td>
+      <td>-0.051817</td>
+      <td>-0.063536</td>
+      <td>-0.083512</td>
+      <td>-0.070412</td>
+      <td>-0.032090</td>
+      <td>-0.011215</td>
+      <td>-0.103924</td>
+      <td>0.003740</td>
+      <td>dirt</td>
+    </tr>
+    <tr>
+      <th>1315</th>
+      <td>-0.725810</td>
+      <td>0.307290</td>
+      <td>-0.665848</td>
+      <td>0.014449</td>
+      <td>0.020445</td>
+      <td>-0.815619</td>
+      <td>-0.315867</td>
+      <td>0.660846</td>
+      <td>-0.794393</td>
+      <td>0.261320</td>
+      <td>...</td>
+      <td>-0.030569</td>
+      <td>-0.018032</td>
+      <td>-0.018122</td>
+      <td>0.009309</td>
+      <td>-0.002325</td>
+      <td>-0.004623</td>
+      <td>-0.030401</td>
+      <td>-0.018509</td>
+      <td>0.006401</td>
+      <td>flexible</td>
+    </tr>
+    <tr>
+      <th>1316</th>
+      <td>6.432972</td>
+      <td>-0.184155</td>
+      <td>-4.374001</td>
+      <td>-0.011607</td>
+      <td>-1.068614</td>
+      <td>4.028121</td>
+      <td>2.998381</td>
+      <td>-3.004130</td>
+      <td>2.899988</td>
+      <td>-0.824554</td>
+      <td>...</td>
+      <td>-0.036395</td>
+      <td>-0.132641</td>
+      <td>-0.009433</td>
+      <td>-0.154533</td>
+      <td>-0.064270</td>
+      <td>-0.051793</td>
+      <td>-0.099983</td>
+      <td>-0.039613</td>
+      <td>-0.086337</td>
+      <td>cobblestone</td>
+    </tr>
+    <tr>
+      <th>1317</th>
+      <td>-0.416838</td>
+      <td>2.559118</td>
+      <td>-1.690034</td>
+      <td>-0.278789</td>
+      <td>0.573216</td>
+      <td>0.116075</td>
+      <td>-0.407203</td>
+      <td>1.595101</td>
+      <td>-4.097763</td>
+      <td>1.875713</td>
+      <td>...</td>
+      <td>-0.007052</td>
+      <td>-0.006644</td>
+      <td>-0.037258</td>
+      <td>-0.027634</td>
+      <td>-0.019115</td>
+      <td>0.009543</td>
+      <td>-0.076739</td>
+      <td>0.016153</td>
+      <td>0.008333</td>
+      <td>dirt</td>
+    </tr>
+    <tr>
+      <th>1318</th>
+      <td>-0.711354</td>
+      <td>-3.268203</td>
+      <td>-0.820679</td>
+      <td>1.116180</td>
+      <td>-2.884878</td>
+      <td>-0.813056</td>
+      <td>-1.659677</td>
+      <td>-2.995004</td>
+      <td>1.513465</td>
+      <td>0.041381</td>
+      <td>...</td>
+      <td>0.189315</td>
+      <td>0.251214</td>
+      <td>0.290267</td>
+      <td>0.282521</td>
+      <td>0.236136</td>
+      <td>0.278041</td>
+      <td>0.198825</td>
+      <td>0.206936</td>
+      <td>0.298122</td>
+      <td>dirt</td>
+    </tr>
+  </tbody>
+</table>
+<p>264 rows × 2372 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subsetA</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1055</span><span class="p">:]</span>  <span class="c1"># baris 10-12</span>
+<span class="n">gabung</span> <span class="o">=</span> <span class="n">subsetA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">match_idx</span> <span class="o">=</span> <span class="n">subsetA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+
+<span class="n">setB</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">df2</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()))</span>
+<span class="n">mask_match</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1055</span><span class="p">:][</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">setB</span><span class="p">)</span>
+
+<span class="n">dfA_baru</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1055</span><span class="p">:][</span><span class="n">mask_match</span><span class="p">])</span>
+<span class="n">dfA_baru</span>
+
+<span class="c1"># # ambil semua baris di dfB yang sama persis dengan subsetA</span>
+<span class="c1"># gabung = subsetA.merge(dfB.drop_duplicates(), how=&quot;inner&quot;)</span>
+
+<span class="c1"># # index subsetA yang cocok (pakai merge berdasarkan semua kolom)</span>
+<span class="c1"># cols = dfA.columns.tolist()</span>
+<span class="c1"># match_idx = subsetA.merge(dfB.drop_duplicates(), how=&quot;inner&quot;, on=cols).index  # ini index merge, bukan dfA</span>
+
+<span class="c1"># # cara aman: buat mask pakai tuple row</span>
+<span class="c1"># setB = set(map(tuple, dfB[cols].to_numpy()))</span>
+<span class="c1"># mask_match = dfA.iloc[10:13][cols].apply(tuple, axis=1).isin(setB)</span>
+
+<span class="c1"># dfA_baru = dfA.drop(dfA.index[10:13][mask_match])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">subsetA</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1055</span><span class="p">:]</span>  <span class="c1"># baris 10-12</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">gabung</span> <span class="o">=</span> <span class="n">subsetA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">match_idx</span> <span class="o">=</span> <span class="n">subsetA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\frame.py:10859,</span> in <span class="ni">DataFrame.merge</span><span class="nt">(self, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10840</span> <span class="nd">@Substitution</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10841</span> <span class="nd">@Appender</span><span class="p">(</span><span class="n">_merge_doc</span><span class="p">,</span> <span class="n">indents</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10842</span> <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10855</span>     <span class="n">validate</span><span class="p">:</span> <span class="n">MergeValidate</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10856</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">10857</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">pandas.core.reshape.merge</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge</span>
+<span class="ne">&gt; </span><span class="mi">10859</span>     <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">10860</span>         <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10861</span>         <span class="n">right</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10862</span>         <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10863</span>         <span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10864</span>         <span class="n">left_on</span><span class="o">=</span><span class="n">left_on</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10865</span>         <span class="n">right_on</span><span class="o">=</span><span class="n">right_on</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10866</span>         <span class="n">left_index</span><span class="o">=</span><span class="n">left_index</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10867</span>         <span class="n">right_index</span><span class="o">=</span><span class="n">right_index</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10868</span>         <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10869</span>         <span class="n">suffixes</span><span class="o">=</span><span class="n">suffixes</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10870</span>         <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10871</span>         <span class="n">indicator</span><span class="o">=</span><span class="n">indicator</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10872</span>         <span class="n">validate</span><span class="o">=</span><span class="n">validate</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10873</span>     <span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:184,</span> in <span class="ni">merge</span><span class="nt">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>     <span class="n">op</span> <span class="o">=</span> <span class="n">_MergeOperation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>         <span class="n">left_df</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="n">right_df</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="n">validate</span><span class="o">=</span><span class="n">validate</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">184</span>     <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:886,</span> in <span class="ni">_MergeOperation.get_result</span><span class="nt">(self, copy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">indicator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">884</span>     <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_indicator_pre_merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">886</span> <span class="n">join_index</span><span class="p">,</span> <span class="n">left_indexer</span><span class="p">,</span> <span class="n">right_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_join_info</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_and_concat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">889</span>     <span class="n">join_index</span><span class="p">,</span> <span class="n">left_indexer</span><span class="p">,</span> <span class="n">right_indexer</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span> <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_merge_type</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:1152,</span> in <span class="ni">_MergeOperation._get_join_info</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1148</span>     <span class="n">join_index</span><span class="p">,</span> <span class="n">right_indexer</span><span class="p">,</span> <span class="n">left_indexer</span> <span class="o">=</span> <span class="n">_left_join_on_index</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1149</span>         <span class="n">right_ax</span><span class="p">,</span> <span class="n">left_ax</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_join_keys</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sort</span>
+<span class="g g-Whitespace">   </span><span class="mi">1150</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1151</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1152</span>     <span class="p">(</span><span class="n">left_indexer</span><span class="p">,</span> <span class="n">right_indexer</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_join_indexers</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1154</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_index</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1155</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:1126,</span> in <span class="ni">_MergeOperation._get_join_indexers</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1124</span> <span class="c1"># make mypy happy</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span> <span class="o">!=</span> <span class="s2">&quot;asof&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1126</span> <span class="k">return</span> <span class="n">get_join_indexers</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">left_join_keys</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_join_keys</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">how</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span> <span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:1745,</span> in <span class="ni">get_join_indexers</span><span class="nt">(left_keys, right_keys, sort, how)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span>     <span class="n">llab</span><span class="p">,</span> <span class="n">rlab</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">zipped</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span>     <span class="c1"># get flat i8 keys from label lists</span>
+<span class="ne">-&gt; </span><span class="mi">1745</span>     <span class="n">lkey</span><span class="p">,</span> <span class="n">rkey</span> <span class="o">=</span> <span class="n">_get_join_keys</span><span class="p">(</span><span class="n">llab</span><span class="p">,</span> <span class="n">rlab</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">sort</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1746</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1747</span>     <span class="n">lkey</span> <span class="o">=</span> <span class="n">left_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:2671,</span> in <span class="ni">_get_join_keys</span><span class="nt">(llab, rlab, shape, sort)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2668</span> <span class="n">rlab</span> <span class="o">=</span> <span class="p">[</span><span class="n">rkey</span><span class="p">]</span> <span class="o">+</span> <span class="n">rlab</span><span class="p">[</span><span class="n">nlev</span><span class="p">:]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2669</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span><span class="p">,)</span> <span class="o">+</span> <span class="n">shape</span><span class="p">[</span><span class="n">nlev</span><span class="p">:]</span>
+<span class="ne">-&gt; </span><span class="mi">2671</span> <span class="k">return</span> <span class="n">_get_join_keys</span><span class="p">(</span><span class="n">llab</span><span class="p">,</span> <span class="n">rlab</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:2671,</span> in <span class="ni">_get_join_keys</span><span class="nt">(llab, rlab, shape, sort)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2668</span> <span class="n">rlab</span> <span class="o">=</span> <span class="p">[</span><span class="n">rkey</span><span class="p">]</span> <span class="o">+</span> <span class="n">rlab</span><span class="p">[</span><span class="n">nlev</span><span class="p">:]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2669</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span><span class="p">,)</span> <span class="o">+</span> <span class="n">shape</span><span class="p">[</span><span class="n">nlev</span><span class="p">:]</span>
+<span class="ne">-&gt; </span><span class="mi">2671</span> <span class="k">return</span> <span class="n">_get_join_keys</span><span class="p">(</span><span class="n">llab</span><span class="p">,</span> <span class="n">rlab</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="n">_get_join_keys</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">2671</span> <span class="p">(</span><span class="mi">16</span> <span class="n">times</span><span class="p">)]</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:2671,</span> in <span class="ni">_get_join_keys</span><span class="nt">(llab, rlab, shape, sort)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2668</span> <span class="n">rlab</span> <span class="o">=</span> <span class="p">[</span><span class="n">rkey</span><span class="p">]</span> <span class="o">+</span> <span class="n">rlab</span><span class="p">[</span><span class="n">nlev</span><span class="p">:]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2669</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span><span class="p">,)</span> <span class="o">+</span> <span class="n">shape</span><span class="p">[</span><span class="n">nlev</span><span class="p">:]</span>
+<span class="ne">-&gt; </span><span class="mi">2671</span> <span class="k">return</span> <span class="n">_get_join_keys</span><span class="p">(</span><span class="n">llab</span><span class="p">,</span> <span class="n">rlab</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:2644,</span> in <span class="ni">_get_join_keys</span><span class="nt">(llab, rlab, shape, sort)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2637</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_join_keys</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2638</span>     <span class="n">llab</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">]],</span>
+<span class="g g-Whitespace">   </span><span class="mi">2639</span>     <span class="n">rlab</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">]],</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2642</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">],</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">]]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2643</span>     <span class="c1"># how many levels can be done without overflow</span>
+<span class="ne">-&gt; </span><span class="mi">2644</span>     <span class="n">nlev</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>         <span class="n">lev</span>
+<span class="nn">   2646         for lev</span> in <span class="ni">range(len</span><span class="nt">(shape), 0, -1)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int64_overflow_possible</span><span class="p">(</span><span class="n">shape</span><span class="p">[:</span><span class="n">lev</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2648</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2650</span>     <span class="c1"># get keys for the first `nlev` levels</span>
+<span class="g g-Whitespace">   </span><span class="mi">2651</span>     <span class="n">stride</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">nlev</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;i8&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\reshape\merge.py:2647,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2637</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_join_keys</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2638</span>     <span class="n">llab</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">]],</span>
+<span class="g g-Whitespace">   </span><span class="mi">2639</span>     <span class="n">rlab</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">]],</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2642</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">],</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">]]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2643</span>     <span class="c1"># how many levels can be done without overflow</span>
+<span class="g g-Whitespace">   </span><span class="mi">2644</span>     <span class="n">nlev</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>         <span class="n">lev</span>
+<span class="nn">   2646         for lev</span> in <span class="ni">range(len</span><span class="nt">(shape), 0, -1)</span>
+<span class="ne">-&gt; </span><span class="mi">2647</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int64_overflow_possible</span><span class="p">(</span><span class="n">shape</span><span class="p">[:</span><span class="n">lev</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2648</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2650</span>     <span class="c1"># get keys for the first `nlev` levels</span>
+<span class="g g-Whitespace">   </span><span class="mi">2651</span>     <span class="n">stride</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">nlev</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;i8&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\sorting.py:241,</span> in <span class="ni">is_int64_overflow_possible</span><span class="nt">(shape)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="n">the_prod</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">241</span>     <span class="n">the_prod</span> <span class="o">*=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span> <span class="k">return</span> <span class="n">the_prod</span> <span class="o">&gt;=</span> <span class="n">lib</span><span class="o">.</span><span class="n">i8max</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/AsphaltPavementType_TEST.csv&quot;</span><span class="p">)</span>
+<span class="n">df2_new</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ClassLabel&#39;</span><span class="p">])</span>
+<span class="n">df_neww</span> <span class="o">=</span> <span class="n">df2_new</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">df_neww</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Data_test_new.csv&quot;</span><span class="p">)</span> 
+<span class="n">df_neww</span>
+
+<span class="c1"># df2.iloc[:12]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TimeSeriesData_0</th>
+      <th>TimeSeriesData_1</th>
+      <th>TimeSeriesData_2</th>
+      <th>TimeSeriesData_3</th>
+      <th>TimeSeriesData_4</th>
+      <th>TimeSeriesData_5</th>
+      <th>TimeSeriesData_6</th>
+      <th>TimeSeriesData_7</th>
+      <th>TimeSeriesData_8</th>
+      <th>TimeSeriesData_9</th>
+      <th>...</th>
+      <th>TimeSeriesData_2361</th>
+      <th>TimeSeriesData_2362</th>
+      <th>TimeSeriesData_2363</th>
+      <th>TimeSeriesData_2364</th>
+      <th>TimeSeriesData_2365</th>
+      <th>TimeSeriesData_2366</th>
+      <th>TimeSeriesData_2367</th>
+      <th>TimeSeriesData_2368</th>
+      <th>TimeSeriesData_2369</th>
+      <th>TimeSeriesData_2370</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.618121</td>
+      <td>-2.439362</td>
+      <td>-2.740458</td>
+      <td>1.258389</td>
+      <td>1.887919</td>
+      <td>0.356795</td>
+      <td>1.999290</td>
+      <td>-0.574917</td>
+      <td>2.504297</td>
+      <td>-2.352514</td>
+      <td>...</td>
+      <td>0.228019</td>
+      <td>0.300785</td>
+      <td>0.157606</td>
+      <td>0.191522</td>
+      <td>0.273604</td>
+      <td>0.158578</td>
+      <td>0.336273</td>
+      <td>0.217145</td>
+      <td>0.329172</td>
+      <td>0.282244</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-5.494497</td>
+      <td>-6.046774</td>
+      <td>1.211998</td>
+      <td>-1.178592</td>
+      <td>5.093573</td>
+      <td>10.549898</td>
+      <td>1.446400</td>
+      <td>-0.230857</td>
+      <td>2.826210</td>
+      <td>-5.870671</td>
+      <td>...</td>
+      <td>0.227066</td>
+      <td>0.328661</td>
+      <td>0.367679</td>
+      <td>0.241930</td>
+      <td>0.295577</td>
+      <td>0.293891</td>
+      <td>0.244364</td>
+      <td>0.370598</td>
+      <td>0.299758</td>
+      <td>0.331428</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.923206</td>
+      <td>0.478527</td>
+      <td>-0.910504</td>
+      <td>-4.133358</td>
+      <td>2.091750</td>
+      <td>1.317773</td>
+      <td>-1.554404</td>
+      <td>0.711872</td>
+      <td>1.746003</td>
+      <td>-2.813721</td>
+      <td>...</td>
+      <td>0.154495</td>
+      <td>0.163358</td>
+      <td>-0.012954</td>
+      <td>0.045962</td>
+      <td>0.075396</td>
+      <td>0.116013</td>
+      <td>0.043742</td>
+      <td>-0.047875</td>
+      <td>0.041272</td>
+      <td>-0.068316</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.770494</td>
+      <td>-2.282660</td>
+      <td>-0.752969</td>
+      <td>1.458477</td>
+      <td>-1.541162</td>
+      <td>1.011944</td>
+      <td>0.344191</td>
+      <td>-3.484487</td>
+      <td>-0.740783</td>
+      <td>3.284640</td>
+      <td>...</td>
+      <td>-0.067687</td>
+      <td>-0.223805</td>
+      <td>-0.099245</td>
+      <td>-0.064583</td>
+      <td>-0.112051</td>
+      <td>-0.070742</td>
+      <td>-0.046163</td>
+      <td>-0.179388</td>
+      <td>-0.213290</td>
+      <td>-0.105239</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.245077</td>
+      <td>-5.182841</td>
+      <td>0.561264</td>
+      <td>1.466408</td>
+      <td>4.181481</td>
+      <td>3.170211</td>
+      <td>-6.049459</td>
+      <td>3.216879</td>
+      <td>-1.934037</td>
+      <td>-2.945427</td>
+      <td>...</td>
+      <td>-0.166311</td>
+      <td>-0.052628</td>
+      <td>-0.158565</td>
+      <td>-0.136236</td>
+      <td>0.001957</td>
+      <td>-0.094562</td>
+      <td>-0.099805</td>
+      <td>-0.017017</td>
+      <td>-0.081400</td>
+      <td>-0.149724</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.435869</td>
+      <td>-0.453992</td>
+      <td>2.613757</td>
+      <td>0.639988</td>
+      <td>-3.618456</td>
+      <td>1.773713</td>
+      <td>-2.733408</td>
+      <td>-4.935425</td>
+      <td>3.054903</td>
+      <td>-3.645966</td>
+      <td>...</td>
+      <td>-0.129813</td>
+      <td>-0.162974</td>
+      <td>-0.149661</td>
+      <td>-0.178046</td>
+      <td>-0.224263</td>
+      <td>-0.166863</td>
+      <td>-0.245799</td>
+      <td>-0.251785</td>
+      <td>-0.212977</td>
+      <td>-0.222057</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-4.786182</td>
+      <td>-2.565554</td>
+      <td>1.216936</td>
+      <td>4.578896</td>
+      <td>-0.571731</td>
+      <td>2.608341</td>
+      <td>-1.167742</td>
+      <td>-0.751043</td>
+      <td>-3.391470</td>
+      <td>-6.774874</td>
+      <td>...</td>
+      <td>-0.191895</td>
+      <td>-0.212134</td>
+      <td>-0.127998</td>
+      <td>-0.132975</td>
+      <td>-0.187808</td>
+      <td>-0.073680</td>
+      <td>-0.081350</td>
+      <td>-0.151255</td>
+      <td>-0.167610</td>
+      <td>-0.111455</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-0.079734</td>
+      <td>-1.698306</td>
+      <td>-2.050573</td>
+      <td>1.628708</td>
+      <td>0.321700</td>
+      <td>-1.988773</td>
+      <td>7.285965</td>
+      <td>0.467096</td>
+      <td>-2.888209</td>
+      <td>-3.347199</td>
+      <td>...</td>
+      <td>-0.085456</td>
+      <td>0.122688</td>
+      <td>0.032831</td>
+      <td>0.080279</td>
+      <td>0.059682</td>
+      <td>-0.016297</td>
+      <td>-0.082128</td>
+      <td>-0.024357</td>
+      <td>-0.010924</td>
+      <td>0.003095</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-0.683771</td>
+      <td>3.345447</td>
+      <td>-2.046179</td>
+      <td>-1.904928</td>
+      <td>1.922493</td>
+      <td>3.244203</td>
+      <td>-2.809296</td>
+      <td>3.394939</td>
+      <td>1.180828</td>
+      <td>-2.265437</td>
+      <td>...</td>
+      <td>-0.107925</td>
+      <td>-0.190442</td>
+      <td>-0.234597</td>
+      <td>-0.125230</td>
+      <td>-0.140433</td>
+      <td>-0.149352</td>
+      <td>-0.174903</td>
+      <td>-0.253484</td>
+      <td>-0.210242</td>
+      <td>-0.154932</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-1.943987</td>
+      <td>5.456226</td>
+      <td>-1.724751</td>
+      <td>-1.378545</td>
+      <td>1.967652</td>
+      <td>-4.518701</td>
+      <td>4.765369</td>
+      <td>4.158512</td>
+      <td>-1.040733</td>
+      <td>-0.083979</td>
+      <td>...</td>
+      <td>-0.016831</td>
+      <td>0.129125</td>
+      <td>-0.001158</td>
+      <td>-0.018450</td>
+      <td>0.022978</td>
+      <td>0.094294</td>
+      <td>0.149588</td>
+      <td>0.129826</td>
+      <td>0.092161</td>
+      <td>-0.038523</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1.823590</td>
+      <td>0.055485</td>
+      <td>-1.877778</td>
+      <td>6.806085</td>
+      <td>-0.158225</td>
+      <td>-8.541594</td>
+      <td>0.716441</td>
+      <td>-3.442936</td>
+      <td>1.151114</td>
+      <td>11.548522</td>
+      <td>...</td>
+      <td>-0.089166</td>
+      <td>-0.124397</td>
+      <td>-0.148376</td>
+      <td>-0.046884</td>
+      <td>-0.202885</td>
+      <td>-0.173987</td>
+      <td>-0.211348</td>
+      <td>-0.088997</td>
+      <td>-0.107523</td>
+      <td>-0.156652</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-1.894011</td>
+      <td>6.933532</td>
+      <td>3.229123</td>
+      <td>-0.252562</td>
+      <td>-0.947504</td>
+      <td>-1.613200</td>
+      <td>-2.420474</td>
+      <td>2.509079</td>
+      <td>3.894519</td>
+      <td>-0.173369</td>
+      <td>...</td>
+      <td>-0.262578</td>
+      <td>-0.180035</td>
+      <td>-0.288420</td>
+      <td>-0.170021</td>
+      <td>-0.215318</td>
+      <td>-0.187274</td>
+      <td>-0.242788</td>
+      <td>-0.228292</td>
+      <td>-0.197377</td>
+      <td>-0.160045</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-4.377089</td>
+      <td>-0.637276</td>
+      <td>0.271067</td>
+      <td>-4.089209</td>
+      <td>-2.697450</td>
+      <td>-1.405307</td>
+      <td>-2.329681</td>
+      <td>-2.098256</td>
+      <td>-0.692053</td>
+      <td>0.719198</td>
+      <td>...</td>
+      <td>-0.067530</td>
+      <td>-0.219560</td>
+      <td>-0.148699</td>
+      <td>-0.074615</td>
+      <td>-0.066178</td>
+      <td>-0.021795</td>
+      <td>-0.107857</td>
+      <td>-0.032660</td>
+      <td>-0.062911</td>
+      <td>-0.030363</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-2.173108</td>
+      <td>1.338908</td>
+      <td>-1.711524</td>
+      <td>-1.661275</td>
+      <td>0.869891</td>
+      <td>-1.083742</td>
+      <td>-4.439667</td>
+      <td>-0.696213</td>
+      <td>2.181504</td>
+      <td>-1.511370</td>
+      <td>...</td>
+      <td>-0.038262</td>
+      <td>-0.090168</td>
+      <td>-0.048874</td>
+      <td>-0.092673</td>
+      <td>-0.018466</td>
+      <td>-0.002325</td>
+      <td>-0.009078</td>
+      <td>-0.058539</td>
+      <td>-0.003399</td>
+      <td>-0.129084</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0.266712</td>
+      <td>-1.339174</td>
+      <td>-3.530905</td>
+      <td>0.798931</td>
+      <td>4.542467</td>
+      <td>-1.107614</td>
+      <td>-2.902818</td>
+      <td>0.958427</td>
+      <td>-1.091226</td>
+      <td>-2.079743</td>
+      <td>...</td>
+      <td>0.023430</td>
+      <td>0.143998</td>
+      <td>0.126352</td>
+      <td>0.072554</td>
+      <td>-0.019627</td>
+      <td>0.082795</td>
+      <td>-0.034077</td>
+      <td>0.127994</td>
+      <td>0.090587</td>
+      <td>0.108556</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0.542485</td>
+      <td>-1.276479</td>
+      <td>2.226426</td>
+      <td>-2.199670</td>
+      <td>-4.160748</td>
+      <td>10.372925</td>
+      <td>-8.030281</td>
+      <td>-3.656679</td>
+      <td>10.128040</td>
+      <td>-5.211294</td>
+      <td>...</td>
+      <td>-0.042346</td>
+      <td>-0.177502</td>
+      <td>-0.159505</td>
+      <td>-0.099050</td>
+      <td>-0.128049</td>
+      <td>-0.019815</td>
+      <td>-0.107999</td>
+      <td>-0.033594</td>
+      <td>-0.178782</td>
+      <td>-0.080573</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.010872</td>
+      <td>-7.548143</td>
+      <td>-6.914458</td>
+      <td>6.635066</td>
+      <td>5.879062</td>
+      <td>-1.093391</td>
+      <td>3.699303</td>
+      <td>1.002709</td>
+      <td>-4.802033</td>
+      <td>-3.572100</td>
+      <td>...</td>
+      <td>0.165602</td>
+      <td>0.281658</td>
+      <td>0.199236</td>
+      <td>0.275290</td>
+      <td>0.204913</td>
+      <td>0.110889</td>
+      <td>0.243981</td>
+      <td>0.270935</td>
+      <td>0.173377</td>
+      <td>0.292184</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0.607566</td>
+      <td>-0.062241</td>
+      <td>3.098335</td>
+      <td>-0.877538</td>
+      <td>-0.751807</td>
+      <td>1.524690</td>
+      <td>-0.049329</td>
+      <td>2.044838</td>
+      <td>0.896648</td>
+      <td>-1.124885</td>
+      <td>...</td>
+      <td>-0.197078</td>
+      <td>-0.152833</td>
+      <td>-0.158881</td>
+      <td>-0.115426</td>
+      <td>-0.096196</td>
+      <td>-0.202564</td>
+      <td>-0.174549</td>
+      <td>-0.132328</td>
+      <td>-0.119251</td>
+      <td>-0.178951</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>-5.004574</td>
+      <td>0.715188</td>
+      <td>4.774008</td>
+      <td>-0.317997</td>
+      <td>2.134360</td>
+      <td>-1.431318</td>
+      <td>-1.036147</td>
+      <td>-1.686238</td>
+      <td>0.204561</td>
+      <td>-2.138260</td>
+      <td>...</td>
+      <td>0.113523</td>
+      <td>0.150317</td>
+      <td>0.163914</td>
+      <td>0.183565</td>
+      <td>0.095206</td>
+      <td>0.204912</td>
+      <td>0.161681</td>
+      <td>0.201223</td>
+      <td>0.187875</td>
+      <td>0.080298</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-7.539162</td>
+      <td>9.178038</td>
+      <td>1.643815</td>
+      <td>-2.664229</td>
+      <td>2.103120</td>
+      <td>-0.046783</td>
+      <td>-3.812926</td>
+      <td>3.146635</td>
+      <td>2.856872</td>
+      <td>-3.959188</td>
+      <td>...</td>
+      <td>0.117534</td>
+      <td>0.009013</td>
+      <td>0.136549</td>
+      <td>-0.072435</td>
+      <td>0.117975</td>
+      <td>0.040539</td>
+      <td>0.074275</td>
+      <td>0.099239</td>
+      <td>0.133089</td>
+      <td>-0.074544</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>6.305859</td>
+      <td>1.558306</td>
+      <td>-2.138963</td>
+      <td>1.652534</td>
+      <td>-0.127602</td>
+      <td>0.537659</td>
+      <td>2.592212</td>
+      <td>0.103629</td>
+      <td>3.685535</td>
+      <td>0.617663</td>
+      <td>...</td>
+      <td>-0.048378</td>
+      <td>-0.026882</td>
+      <td>-0.105151</td>
+      <td>0.064115</td>
+      <td>-0.034047</td>
+      <td>0.014127</td>
+      <td>-0.113988</td>
+      <td>-0.002746</td>
+      <td>0.032278</td>
+      <td>-0.052424</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>1.995350</td>
+      <td>-2.493230</td>
+      <td>1.916243</td>
+      <td>2.916442</td>
+      <td>-0.245054</td>
+      <td>0.867404</td>
+      <td>1.823552</td>
+      <td>3.644653</td>
+      <td>-2.119445</td>
+      <td>-2.914951</td>
+      <td>...</td>
+      <td>0.039439</td>
+      <td>0.043692</td>
+      <td>0.181936</td>
+      <td>0.089718</td>
+      <td>0.140368</td>
+      <td>0.188385</td>
+      <td>0.181157</td>
+      <td>0.195027</td>
+      <td>0.155906</td>
+      <td>0.205703</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>3.881489</td>
+      <td>0.682023</td>
+      <td>-1.343815</td>
+      <td>-1.108883</td>
+      <td>-1.735018</td>
+      <td>-3.875592</td>
+      <td>0.371245</td>
+      <td>-0.477532</td>
+      <td>-0.732838</td>
+      <td>-2.359653</td>
+      <td>...</td>
+      <td>0.014712</td>
+      <td>0.033879</td>
+      <td>0.105461</td>
+      <td>0.082844</td>
+      <td>-0.025150</td>
+      <td>-0.052390</td>
+      <td>0.057843</td>
+      <td>0.013062</td>
+      <td>0.005154</td>
+      <td>0.091962</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>-1.125873</td>
+      <td>-2.103697</td>
+      <td>2.228091</td>
+      <td>-4.486758</td>
+      <td>0.423271</td>
+      <td>-2.799184</td>
+      <td>0.370092</td>
+      <td>2.098388</td>
+      <td>-5.947223</td>
+      <td>-0.377049</td>
+      <td>...</td>
+      <td>-0.060026</td>
+      <td>-0.112940</td>
+      <td>-0.139341</td>
+      <td>-0.153862</td>
+      <td>-0.054899</td>
+      <td>-0.006251</td>
+      <td>-0.039748</td>
+      <td>-0.143998</td>
+      <td>-0.108720</td>
+      <td>-0.105831</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1.498883</td>
+      <td>-1.020833</td>
+      <td>2.484382</td>
+      <td>2.955167</td>
+      <td>-1.779095</td>
+      <td>-1.329749</td>
+      <td>-1.191310</td>
+      <td>-1.076296</td>
+      <td>2.901557</td>
+      <td>-2.202463</td>
+      <td>...</td>
+      <td>-0.089979</td>
+      <td>-0.199234</td>
+      <td>-0.102355</td>
+      <td>-0.103301</td>
+      <td>-0.148800</td>
+      <td>-0.180457</td>
+      <td>-0.190417</td>
+      <td>-0.139501</td>
+      <td>-0.128636</td>
+      <td>-0.103736</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>-1.887564</td>
+      <td>-2.660852</td>
+      <td>-5.812025</td>
+      <td>0.037935</td>
+      <td>1.158780</td>
+      <td>0.101169</td>
+      <td>-1.704588</td>
+      <td>-0.024104</td>
+      <td>3.348553</td>
+      <td>-3.431099</td>
+      <td>...</td>
+      <td>-0.110958</td>
+      <td>-0.105728</td>
+      <td>-0.116840</td>
+      <td>-0.144608</td>
+      <td>-0.087240</td>
+      <td>-0.068043</td>
+      <td>-0.120449</td>
+      <td>-0.159877</td>
+      <td>-0.119208</td>
+      <td>-0.050861</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>0.143862</td>
+      <td>2.633169</td>
+      <td>3.766631</td>
+      <td>2.842819</td>
+      <td>0.826558</td>
+      <td>2.105702</td>
+      <td>5.033502</td>
+      <td>0.076932</td>
+      <td>-3.206989</td>
+      <td>-2.370383</td>
+      <td>...</td>
+      <td>0.003755</td>
+      <td>-0.006411</td>
+      <td>-0.002030</td>
+      <td>-0.113635</td>
+      <td>-0.144883</td>
+      <td>-0.110578</td>
+      <td>-0.145598</td>
+      <td>-0.145380</td>
+      <td>-0.105127</td>
+      <td>-0.037965</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>-0.557758</td>
+      <td>-1.503015</td>
+      <td>-3.528168</td>
+      <td>-0.873179</td>
+      <td>3.987526</td>
+      <td>-2.599367</td>
+      <td>0.462944</td>
+      <td>-0.287791</td>
+      <td>4.552304</td>
+      <td>-0.137106</td>
+      <td>...</td>
+      <td>-0.172813</td>
+      <td>-0.150821</td>
+      <td>-0.137707</td>
+      <td>-0.135187</td>
+      <td>-0.280857</td>
+      <td>-0.284856</td>
+      <td>-0.283506</td>
+      <td>-0.290634</td>
+      <td>-0.174998</td>
+      <td>-0.289825</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>3.888654</td>
+      <td>-2.748218</td>
+      <td>-3.048559</td>
+      <td>-1.094455</td>
+      <td>3.334965</td>
+      <td>-0.351652</td>
+      <td>-3.818124</td>
+      <td>-0.125497</td>
+      <td>1.405876</td>
+      <td>-1.582442</td>
+      <td>...</td>
+      <td>-0.201242</td>
+      <td>-0.253935</td>
+      <td>-0.344762</td>
+      <td>-0.250268</td>
+      <td>-0.269478</td>
+      <td>-0.192206</td>
+      <td>-0.276941</td>
+      <td>-0.329514</td>
+      <td>-0.312212</td>
+      <td>-0.264596</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>-0.706473</td>
+      <td>-1.066381</td>
+      <td>0.399479</td>
+      <td>2.093951</td>
+      <td>5.056561</td>
+      <td>1.355641</td>
+      <td>1.785450</td>
+      <td>0.868251</td>
+      <td>-6.420739</td>
+      <td>0.830549</td>
+      <td>...</td>
+      <td>0.123972</td>
+      <td>0.243894</td>
+      <td>0.310486</td>
+      <td>0.133101</td>
+      <td>0.188706</td>
+      <td>0.130795</td>
+      <td>0.263925</td>
+      <td>0.136637</td>
+      <td>0.314655</td>
+      <td>0.301464</td>
+    </tr>
+  </tbody>
+</table>
+<p>30 rows × 2371 columns</p>
+</div></div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./UAS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danendra Mahardhika
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
